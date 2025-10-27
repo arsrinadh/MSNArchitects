@@ -104,12 +104,24 @@
             background: #f8f9fa;
         }
 
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
+      .packages-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+@media (max-width: 900px) {
+  .packages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .packages-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 
         .package-card {
             background: white;
@@ -964,10 +976,55 @@
             color: #999;
             font-size: 0.9rem;
         }
+nav {
+    /* Remove excessive top/bottom padding */
+    padding: 0.7rem 3rem; /* Keep horizontal padding, but less vertical padding */
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
+/* Limit the nav bar's overall height */
+nav > div,
+nav > ul {
+    align-items: center;
+    display: flex;
+}
+
+.logo-img {
+    height: 100px;      /* Increase logo, as requested */
+    max-height: 100px;
+    width: auto;
+    margin-top: -24px;  /* Visually 'lift' the logo above the bar */
+    margin-bottom: -24px;
+    /* Adjust margins as needed for balance */
+}
+
+
+.logo {
+    font-size: 2.6rem;   /* Larger brand name */
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+nav {
+    padding: 2rem 3rem;  /* More vertical and horizontal space */
+}
+
+.nav-links a {
+    font-size: 1.3rem;    /* Larger navigation link text */
+    font-weight: 600;
+}
+
+.top-bar {
+    font-size: 1.15rem;  /* Slightly larger phone details */
+    padding: 0.8rem 3rem;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
                 gap: 1rem;
             }
 
@@ -987,24 +1044,29 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="top-bar">
-            <div class="phone-number">
-                📞 Call Us: <a href="tel:+919566121294">+91 95661 21294</a>
-            </div>
+  <header>
+    <div class="top-bar">
+        <div class="phone-number">
+            📞 Call Us: <a href="tel:+919611196716">+91 96111 96716</a>
         </div>
-        <nav>
-            <div class="logo">MSN Architects</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#packages">Packages</a></li>
-                <li><a href="#calculator">Calculator</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    </div>
+    <nav>
+        <div style="display:flex; align-items:center; gap:14px;">
+         <img src="Header-Logo/MSNWhiteLogo-header.png" alt="MSN Architects Logo" class="logo-img">
+
+           
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -1415,17 +1477,17 @@
             <div class="contact-item">
                 <div class="contact-icon">📧</div>
                 <h3>Email</h3>
-                <p><a href="mailto:info@msnarchitects.in">info@msnarchitects.in</a></p>
+                <p><a href="mailto:srinadh@msnarchitects.in">srinadh@msnarchitects.in</a></p>
             </div>
             <div class="contact-item">
                 <div class="contact-icon">📱</div>
                 <h3>Phone</h3>
-                <p><a href="tel:+919566121294">+91 95661 21294</a></p>
+                <p><a href="tel:+919611196716">+91 96111 96716</a></p>
             </div>
             <div class="contact-item">
                 <div class="contact-icon">💬</div>
                 <h3>WhatsApp</h3>
-                <p><a href="https://wa.me/919566121294" target="_blank">Message Us</a></p>
+                <p><a href="https://wa.me/919611196716" target="_blank">Message Us</a></p>
             </div>
             <div class="contact-item">
                 <div class="contact-icon">📍</div>
