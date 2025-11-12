@@ -19,15 +19,15 @@
 
         /* Header & Navigation */
         header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
         .top-bar {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            background: rgba(0, 0, 0, 0.2);
             color: white;
             padding: 0.5rem 2rem;
             text-align: right;
@@ -51,7 +51,7 @@
         nav {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 1rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -60,7 +60,7 @@
         .logo {
             font-size: 28px;
             font-weight: 700;
-            background: linear-gradient(135deg, #1a1a1a 0%, #00d4ff 100%);
+            background: linear-gradient(135deg, #00d4ff 0%, #ffffff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -74,10 +74,11 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #1a1a1a;
+            color: #ffffff;
             font-weight: 500;
             transition: color 0.3s;
             position: relative;
+            font-size: 1.05rem;
         }
 
         .nav-links a:hover {
@@ -109,6 +110,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   margin-top: 3rem;
+  align-items: start;
 }
 @media (max-width: 900px) {
   .packages-grid {
@@ -130,6 +132,9 @@
             border: 2px solid #f0f0f0;
             overflow: hidden;
             transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
         }
 
         .package-card:hover {
@@ -143,6 +148,7 @@
             color: white;
             padding: 1.5rem;
             text-align: center;
+            flex-shrink: 0;
         }
 
         .package-card.premium .package-header {
@@ -178,15 +184,18 @@
 
         .package-features {
             padding: 1.5rem;
+            padding-bottom: 0.5rem;
+            flex-shrink: 0;
         }
 
         .feature-item {
-            padding: 0.7rem 0;
+            padding: 0.5rem 0;
             border-bottom: 1px solid #f0f0f0;
             font-size: 0.9rem;
             color: #555;
             display: flex;
             align-items: flex-start;
+            line-height: 1.4;
         }
 
         .feature-item:last-child {
@@ -206,20 +215,10 @@
             flex-shrink: 0;
         }
 
-        .feature-item.not-included {
-            color: #999;
-        }
-
-        .feature-item.not-included::before {
-            content: "✗";
-            color: #ddd;
-            margin-right: 0.5rem;
-            flex-shrink: 0;
-        }
-
         .package-footer {
-            padding: 1.5rem;
+            padding: 1rem 1.5rem 1.5rem 1.5rem;
             text-align: center;
+            flex-shrink: 0;
         }
 
         .book-btn {
@@ -434,145 +433,6 @@
 
         /* Calculator Section */
         #calculator {
-            background: #f8f6f3;
-        }
-
-        .calculator-container {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-            border: 1px solid #e8e4df;
-            padding: 30px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .calculator-title {
-            color: #5a4a3a;
-            margin-bottom: 25px;
-            text-align: center;
-            font-size: 24px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #5a4a3a;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        select, input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1.5px solid #d4cdc3;
-            border-radius: 6px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: #fdfcfb;
-        }
-
-        select:focus, input:focus {
-            outline: none;
-            border-color: #8b7355;
-            background: white;
-            box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.1);
-        }
-
-        .input-row {
-            display: flex;
-            gap: 10px;
-            align-items: flex-end;
-        }
-
-        .input-field {
-            flex: 1;
-        }
-
-        .unit-select {
-            width: 120px;
-        }
-
-        .calculate-btn {
-            width: 100%;
-            padding: 15px;
-            background: #8b7355;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-        }
-
-        .calculate-btn:hover {
-            background: #6f5d47;
-            box-shadow: 0 4px 12px rgba(139, 115, 85, 0.3);
-        }
-
-        .result-section {
-            margin-top: 30px;
-            padding: 20px;
-            background: #faf8f6;
-            border: 1px solid #e8e4df;
-            border-radius: 8px;
-            display: none;
-        }
-
-        .result-section.show {
-            display: block;
-            animation: slideIn 0.3s ease;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .result-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid #e8e4df;
-        }
-
-        .result-item:last-child {
-            border-bottom: none;
-        }
-
-        .result-label {
-            color: #1a1a1a;
-            font-weight: 600;
-        }
-
-        .result-value {
-            color: #00d4ff;
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        .input-fields-container {
-            display: none;
-        }
-
-        .input-fields-container.active {
-            display: block;
-        }
-
-        /* Calculator Section */
-        #calculator {
             background: #f8f9fa;
         }
 
@@ -670,6 +530,28 @@
             display: block;
             animation: slideIn 0.3s ease;
         }
+        /* Projects quick styles */
+.filter-btn {
+  padding: 0.45rem 0.9rem;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all .18s;
+}
+.filter-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+.filter-btn.active { background: linear-gradient(90deg,#00d4ff 0%,#0099cc 100%); color: #fff; border-color: transparent; box-shadow: 0 8px 30px rgba(0,212,255,0.12); }
+
+.projects-gallery { display: grid; gap: 1.25rem; grid-template-columns: repeat(3,1fr); }
+@media (max-width: 1024px) { .projects-gallery { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 640px) { .projects-gallery { grid-template-columns: 1fr; } }
+
+.project-item { transition: transform .25s, box-shadow .25s; }
+.project-item.hide { display: none !important; opacity: 0; transform: scale(.99); pointer-events: none; }
+.project-image-container img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .45s; }
+.project-item:hover .project-image-container img { transform: scale(1.05); }
+
 
         @keyframes slideIn {
             from {
@@ -691,6 +573,25 @@
 
         .result-item:last-child {
             border-bottom: none;
+        }
+
+        .result-label {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .result-value {
+            color: #00d4ff;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .input-fields-container {
+            display: none;
+        }
+
+        .input-fields-container.active {
+            display: block;
         }
 
         /* Contact Section */
@@ -976,55 +877,243 @@
             color: #999;
             font-size: 0.9rem;
         }
-nav {
-    /* Remove excessive top/bottom padding */
-    padding: 0.7rem 3rem; /* Keep horizontal padding, but less vertical padding */
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-}
 
-/* Limit the nav bar's overall height */
-nav > div,
-nav > ul {
-    align-items: center;
-    display: flex;
-}
+        /* Floating Action Buttons */
+        .floating-buttons {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
 
-.logo-img {
-    height: 100px;      /* Increase logo, as requested */
-    max-height: 100px;
-    width: auto;
-    margin-top: -24px;  /* Visually 'lift' the logo above the bar */
-    margin-bottom: -24px;
-    /* Adjust margins as needed for balance */
-}
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            font-size: 30px;
+        }
 
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        }
 
-.logo {
-    font-size: 2.6rem;   /* Larger brand name */
-    font-weight: 800;
-    letter-spacing: 1.5px;
-}
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
 
-nav {
-    padding: 2rem 3rem;  /* More vertical and horizontal space */
-}
+        .call-btn {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            color: white;
+        }
 
-.nav-links a {
-    font-size: 1.3rem;    /* Larger navigation link text */
-    font-weight: 600;
-}
+        .call-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+        }
 
-.top-bar {
-    font-size: 1.15rem;  /* Slightly larger phone details */
-    padding: 0.8rem 3rem;
-}
+        .contact-popup-btn {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            font-size: 24px;
+        }
 
+        .contact-popup-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+        }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .nav-links {
+        /* Contact Popup Modal */
+        .popup-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .popup-modal.show {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .popup-content {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: slideUp 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 30px;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+
+        .popup-close:hover {
+            color: #00d4ff;
+        }
+
+        .popup-title {
+            font-size: 1.8rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .popup-form .form-group-contact {
+            margin-bottom: 1.2rem;
+        }
+
+        .popup-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .popup-form input,
+        .popup-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1.5px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .popup-form input:focus,
+        .popup-form textarea:focus {
+            outline: none;
+            border-color: #00d4ff;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+        }
+
+        .popup-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .popup-submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+            margin-top: 0.5rem;
+        }
+
+        .popup-submit-btn:hover {
+            background: linear-gradient(135deg, #00b8e6 0%, #0088bb 100%);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .floating-buttons {
+                right: 20px;
+                bottom: 20px;
+            }
+
+            .floating-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 26px;
+            }
+
+            .popup-content {
+                padding: 2rem;
+            }
+        }
+
+        nav > div,
+        nav > ul {
+            align-items: center;
+            display: flex;
+        }
+
+        .logo-img {
+            height: 60px;
+            max-height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-links a {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .top-bar {
+            font-size: 1.15rem;
+            padding: 0.8rem 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
                 gap: 1rem;
             }
 
@@ -1052,7 +1141,7 @@ nav {
     </div>
     <nav>
         <div style="display:flex; align-items:center; gap:14px;">
-         <img src="Header-Logo/MSNWhiteLogo-header.png" alt="MSN Architects Logo" class="logo-img">
+         <img src="Header-Logo/MSNLogo-header.png" alt="MSN Architects Logo" class="logo-img">
 
            
         </div>
@@ -1061,6 +1150,7 @@ nav {
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#packages">Packages</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#calculator">Calculator</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -1145,20 +1235,6 @@ nav {
                     <div class="feature-item included">Scheme Drawing: All Floors (2D)</div>
                     <div class="feature-item included">Furniture Layout: All Floors (2D)</div>
                     <div class="feature-item included">Elevation Design (3D)</div>
-                    <div class="feature-item not-included">Electrical Drawings: All Floors (2D)</div>
-                    <div class="feature-item not-included">Plumbing Drawing: All Floors (2D)</div>
-                    <div class="feature-item not-included">Working Drawing: All Floors (2D)</div>
-                    <div class="feature-item not-included">Soil Testing Report</div>
-                    <div class="feature-item not-included">Structural Drawings</div>
-                    <div class="feature-item not-included">Site Assessment & Site Plan</div>
-                    <div class="feature-item not-included">Elevation Detail Drawing (2D)</div>
-                    <div class="feature-item not-included">Hall Layout: All Floors (3D)</div>
-                    <div class="feature-item not-included">Interior Views: All Rooms (3D)</div>
-                    <div class="feature-item not-included">Interior Detailing: All Rooms (2D)</div>
-                    <div class="feature-item not-included">Material & Brand Selection</div>
-                    <div class="feature-item not-included">Landscaping Architecture Design</div>
-                    <div class="feature-item not-included">Topographical Survey</div>
-                    <div class="feature-item not-included">Approval Drawing</div>
                 </div>
                 <div class="package-footer">
                     <div class="package-visits">Office Visits: Max 4</div>
@@ -1185,13 +1261,6 @@ nav {
                     <div class="feature-item included">Structural Drawings</div>
                     <div class="feature-item included">Site Assessment & Site Plan</div>
                     <div class="feature-item included">Elevation Detail Drawing (2D)</div>
-                    <div class="feature-item not-included">Hall Layout: All Floors (3D)</div>
-                    <div class="feature-item not-included">Interior Views: All Rooms (3D)</div>
-                    <div class="feature-item not-included">Interior Detailing: All Rooms (2D)</div>
-                    <div class="feature-item not-included">Material & Brand Selection</div>
-                    <div class="feature-item not-included">Landscaping Architecture Design</div>
-                    <div class="feature-item not-included">Topographical Survey</div>
-                    <div class="feature-item not-included">Approval Drawing</div>
                     <div class="feature-item included">Construction Quotation</div>
                 </div>
                 <div class="package-footer">
@@ -1222,10 +1291,6 @@ nav {
                     <div class="feature-item included">Hall Layout: All Floors (3D)</div>
                     <div class="feature-item included">Interior Views: All Rooms (3D)</div>
                     <div class="feature-item included">Interior Detailing: All Rooms (2D)</div>
-                    <div class="feature-item not-included">Material & Brand Selection</div>
-                    <div class="feature-item not-included">Landscaping Architecture Design</div>
-                    <div class="feature-item not-included">Topographical Survey</div>
-                    <div class="feature-item not-included">Approval Drawing</div>
                     <div class="feature-item included">Construction Quotation</div>
                     <div class="feature-item included">Interior Quotation</div>
                 </div>
@@ -1281,7 +1346,58 @@ nav {
                 <li>2-Sets of A3 Printed hard copies will be provided</li>
             </ul>
         </div>
-    </section>
+    </section><!-- CLOSED #packages here -->
+
+       <!-- Projects Section (standalone) -->
+<section id="projects" style="background: #f8f9fa;">
+  <h2 class="section-title">Our Projects</h2>
+
+  <!-- Project Filter Buttons -->
+  <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;" id="projectsFilterBar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="apartment">Apartment</button>
+    <button class="filter-btn" data-filter="commercial">Commercial</button>
+    <button class="filter-btn" data-filter="institution">Institution</button>
+    <button class="filter-btn" data-filter="interior">Interior</button>
+    <button class="filter-btn" data-filter="villa">Villa</button>
+  </div>
+
+  <!-- Projects Grid -->
+  <div class="projects-gallery" id="projectsGallery" style="display:grid; grid-template-columns: repeat(3,1fr); gap:1.25rem;">
+    <!-- Example project items (use your existing images/text or these placeholders) -->
+    <div class="project-item" data-category="villa" style="background:white; border-radius:8px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,0.06);">
+      <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+        <img src="https://via.placeholder.com/800x600/00d4ff/ffffff?text=Villa+Project+1" alt="Villa Project" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div class="project-info" style="padding:0.9rem;">
+        <h3 style="margin-bottom:0.35rem;">Modern Villa Design</h3>
+        <p style="color:#666; margin:0;">Contemporary villa with innovative architecture</p>
+      </div>
+    </div>
+
+    <div class="project-item" data-category="apartment" style="background:white; border-radius:8px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,0.06);">
+      <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+        <img src="https://via.placeholder.com/800x600/0099cc/ffffff?text=Apartment+Project" alt="Apartment Project" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div class="project-info" style="padding:0.9rem;">
+        <h3 style="margin-bottom:0.35rem;">Luxury Apartment Complex</h3>
+        <p style="color:#666; margin:0;">Multi-story residential building</p>
+      </div>
+    </div>
+
+    <div class="project-item" data-category="commercial" style="background:white; border-radius:8px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,0.06);">
+      <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+        <img src="https://via.placeholder.com/800x600/1a1a1a/00d4ff?text=Commercial+Project" alt="Commercial Project" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div class="project-info" style="padding:0.9rem;">
+        <h3 style="margin-bottom:0.35rem;">Commercial Complex</h3>
+        <p style="color:#666; margin:0;">Modern office and retail space</p>
+      </div>
+    </div>
+
+    <!-- Add the rest of your project items (same structure) -->
+  </div>
+</section>
 
     <!-- Calculator Section -->
     <section id="calculator">
@@ -1606,7 +1722,78 @@ nav {
         </div>
     </footer>
 
+    <!-- Floating Action Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/919611196716" class="floating-btn whatsapp-btn" target="_blank" title="WhatsApp Us">
+            💬
+        </a>
+        <a href="tel:+919611196716" class="floating-btn call-btn" title="Call Us">
+            📞
+        </a>
+        <button class="floating-btn contact-popup-btn" id="openPopupBtn" title="Contact Form">
+            ✉️
+        </button>
+    </div>
+
+    <!-- Contact Popup Modal -->
+    <div class="popup-modal" id="contactPopup">
+        <div class="popup-content">
+            <button class="popup-close" id="closePopupBtn">&times;</button>
+            <h3 class="popup-title">Quick Contact</h3>
+            <form class="popup-form" id="popupContactForm">
+                <div class="form-group-contact">
+                    <label for="popup-name">Name *</label>
+                    <input type="text" id="popup-name" name="name" required placeholder="Your Name">
+                </div>
+                
+                <div class="form-group-contact">
+                    <label for="popup-email">Email *</label>
+                    <input type="email" id="popup-email" name="email" required placeholder="your.email@example.com">
+                </div>
+                
+                <div class="form-group-contact">
+                    <label for="popup-phone">Phone *</label>
+                    <input type="tel" id="popup-phone" name="phone" required placeholder="+91 XXXXX XXXXX">
+                </div>
+                
+                <div class="form-group-contact">
+                    <label for="popup-message">Message *</label>
+                    <textarea id="popup-message" name="message" required placeholder="Tell us about your project..."></textarea>
+                </div>
+                
+                <button type="submit" class="popup-submit-btn" id="popupSubmitBtn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
     <script>
+
+
+// Projects filter (lightweight)
+(function(){
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectItems = document.querySelectorAll('#projectsGallery .project-item');
+
+  if (!filterButtons.length || !projectItems.length) return;
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+
+      projectItems.forEach(item => {
+        const cat = item.getAttribute('data-category') || '';
+        if (filter === 'all' || cat === filter) {
+          item.classList.remove('hide');
+        } else {
+          item.classList.add('hide');
+        }
+      });
+    });
+  });
+})();
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1616,6 +1803,55 @@ nav {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
+        });
+
+        // Popup Modal Functionality
+        const openPopupBtn = document.getElementById('openPopupBtn');
+        const closePopupBtn = document.getElementById('closePopupBtn');
+        const contactPopup = document.getElementById('contactPopup');
+        const popupContactForm = document.getElementById('popupContactForm');
+
+        openPopupBtn.addEventListener('click', () => {
+            contactPopup.classList.add('show');
+        });
+
+        closePopupBtn.addEventListener('click', () => {
+            contactPopup.classList.remove('show');
+        });
+
+        // Close popup when clicking outside
+        contactPopup.addEventListener('click', (e) => {
+            if (e.target === contactPopup) {
+                contactPopup.classList.remove('show');
+            }
+        });
+
+        // Popup form submission
+        popupContactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('popup-name').value,
+                email: document.getElementById('popup-email').value,
+                phone: document.getElementById('popup-phone').value,
+                message: document.getElementById('popup-message').value
+            };
+
+            const subject = encodeURIComponent('Quick Contact - MSN Architects');
+            const body = encodeURIComponent(
+                `Name: ${formData.name}\n` +
+                `Email: ${formData.email}\n` +
+                `Phone: ${formData.phone}\n\n` +
+                `Message:\n${formData.message}`
+            );
+            
+            window.location.href = `mailto:info@msnarchitects.in?subject=${subject}&body=${body}`;
+            
+            // Close popup and reset form
+            setTimeout(() => {
+                popupContactForm.reset();
+                contactPopup.classList.remove('show');
+            }, 1000);
         });
 
         // Calculator functionality
