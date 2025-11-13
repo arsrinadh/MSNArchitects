@@ -760,6 +760,14 @@
             gap: 3rem;
             margin-bottom: 2rem;
         }
+        .project-thumb-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+.project-thumb-grid > div { width: 100%; aspect-ratio: 4/3; overflow: hidden; }
+.project-thumb-grid img { width:100%; height:100%; object-fit:cover; display:block; }
+
 
         .footer-section h3 {
             font-size: 1.3rem;
@@ -1348,57 +1356,194 @@
         </div>
     </section><!-- CLOSED #packages here -->
 
-       <!-- Projects Section (standalone) -->
+  <!-- ========== PROJECTS SECTION START ========== -->
 <section id="projects" style="background: #f8f9fa;">
   <h2 class="section-title">Our Projects</h2>
 
   <!-- Project Filter Buttons -->
-  <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;" id="projectsFilterBar">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="apartment">Apartment</button>
-    <button class="filter-btn" data-filter="commercial">Commercial</button>
-    <button class="filter-btn" data-filter="institution">Institution</button>
-    <button class="filter-btn" data-filter="interior">Interior</button>
-    <button class="filter-btn" data-filter="villa">Villa</button>
+  <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;" id="projectsFilterBar">
+    <button class="filter-btn active" data-filter="all">All (19)</button>
+    <button class="filter-btn" data-filter="villa">Villa (10)</button>
+    <button class="filter-btn" data-filter="apartment">Apartment (4)</button>
+    <button class="filter-btn" data-filter="commercial">Commercial (1)</button>
+    <button class="filter-btn" data-filter="institution">Institution (1)</button>
+    <button class="filter-btn" data-filter="interior">Interior (3)</button>
   </div>
 
   <!-- Projects Grid -->
-  <div class="projects-gallery" id="projectsGallery" style="display:grid; grid-template-columns: repeat(3,1fr); gap:1.25rem;">
-    <!-- Example project items (use your existing images/text or these placeholders) -->
-    <div class="project-item" data-category="villa" style="background:white; border-radius:8px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,0.06);">
+  <div class="projects-gallery" id="projectsGallery">
+    
+    <!-- ==================== 10 VILLA PROJECTS ==================== -->
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="https://via.placeholder.com/800x600/00d4ff/ffffff?text=Villa+Project+1" alt="Villa Project" style="width:100%; height:100%; object-fit:cover;">
+        <img src="./VILLAS/Chittoor Residence/CR - RD - 1.jpg" alt="Villa Project 1" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
       </div>
-      <div class="project-info" style="padding:0.9rem;">
-        <h3 style="margin-bottom:0.35rem;">Modern Villa Design</h3>
-        <p style="color:#666; margin:0;">Contemporary villa with innovative architecture</p>
+      <div class="project-info" style="padding:1.2rem;">
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Seaside Villa — Project 01</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Open-plan living with panoramic ocean views.</p>
       </div>
     </div>
 
-    <div class="project-item" data-category="apartment" style="background:white; border-radius:8px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,0.06);">
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="https://via.placeholder.com/800x600/0099cc/ffffff?text=Apartment+Project" alt="Apartment Project" style="width:100%; height:100%; object-fit:cover;">
-        
+        <img src="./VILLAS/balaji residence/PHOTO-2024-09-14-23-17-16.jpg" alt="Villa Project 2" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
       </div>
-      <div class="project-info" style="padding:0.9rem;">
-        <h3 style="margin-bottom:0.35rem;">Luxury Apartment Complex</h3>
-        <p style="color:#666; margin:0;">Multi-story residential building</p>
+      <div class="project-info" style="padding:1.2rem;">
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Courtyard Villa — Project 02</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Private central courtyard with natural light.</p>
       </div>
     </div>
 
-    <div class="project-item" data-category="commercial" style="background:white; border-radius:8px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,0.06);">
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="https://via.placeholder.com/800x600/1a1a1a/00d4ff?text=Commercial+Project" alt="Commercial Project" style="width:100%; height:100%; object-fit:cover;">
+        <img src="./VILLAS/Duplex Villas 02/DV2 - RD - 2.jpg" alt="Villa Project 3" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
       </div>
-      <div class="project-info" style="padding:0.9rem;">
-        <h3 style="margin-bottom:0.35rem;">Commercial Complex</h3>
-        <p style="color:#666; margin:0;">Modern office and retail space</p>
+      <div class="project-info" style="padding:1.2rem;">
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Minimalist Villa — Project 03</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Clean lines and refined materials.</p>
       </div>
     </div>
 
-    <!-- Add the rest of your project items (same structure) -->
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+      <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+        <img src="./VILLAS/Neelanmangala villa/NR - RD - 1.jpg" alt="Villa Project 4" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+      </div>
+      <div class="project-info" style="padding:1.2rem;">
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Tropical Villa — Project 04</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Indoor–outdoor living with lush landscaping.</p>
+      </div>
+    </div>
+
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+      <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+        <img src="./VILLAS/Sekar naidu villa - TATCHOOR/PHOTO-2024-09-17-09-01-23 4.jpg" alt="Villa Project 5" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+      </div>
+      <div class="project-info" style="padding:1.2rem;">
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Hilltop Villa — Project 05</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Multi-level terraces and panoramic decks.</p>
+      </div>
+    </div>
+
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+      <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+        <img src="./VILLAS/SLOPE ROOF HOUSE/Sloperoofhouse01.jpg" alt="Villa Project 6" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+      </div>
+      <div class="project-info" style="padding:1.2rem;">
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Eco Villa — Project 06</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Sustainable design with passive cooling.</p>
+      </div>
+    </div>
+
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+      <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+        <img src="./VILLAS/Tumkur VILLA/TR - RD - 1.jpg" alt="Villa Project 7" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+      </div>
+      <div class="project-info" style="padding:1.2rem;">
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Contemporary Villa — Project 07</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Bold geometry and dramatic facades.</p>
+      </div>
+    </div>
+
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+      <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+        <img src="./VILLAS/Vargese VILLA/VR - RD - 1.jpg" alt="Villa Project 8" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+      </div>
+      <div class="project-info" style="padding:1.2rem;">
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Riverside Villa — Project 08</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Waterfront terraces and reflective pools.</p>
+      </div>
+    </div>
+
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+      <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+        <img src="./VILLAS/villa -Rammoorthy Nagar /RNR - RD - 1.jpg" alt="Villa Project 9" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+      </div>
+      <div class="project-info" style="padding:1.2rem;">
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Heritage Villa — Project 09</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Adaptive reuse with traditional detailing.</p>
+      </div>
+    </div>
+
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+      <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+        <img src="./VILLAS/JSR VILLA/#" alt="Villa Project 10" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+      </div>
+      <div class="project-info" style="padding:1.2rem;">
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Desert Villa — Project 10</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Thermal massing and sheltered courtyards.</p>
+      </div>
+    </div>
+
+    <!-- ==================== 4 APARTMENT PROJECTS ==================== -->
+    <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+      <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+        <img src="./APPARTMENTS/ KAYAL BUILDERS - KOLAPAKKAM/011.jpg" alt="Apartment Project 1" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+      </div>
+      <div class="project-info" style="padding:1.2rem;">
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Skyline Apartment — 01</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Premium tower with double-height lobby.</p>
+      </div>
+    </div>
+
+    <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+      <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+        <img src="./APPARTMENTS/ KAYAL BUILDERS/001.jpg" alt="Apartment Project 2" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+      </div>
+      <div class="project-info" style="padding:1.2rem;">
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Urban Residences — 02</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Compact modern homes with efficient layouts.</p>
+      </div>
+    </div>
+
+    <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+      <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+        <img src="./APPARTMENTS/HANSTEC - TIRUPATHI/1.jpg" alt="Apartment Project 3" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+      </div>
+      <div class="project-info" style="padding:1.2rem;">
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Green Living Apartments — 03</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Landscape-integrated multi-level residences.</p>
+      </div>
+    </div>
+
+    <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+      <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+        <img src="./APPARTMENTS/MAGADI APPARTMENTS/NIGHT RENDER.jpg" alt="Apartment Project 4" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+      </div>
+      <div class="project-info" style="padding:1.2rem;">
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Luxury Highrise — 04</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">High-rise project with rooftop amenities.</p>
+      </div>
+    </div>
+
+    <!-- ==================== 1 COMMERCIAL PROJECT ==================== -->
+    <div class="project-item" data-category="commercial" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+      <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+        <img src="./COMMERCIAL PROJECTS/Royal Complex/RC - RD - 1.jpg" alt="Commercial Project" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+      </div>
+      <div class="project-info" style="padding:1.2rem;">
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Corporate Tower Complex</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Modern office and retail space with sky bridges.</p>
+      </div>
+    </div>
+
+    <!-- ==================== 1 INSTITUTION PROJECT ==================== -->
+    <div class="project-item" data-category="institution" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+      <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+        <img src="./INSTITUTIONS/Euro Kids School/EKS - RD - 2.jpg" alt="Institution Project" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+      </div>
+      <div class="project-info" style="padding:1.2rem;">
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Educational Campus</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Modern learning spaces with sustainable design.</p>
+      </div>
+    </div>
+
+    <!-- ==================== 3 INTERIOR PROJECTS ==================== -->
+    
+
   </div>
 </section>
+<!-- ========== PROJECTS SECTION END ========== -->
+<!-- ========== PROJECTS SECTION ENDS HERE ========== -->
 
     <!-- Calculator Section -->
     <section id="calculator">
