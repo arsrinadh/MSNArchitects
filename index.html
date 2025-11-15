@@ -1939,68 +1939,44 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-grid">
-            <div class="contact-item">
-                <div class="contact-icon">📧</div>
-                <h3>Email</h3>
-                <p><a href="mailto:srinadh@msnarchitects.in">srinadh@msnarchitects.in</a></p>
-            </div>
-            <div class="contact-item">
-                <div class="contact-icon">📱</div>
-                <h3>Phone</h3>
-                <p><a href="tel:+919611196716">+91 96111 96716</a></p>
-            </div>
-            <div class="contact-item">
-                <div class="contact-icon">💬</div>
-                <h3>WhatsApp</h3>
-                <p><a href="https://wa.me/919611196716" target="_blank">Message Us</a></p>
-            </div>
-            <div class="contact-item">
-                <div class="contact-icon">📍</div>
-                <h3>Location</h3>
-                <p>Chennai, Tamil Nadu, India</p>
-            </div>
-        </div>
+   
 
         <!-- Contact Form -->
-        <div class="contact-form-container">
-            <h3 class="form-title">Send Us a Message</h3>
-          <!-- ===== FormSubmit version of main contact form ===== -->
-<form id="contactForm" action="https://formsubmit.co/srinadh@msnarchitects.in" method="POST">
-  <!-- anti-spam + redirect -->
-  <input type="hidden" name="_captcha" value="true">
-  <!-- Change to a valid thank-you URL on your site (optional) -->
-  <input type="hidden" name="_next" value="https://msnarchitects.in/thank-you.html">
-  <input type="hidden" name="_subject" value="New message from MSN Architects website">
-  <!-- honeypot -->
-  <input type="text" name="_honey" style="display:none">
-
-  <div class="form-group-contact">
-      <label for="name">Name *</label>
-      <input type="text" id="name" name="name" required placeholder="Your Name">
-  </div>
-  <div class="form-group-contact">
-      <label for="email">Email *</label>
-      <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-  </div>
-  <div class="form-group-contact">
-      <label for="phone">Phone Number *</label>
-      <input type="tel" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX">
-  </div>
-  <div class="form-group-contact">
-      <label for="message">Message *</label>
-      <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
-  </div>
-  <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
-
-  <div class="form-message" id="formMessage" style="display:none"></div>
-</form>
-
+<!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+ 
+<!-- Contact Form -->
+<div class="contact-form-container">
+    <h3 class="form-title">Send Us a Message</h3>
+    <form action="https://formspree.io/f/xrbrkdng" method="POST" id="contactForm">
+        <div class="form-group-contact">
+            <label>Your Name *</label>
+            <input type="text" name="name" required placeholder="Enter your name">
         </div>
+
+        <div class="form-group-contact">
+            <label>Your Email *</label>
+            <input type="email" name="_replyto" required placeholder="Enter your email">
+        </div>
+
+        <div class="form-group-contact">
+            <label>Your Phone *</label>
+            <input type="tel" name="phone" required placeholder="+91 XXXXX XXXXX">
+        </div>
+
+        <div class="form-group-contact">
+            <label>Your Message *</label>
+            <textarea name="message" required placeholder="Tell us about your project..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+        
+        <div class="form-message" id="formMessage"></div>
+    </form>
+</div>
     </section>
+
 
     <!-- Footer -->
     <footer>
@@ -2093,34 +2069,6 @@
             ✉️
         </button>
     </div>
-
-    <!-- Contact Popup Modal -->
-   <div class="popup-content">
-    <button class="popup-close" id="closePopupBtn">&times;</button>
-    <h3 class="popup-title">Quick Contact</h3>
-    <form class="popup-form" id="popupContactForm" action="https://formsubmit.co/srinadh@msnarchitects.in" method="POST">
-      <input type="hidden" name="_captcha" value="true">
-      <input type="hidden" name="_subject" value="Quick contact from website">
-      <input type="text" name="_honey" style="display:none">
-
-      <div class="form-group-contact">
-          <label for="popup-email">Email *</label>
-          <input type="email" id="popup-email" name="email" required placeholder="your.email@example.com">
-      </div>
-
-      <div class="form-group-contact">
-          <label for="popup-phone">Phone *</label>
-          <input type="tel" id="popup-phone" name="phone" required placeholder="+91 XXXXX XXXXX">
-      </div>
-
-      <div class="form-group-contact">
-          <label for="popup-message">Message *</label>
-          <textarea id="popup-message" name="message" required placeholder="Tell us about your project..."></textarea>
-      </div>
-
-      <button type="submit" class="popup-submit-btn" id="popupSubmitBtn">Send Message</button>
-    </form>
-</div>
 
     </div>
 <!-- Project Modal -->
@@ -2523,85 +2471,65 @@ calculateBtn.addEventListener('click', function() {
     }
 });
 
+// Contact Form Handler - Stay on same page
+// Contact Form Handler - Stay on same page
+// Contact Form Handler - Formspree Integration
 (function(){
   const form = document.getElementById('contactForm');
   if (!form) return;
 
-  const submitBtn = document.getElementById('submitBtn');
   const formMessage = document.getElementById('formMessage');
+  const submitBtn = document.getElementById('submitBtn');
 
   function showMessage(type, text) {
-    formMessage.className = 'form-message ' + (type === 'success' ? 'success' : 'error');
+    formMessage.className = 'form-message ' + type;
     formMessage.style.display = 'block';
     formMessage.textContent = text;
-    // auto-hide success after 5s
+    
+    // Scroll to message
+    formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    
+    // Auto-hide success message after 8 seconds
     if (type === 'success') {
-      setTimeout(() => { formMessage.style.display = 'none'; }, 5000);
+      setTimeout(() => {
+        formMessage.style.display = 'none';
+      }, 8000);
     }
   }
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault(); // stop default navigation / mailto
+  form.addEventListener('submit', async function(e){
+    e.preventDefault(); // Prevent default form submission and redirect
 
-    // basic validation (optional, already required on inputs)
-    const name = form.querySelector('#name').value.trim();
-    const email = form.querySelector('#email').value.trim();
-    const message = form.querySelector('#message').value.trim();
-    if (!name || !email || !message) {
-      showMessage('error', 'Please fill in required fields.');
-      return;
-    }
-
-    // disable button while sending
     submitBtn.disabled = true;
-    const originalBtnText = submitBtn.textContent;
     submitBtn.textContent = 'Sending...';
 
-    const endpoint = form.getAttribute('action'); // https://formsubmit.co/youremail@domain.com
-    const data = new FormData(form);
-
-    // Send as fetch to FormSubmit - ask JSON response
-    fetch(endpoint, {
-  method: 'POST',
-  body: data,
-  headers: {
-    'Accept': 'application/json'
-  }
-})
-.then(async (response) => {
-  console.log('FormSubmit response status:', response.status, response.statusText);
-  const contentType = response.headers.get('content-type') || '';
-  let bodyText = '';
-  if (contentType.includes('application/json')) {
     try {
-      const json = await response.json();
-      bodyText = JSON.stringify(json);
-    } catch (err) {
-      bodyText = '(invalid json)';
-    }
-  } else {
-    bodyText = await response.text();
-  }
-  console.log('FormSubmit response body:', bodyText);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
 
-  if (response.ok) {
-    showMessage('success', 'Thanks — your message has been sent. We will contact you soon.');
-    form.reset();
-  } else {
-    // show friendly error and log details
-    showMessage('error', 'Submission failed. Check console for details (status ' + response.status + ').');
-    console.error('FormSubmit error:', response.status, bodyText);
-  }
-})
-.catch(err => {
-  console.error('Network / fetch error:', err);
-  showMessage('error', 'Unable to send message right now. Network/extension blocked or offline. Check console/network tab.');
-})
-.finally(() => {
-  submitBtn.disabled = false;
-  submitBtn.textContent = originalBtnText;
-});
-    });
+      if (response.ok) {
+        showMessage('success', '✓ Thank you! Your message has been sent successfully. We will contact you soon.');
+        form.reset(); // Clear all form fields
+      } else {
+        const data = await response.json();
+        if (data.errors) {
+          showMessage('error', '✗ Oops! There were some errors: ' + data.errors.map(e => e.message).join(', '));
+        } else {
+          showMessage('error', '✗ Oops! There was a problem submitting your form. Please try again.');
+        }
+      }
+    } catch (error) {
+      showMessage('error', '✗ Network error. Please check your internet connection and try again.');
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send Message';
+  });
 })();
 </script>
 </body>
