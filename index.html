@@ -941,7 +941,8 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
         }
 
-        /* Contact Popup Modal */
+       
+      /* Contact Popup Modal */
         .popup-modal {
             display: none;
             position: fixed;
@@ -959,7 +960,215 @@
         .popup-modal.show {
             display: flex;
         }
+        /* Project Modal */
+       /* Project Modal */
+.project-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease;
+    padding: 3rem 1rem;
+}
 
+.project-modal.show {
+    display: block;
+}
+
+.project-modal-content {
+    background: white;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-radius: 20px;
+    position: relative;
+    padding: 0;
+    animation: slideUp 0.4s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.project-modal-close {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    font-size: 45px;
+    color: white;
+    cursor: pointer;
+    z-index: 10001;
+    background: rgba(0, 0, 0, 0.7);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s;
+}
+
+.project-modal-close:hover {
+    background: #00d4ff;
+    transform: rotate(90deg) scale(1.1);
+    border-color: #00d4ff;
+}
+
+.project-modal-header {
+    padding: 3rem 3rem 2rem 3rem;
+    border-bottom: 2px solid #f0f0f0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.project-modal-title {
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.project-modal-subtitle {
+    color: #00d4ff;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.project-modal-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    background: transparent;
+    padding: 3rem;
+}
+
+.project-modal-gallery img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    border: 3px solid #f0f0f0;
+}
+
+.project-modal-gallery img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+}
+
+.project-modal-info {
+    padding: 3rem;
+    background: #ffffff;
+    border-radius: 0 0 20px 20px;
+}
+
+.project-modal-info h3 {
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    border-bottom: 3px solid #00d4ff;
+    padding-bottom: 0.8rem;
+    display: inline-block;
+}
+
+.project-modal-info p {
+    color: #666;
+    line-height: 2;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+@media (max-width: 768px) {
+    .project-modal-gallery {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+}
+@media (max-width: 1024px) {
+    .project-modal {
+        padding: 2rem 1rem;
+    }
+    
+    .project-modal-header {
+        padding: 2rem;
+    }
+    
+    .project-modal-title {
+        font-size: 2rem;
+    }
+    
+    .project-modal-gallery {
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .project-modal-gallery img {
+        height: 350px;
+    }
+    
+    .project-modal-info {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-modal {
+        padding: 1rem 0.5rem;
+    }
+    
+    .project-modal-content {
+        margin: 1rem auto;
+        border-radius: 15px;
+    }
+    
+    .project-modal-close {
+        top: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 35px;
+    }
+    
+    .project-modal-header {
+        padding: 1.5rem;
+    }
+    
+    .project-modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .project-modal-subtitle {
+        font-size: 1rem;
+    }
+    
+    .project-modal-gallery {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .project-modal-gallery img {
+        height: 280px;
+    }
+    
+    .project-modal-info {
+        padding: 1.5rem;
+    }
+    
+    .project-modal-info h3 {
+        font-size: 1.4rem;
+    }
+    
+    .project-modal-info p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -1362,39 +1571,39 @@
 
   <!-- Project Filter Buttons -->
   <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;" id="projectsFilterBar">
-    <button class="filter-btn active" data-filter="all">All (19)</button>
+    <button class="filter-btn active" data-filter="all">All (16)</button>
     <button class="filter-btn" data-filter="villa">Villa (10)</button>
     <button class="filter-btn" data-filter="apartment">Apartment (4)</button>
     <button class="filter-btn" data-filter="commercial">Commercial (1)</button>
     <button class="filter-btn" data-filter="institution">Institution (1)</button>
-    <button class="filter-btn" data-filter="interior">Interior (3)</button>
+
   </div>
 
   <!-- Projects Grid -->
   <div class="projects-gallery" id="projectsGallery">
     
     <!-- ==================== 10 VILLA PROJECTS ==================== -->
-    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa1')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
         <img src="./VILLAS/Chittoor Residence/CR - RD - 1.jpg" alt="Villa Project 1" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
       </div>
       <div class="project-info" style="padding:1.2rem;">
-        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Seaside Villa — Project 01</h3>
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Chittoor Residence</h3>
         <p style="color:#666; margin:0; line-height:1.5;">Open-plan living with panoramic ocean views.</p>
       </div>
     </div>
 
-    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
-      <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./VILLAS/balaji residence/PHOTO-2024-09-14-23-17-16.jpg" alt="Villa Project 2" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
-      </div>
-      <div class="project-info" style="padding:1.2rem;">
-        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Courtyard Villa — Project 02</h3>
-        <p style="color:#666; margin:0; line-height:1.5;">Private central courtyard with natural light.</p>
-      </div>
-    </div>
+   <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa2')">
+  <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+    <img src="./VILLAS/balaji residence/PHOTO-2024-09-14-23-17-16.jpg" alt="Villa Project 2" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+  </div>
+  <div class="project-info" style="padding:1.2rem;">
+    <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Balaji Residence</h3>
+    <p style="color:#666; margin:0; line-height:1.5;">Private central courtyard with natural light.</p>
+  </div>
+</div>
 
-    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa3')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
         <img src="./VILLAS/Duplex Villas 02/DV2 - RD - 2.jpg" alt="Villa Project 3" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
       </div>
@@ -1404,7 +1613,7 @@
       </div>
     </div>
 
-    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+<div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa4')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
         <img src="./VILLAS/Neelanmangala villa/NR - RD - 1.jpg" alt="Villa Project 4" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
       </div>
@@ -1414,7 +1623,7 @@
       </div>
     </div>
 
-    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa5')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
         <img src="./VILLAS/Sekar naidu villa - TATCHOOR/PHOTO-2024-09-17-09-01-23 4.jpg" alt="Villa Project 5" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
       </div>
@@ -1424,7 +1633,7 @@
       </div>
     </div>
 
-    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa6')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
         <img src="./VILLAS/SLOPE ROOF HOUSE/Sloperoofhouse01.jpg" alt="Villa Project 6" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
       </div>
@@ -1434,7 +1643,7 @@
       </div>
     </div>
 
-    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa7')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
         <img src="./VILLAS/Tumkur VILLA/TR - RD - 1.jpg" alt="Villa Project 7" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
       </div>
@@ -1444,7 +1653,7 @@
       </div>
     </div>
 
-    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+   <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa8')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
         <img src="./VILLAS/Vargese VILLA/VR - RD - 1.jpg" alt="Villa Project 8" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
       </div>
@@ -1454,7 +1663,7 @@
       </div>
     </div>
 
-    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+   <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa9')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
         <img src="./VILLAS/villa -Rammoorthy Nagar /RNR - RD - 1.jpg" alt="Villa Project 9" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
       </div>
@@ -1464,7 +1673,7 @@
       </div>
     </div>
 
-    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+  <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa10')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
         <img src="./VILLAS/JSR VILLA/#" alt="Villa Project 10" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
       </div>
@@ -1475,7 +1684,7 @@
     </div>
 
     <!-- ==================== 4 APARTMENT PROJECTS ==================== -->
-    <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+  <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('apt1')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
         <img src="./APPARTMENTS/ KAYAL BUILDERS - KOLAPAKKAM/011.jpg" alt="Apartment Project 1" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
       </div>
@@ -1485,7 +1694,7 @@
       </div>
     </div>
 
-    <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+ <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('apt2')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
         <img src="./APPARTMENTS/ KAYAL BUILDERS/001.jpg" alt="Apartment Project 2" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
       </div>
@@ -1495,7 +1704,7 @@
       </div>
     </div>
 
-    <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+  <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('apt3')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
         <img src="./APPARTMENTS/HANSTEC - TIRUPATHI/1.jpg" alt="Apartment Project 3" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
       </div>
@@ -1505,7 +1714,7 @@
       </div>
     </div>
 
-    <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+    <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('apt4')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
         <img src="./APPARTMENTS/MAGADI APPARTMENTS/NIGHT RENDER.jpg" alt="Apartment Project 4" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
       </div>
@@ -1516,7 +1725,7 @@
     </div>
 
     <!-- ==================== 1 COMMERCIAL PROJECT ==================== -->
-    <div class="project-item" data-category="commercial" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+   <div class="project-item" data-category="commercial" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('commercial1')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
         <img src="./COMMERCIAL PROJECTS/Royal Complex/RC - RD - 1.jpg" alt="Commercial Project" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
       </div>
@@ -1527,7 +1736,7 @@
     </div>
 
     <!-- ==================== 1 INSTITUTION PROJECT ==================== -->
-    <div class="project-item" data-category="institution" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s;">
+<div class="project-item" data-category="institution" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('institution1')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
         <img src="./INSTITUTIONS/Euro Kids School/EKS - RD - 2.jpg" alt="Institution Project" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
       </div>
@@ -1537,8 +1746,6 @@
       </div>
     </div>
 
-    <!-- ==================== 3 INTERIOR PROJECTS ==================== -->
-    
 
   </div>
 </section>
@@ -1761,31 +1968,37 @@
         <!-- Contact Form -->
         <div class="contact-form-container">
             <h3 class="form-title">Send Us a Message</h3>
-            <form id="contactForm">
-                <div class="form-group-contact">
-                    <label for="name">Name *</label>
-                    <input type="text" id="name" name="name" required placeholder="Your Name">
-                </div>
-                
-                <div class="form-group-contact">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                </div>
-                
-                <div class="form-group-contact">
-                    <label for="phone">Phone Number *</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX">
-                </div>
-                
-                <div class="form-group-contact">
-                    <label for="message">Message *</label>
-                    <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
-                
-                <div class="form-message" id="formMessage"></div>
-            </form>
+          <!-- ===== FormSubmit version of main contact form ===== -->
+<form id="contactForm" action="https://formsubmit.co/srinadh@msnarchitects.in" method="POST">
+  <!-- anti-spam + redirect -->
+  <input type="hidden" name="_captcha" value="true">
+  <!-- Change to a valid thank-you URL on your site (optional) -->
+  <input type="hidden" name="_next" value="https://msnarchitects.in/thank-you.html">
+  <input type="hidden" name="_subject" value="New message from MSN Architects website">
+  <!-- honeypot -->
+  <input type="text" name="_honey" style="display:none">
+
+  <div class="form-group-contact">
+      <label for="name">Name *</label>
+      <input type="text" id="name" name="name" required placeholder="Your Name">
+  </div>
+  <div class="form-group-contact">
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+  </div>
+  <div class="form-group-contact">
+      <label for="phone">Phone Number *</label>
+      <input type="tel" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX">
+  </div>
+  <div class="form-group-contact">
+      <label for="message">Message *</label>
+      <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
+  </div>
+  <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+
+  <div class="form-message" id="formMessage" style="display:none"></div>
+</form>
+
         </div>
     </section>
 
@@ -1882,38 +2095,264 @@
     </div>
 
     <!-- Contact Popup Modal -->
-    <div class="popup-modal" id="contactPopup">
-        <div class="popup-content">
-            <button class="popup-close" id="closePopupBtn">&times;</button>
-            <h3 class="popup-title">Quick Contact</h3>
-            <form class="popup-form" id="popupContactForm">
-                <div class="form-group-contact">
-                    <label for="popup-name">Name *</label>
-                    <input type="text" id="popup-name" name="name" required placeholder="Your Name">
-                </div>
-                
-                <div class="form-group-contact">
-                    <label for="popup-email">Email *</label>
-                    <input type="email" id="popup-email" name="email" required placeholder="your.email@example.com">
-                </div>
-                
-                <div class="form-group-contact">
-                    <label for="popup-phone">Phone *</label>
-                    <input type="tel" id="popup-phone" name="phone" required placeholder="+91 XXXXX XXXXX">
-                </div>
-                
-                <div class="form-group-contact">
-                    <label for="popup-message">Message *</label>
-                    <textarea id="popup-message" name="message" required placeholder="Tell us about your project..."></textarea>
-                </div>
-                
-                <button type="submit" class="popup-submit-btn" id="popupSubmitBtn">Send Message</button>
-            </form>
+   <div class="popup-content">
+    <button class="popup-close" id="closePopupBtn">&times;</button>
+    <h3 class="popup-title">Quick Contact</h3>
+    <form class="popup-form" id="popupContactForm" action="https://formsubmit.co/srinadh@msnarchitects.in" method="POST">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="hidden" name="_subject" value="Quick contact from website">
+      <input type="text" name="_honey" style="display:none">
+
+      <div class="form-group-contact">
+          <label for="popup-email">Email *</label>
+          <input type="email" id="popup-email" name="email" required placeholder="your.email@example.com">
+      </div>
+
+      <div class="form-group-contact">
+          <label for="popup-phone">Phone *</label>
+          <input type="tel" id="popup-phone" name="phone" required placeholder="+91 XXXXX XXXXX">
+      </div>
+
+      <div class="form-group-contact">
+          <label for="popup-message">Message *</label>
+          <textarea id="popup-message" name="message" required placeholder="Tell us about your project..."></textarea>
+      </div>
+
+      <button type="submit" class="popup-submit-btn" id="popupSubmitBtn">Send Message</button>
+    </form>
+</div>
+
+    </div>
+<!-- Project Modal -->
+    <div class="project-modal" id="projectModal">
+        <button class="project-modal-close" onclick="closeProjectModal()">&times;</button>
+        <div class="project-modal-content">
+            <div class="project-modal-header">
+                <h2 class="project-modal-title" id="modalProjectTitle"></h2>
+                <p class="project-modal-subtitle" id="modalProjectSubtitle"></p>
+            </div>
+            <div class="project-modal-gallery" id="modalProjectGallery"></div>
+            <div class="project-modal-info">
+                <h3>Project Details</h3>
+                <p id="modalProjectDescription"></p>
+            </div>
         </div>
     </div>
+    
+<script>
 
-    <script>
+// Project Modal Data
+const projectData = {
+  // VILLAS
+  villa1: {
+    title: 'Chittoor Residence',
+    subtitle: 'Modern Villa Design',
+    description: 'A stunning residential project featuring open-plan living spaces with panoramic views. This contemporary villa showcases clean architectural lines, spacious interiors, and thoughtful integration with the surrounding landscape.',
+    images: [
+      './VILLAS/Chittoor Residence/CR - RD - 1.jpg'
+    ]
+  },
+  villa2: {
+    title: 'Balaji Residence',
+    subtitle: 'Courtyard Villa Design',
+    description: 'Private central courtyard with natural light flooding through spacious rooms. Features traditional elements with modern amenities.',
+    images: [
+        './VILLAS/balaji residence/PHOTO-2024-09-14-23-17-16.jpg',
+         './VILLAS/balaji residence/balaji-sabdata/PHOTO-2024-09-14-23-17-49.jpg',
+      './VILLAS/balaji residence/balaji-sabdata/PHOTO-2024-09-14-23-17-43.jpg',
+      './VILLAS/balaji residence/balaji-sabdata/PHOTO-2024-09-14-23-17-33.jpg',
+      './VILLAS/balaji residence/balaji-sabdata/PHOTO-2024-09-14-23-17-31.jpg',
+      './VILLAS/balaji residence/balaji-sabdata/PHOTO-2024-09-14-23-17-19.jpg'
+    ]
+  },
+  villa3: {
+    title: 'Duplex Villa 02',
+    subtitle: 'Minimalist Contemporary Design',
+    description: 'Clean lines and refined materials define this minimalist villa. Focus on simplicity and functionality with modern aesthetics.',
+    images: [
+      './VILLAS/Duplex Villas 02/DV2 - RD - 2.jpg'
+    ]
+  },
+  villa4: {
+    title: 'Neelanmangala Villa',
+    subtitle: 'Tropical Living Design',
+    description: 'Indoor-outdoor living with lush landscaping. Perfect blend of tropical architecture and modern comfort.',
+    images: [
+      './VILLAS/Neelanmangala villa/NR - RD - 1.jpg'
+    ]
+  },
+  villa5: {
+    title: 'Sekar Naidu Villa - Tatchoor',
+    subtitle: 'Hilltop Residence',
+    description: 'Multi-level terraces and panoramic decks offer breathtaking views. Designed to maximize natural light and ventilation.',
+    images: [
+      './VILLAS/Sekar naidu villa - TATCHOOR/sekar-naidu/PHOTO-2024-09-17-09-01-22.jpg',
+      './VILLAS/Sekar naidu villa - TATCHOOR/sekar-naidu/PHOTO-2024-09-17-09-01-23 2.jpg',
+      './VILLAS/Sekar naidu villa - TATCHOOR/sekar-naidu/PHOTO-2024-09-17-09-01-23 3.jpg',
+      './VILLAS/Sekar naidu villa - TATCHOOR/sekar-naidu/PHOTO-2024-09-17-09-01-23 5.jpg'
+    ]
+  },
+  villa6: {
+    title: 'Slope Roof House',
+    subtitle: 'Eco-Friendly Villa Design',
+    description: 'Sustainable design with passive cooling techniques. Features sloped roofs for natural ventilation and rainwater harvesting.',
+    images: [
+      './VILLAS/SLOPE ROOF HOUSE/Sloperoofhouse01.jpg',
+      './VILLAS/SLOPE ROOF HOUSE/Sloperoofhouse02.jpg',
+      './VILLAS/SLOPE ROOF HOUSE/Sloperoofhouse03.jpg'
+    ]
+  },
+  villa7: {
+    title: 'Tumkur Villa',
+    subtitle: 'Contemporary Bold Design',
+    description: 'Bold geometry and dramatic facades create a striking presence. Modern materials and innovative structural solutions.',
+    images: [
+         './VILLAS/Tumkur VILLA/tumkur-villa/TR - RD - 1.jpg',
+      './VILLAS/Tumkur VILLA/tumkur-villa/TR - RD - 2.jpg'
+    ]
+  },
+  villa8: {
+    title: 'Vargese Villa',
+    subtitle: 'Riverside Luxury Villa',
+    description: 'Waterfront terraces and reflective pools create a serene atmosphere. Seamless connection between indoor and outdoor spaces.',
+    images: [
+        './VILLAS/Vargese VILLA/VR - RD - 1.jpg',
+      './VILLAS/Vargese VILLA/vargese-villa/VR - FP - 1.jpg'
+      
+    ]
+  },
+  villa9: {
+    title: 'Rammoorthy Nagar Villa',
+    subtitle: 'Heritage Contemporary Villa',
+    description: 'Adaptive reuse with traditional detailing. Preserving heritage elements while incorporating modern comforts.',
+    images: [
+        './VILLAS/villa -Rammoorthy Nagar /RNR - RD - 1.jpg',
+      './VILLAS/villa -Rammoorthy Nagar /rammoorthy-nagar/RNR - FP - 1.jpg',
+      './VILLAS/villa -Rammoorthy Nagar /rammoorthy-nagar/RNR - FP - 2.jpg'
+    ]
+  },
+  villa10: {
+    title: 'JSR Villa',
+    subtitle: 'Desert Climate Villa',
+    description: 'Thermal massing and sheltered courtyards designed for desert climates. Focus on natural cooling and energy efficiency.',
+    images: [
+      './VILLAS/JSR VILLA/#',
+    ]
+  },
+  
+  // APARTMENTS
+  apt1: {
+    title: 'Kayal Builders - Kolapakkam',
+    subtitle: 'Skyline Premium Apartments',
+    description: 'Premium tower with double-height lobby and modern amenities. Spacious apartments with panoramic city views.',
+    images: [
+        './APPARTMENTS/ KAYAL BUILDERS - KOLAPAKKAM/011.jpg',
+      './APPARTMENTS/ KAYAL BUILDERS - KOLAPAKKAM/untitled folder/007.jpeg',
+      './APPARTMENTS/ KAYAL BUILDERS - KOLAPAKKAM/untitled folder/008.jpg',
+      './APPARTMENTS/ KAYAL BUILDERS - KOLAPAKKAM/untitled folder/009.jpg',
+      './APPARTMENTS/ KAYAL BUILDERS - KOLAPAKKAM/untitled folder/012.jpg',
+      './APPARTMENTS/ KAYAL BUILDERS - KOLAPAKKAM/untitled folder/KOLAPAKKAM STILT+5 R4 FINAL  for elevation-Model_page-0001.jpg',
+      './APPARTMENTS/ KAYAL BUILDERS - KOLAPAKKAM/untitled folder/PARKING AREA_page-0001.jpg'
+    ]
+  },
+  apt2: {
+    title: 'Kayal Builders',
+    subtitle: 'Urban Residences',
+    description: 'Compact modern homes with efficient layouts. Perfect for urban living with all modern conveniences.',
+    images: [
+        './APPARTMENTS/ KAYAL BUILDERS/001.jpg',
+  './APPARTMENTS/ KAYAL BUILDERS/untitled folder/007.jpg'
+    ]
+  },
+  apt3: {
+    title: 'Hanstec - Tirupathi',
+    subtitle: 'Green Living Apartments',
+    description: 'Landscape-integrated multi-level residences. Sustainable living with abundant green spaces and community areas.',
+    images: [
+        './APPARTMENTS/HANSTEC - TIRUPATHI/1.jpg',
+      './APPARTMENTS/HANSTEC - TIRUPATHI/hanstec-tirupati/2.jpg',
+      './APPARTMENTS/HANSTEC - TIRUPATHI/hanstec-tirupati/3.jpg',
+      './APPARTMENTS/HANSTEC - TIRUPATHI/hanstec-tirupati/4.jpg',
+      './APPARTMENTS/HANSTEC - TIRUPATHI/hanstec-tirupati/5.jpg',
+      './APPARTMENTS/HANSTEC - TIRUPATHI/hanstec-tirupati/HA - FP - 1.jpg',
+      './APPARTMENTS/HANSTEC - TIRUPATHI/hanstec-tirupati/HA - FP - 2.jpg'
+    ]
+  },
+  apt4: {
+    title: 'Magadi Apartments',
+    subtitle: 'Luxury High-Rise',
+    description: 'High-rise project with rooftop amenities. Premium living spaces with world-class facilities and stunning views.',
+    images: [
+        './APPARTMENTS/MAGADI APPARTMENTS/NIGHT RENDER.jpg',
+      './APPARTMENTS/MAGADI APPARTMENTS/Magadi-Apartment/DAY RENDER.jpg',
+      './APPARTMENTS/MAGADI APPARTMENTS/Magadi-Apartment/STILT FLOOR PLAN.jpg',
+      './APPARTMENTS/MAGADI APPARTMENTS/Magadi-Apartment/TYPICAL FLOOR PLAN.jpg'
+    ]
+  },
+  
+  // COMMERCIAL
+  commercial1: {
+    title: 'Royal Complex',
+    subtitle: 'Corporate Tower Complex',
+    description: 'Modern office and retail space with sky bridges. State-of-the-art commercial development with premium finishes and smart building features.',
+    images: [
+        './COMMERCIAL PROJECTS/Royal Complex/RC - RD - 1.jpg',
+      './COMMERCIAL PROJECTS/Royal Complex/Royal-complex/RC - RD - 2.jpg',
+      './COMMERCIAL PROJECTS/Royal Complex/Royal-complex/RC - RD - 3.jpg'
+    ]
+  },
+  
+  // INSTITUTION
+  institution1: {
+    title: 'Euro Kids School',
+    subtitle: 'Educational Campus',
+    description: 'Modern learning spaces with sustainable design. Child-friendly architecture promoting creativity, learning, and play.',
+    images: [
+        './INSTITUTIONS/Euro Kids School/EKS - RD - 2.jpg',
+      './INSTITUTIONS/Euro Kids School/Euro-kids/EKS - RD - 1.jpg',
+      './INSTITUTIONS/Euro Kids School/Euro-kids/EKS - RD - 3.jpg',
+      './INSTITUTIONS/Euro Kids School/Euro-kids/EKS - RD - 4.jpg'
+    ]
+  }
+};
+// Open Project Modal
+function openProjectModal(projectId) {
+  const modal = document.getElementById('projectModal');
+  const project = projectData[projectId];
+  
+  if (!project) return;
+  
+  document.getElementById('modalProjectTitle').textContent = project.title;
+  document.getElementById('modalProjectSubtitle').textContent = project.subtitle;
+  document.getElementById('modalProjectDescription').textContent = project.description;
+  
+  const gallery = document.getElementById('modalProjectGallery');
+  gallery.innerHTML = '';
+  
+  project.images.forEach(imgSrc => {
+    const img = document.createElement('img');
+    img.src = imgSrc;
+    img.alt = project.title;
+    gallery.appendChild(img);
+  });
+  
+  modal.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
 
+// Close Project Modal
+function closeProjectModal() {
+  const modal = document.getElementById('projectModal');
+  modal.classList.remove('show');
+  document.body.style.overflow = 'auto';
+}
+
+// Close modal on ESC key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeProjectModal();
+  }
+});
 
 // Projects filter (lightweight)
 (function(){
@@ -1940,220 +2379,230 @@
   });
 })();
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
 
-        // Popup Modal Functionality
-        const openPopupBtn = document.getElementById('openPopupBtn');
-        const closePopupBtn = document.getElementById('closePopupBtn');
-        const contactPopup = document.getElementById('contactPopup');
-        const popupContactForm = document.getElementById('popupContactForm');
+// Popup Modal Functionality
+const openPopupBtn = document.getElementById('openPopupBtn');
+const closePopupBtn = document.getElementById('closePopupBtn');
+const contactPopup = document.getElementById('contactPopup');
+const popupContactForm = document.getElementById('popupContactForm');
 
-        openPopupBtn.addEventListener('click', () => {
-            contactPopup.classList.add('show');
-        });
+openPopupBtn.addEventListener('click', () => {
+    contactPopup.classList.add('show');
+});
 
-        closePopupBtn.addEventListener('click', () => {
-            contactPopup.classList.remove('show');
-        });
+closePopupBtn.addEventListener('click', () => {
+    contactPopup.classList.remove('show');
+});
 
-        // Close popup when clicking outside
-        contactPopup.addEventListener('click', (e) => {
-            if (e.target === contactPopup) {
-                contactPopup.classList.remove('show');
-            }
-        });
+// Close popup when clicking outside
+contactPopup.addEventListener('click', (e) => {
+    if (e.target === contactPopup) {
+        contactPopup.classList.remove('show');
+    }
+});
 
-        // Popup form submission
-        popupContactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                name: document.getElementById('popup-name').value,
-                email: document.getElementById('popup-email').value,
-                phone: document.getElementById('popup-phone').value,
-                message: document.getElementById('popup-message').value
-            };
 
-            const subject = encodeURIComponent('Quick Contact - MSN Architects');
-            const body = encodeURIComponent(
-                `Name: ${formData.name}\n` +
-                `Email: ${formData.email}\n` +
-                `Phone: ${formData.phone}\n\n` +
-                `Message:\n${formData.message}`
-            );
-            
-            window.location.href = `mailto:info@msnarchitects.in?subject=${subject}&body=${body}`;
-            
-            // Close popup and reset form
-            setTimeout(() => {
-                popupContactForm.reset();
-                contactPopup.classList.remove('show');
-            }, 1000);
-        });
 
-        // Calculator functionality
-        const shapeSelect = document.getElementById('shapeSelect');
-        const calculateBtn = document.getElementById('calculateBtn');
-        const resultSection = document.getElementById('resultSection');
+// Calculator functionality
+const shapeSelect = document.getElementById('shapeSelect');
+const calculateBtn = document.getElementById('calculateBtn');
+const resultSection = document.getElementById('resultSection');
 
-        shapeSelect.addEventListener('change', function() {
-            const containers = document.querySelectorAll('.input-fields-container');
-            containers.forEach(c => c.classList.remove('active'));
-            
-            const selectedShape = this.value;
-            if (selectedShape) {
-                const container = document.getElementById(selectedShape + '-inputs');
-                if (container) {
-                    container.classList.add('active');
-                }
-            }
-            
-            resultSection.classList.remove('show');
-        });
+shapeSelect.addEventListener('change', function() {
+    const containers = document.querySelectorAll('.input-fields-container');
+    containers.forEach(c => c.classList.remove('active'));
+    
+    const selectedShape = this.value;
+    if (selectedShape) {
+        const container = document.getElementById(selectedShape + '-inputs');
+        if (container) {
+            container.classList.add('active');
+        }
+    }
+    
+    resultSection.classList.remove('show');
+});
 
-        calculateBtn.addEventListener('click', function() {
-            const shape = shapeSelect.value;
-            if (!shape) {
-                alert('Please select a shape first!');
-                return;
-            }
+calculateBtn.addEventListener('click', function() {
+    const shape = shapeSelect.value;
+    if (!shape) {
+        alert('Please select a shape first!');
+        return;
+    }
 
-            let areaSqFt = 0;
+    let areaSqFt = 0;
 
-            try {
-                switch(shape) {
-                    case 'rectangle':
-                        const rectLength = parseFloat(document.getElementById('rect-length').value);
-                        const rectWidth = parseFloat(document.getElementById('rect-width').value);
-                        const rectLengthUnit = document.getElementById('rect-length-unit').value;
-                        const rectWidthUnit = document.getElementById('rect-width-unit').value;
-                        
-                        const lengthInFt = rectLength * (rectLengthUnit === 'meters' ? 3.28084 : rectLengthUnit === 'yards' ? 3 : 1);
-                        const widthInFt = rectWidth * (rectWidthUnit === 'meters' ? 3.28084 : rectWidthUnit === 'yards' ? 3 : 1);
-                        areaSqFt = lengthInFt * widthInFt;
-                        break;
+    try {
+        switch(shape) {
+            case 'rectangle':
+                const rectLength = parseFloat(document.getElementById('rect-length').value);
+                const rectWidth = parseFloat(document.getElementById('rect-width').value);
+                const rectLengthUnit = document.getElementById('rect-length-unit').value;
+                const rectWidthUnit = document.getElementById('rect-width-unit').value;
+                
+                const lengthInFt = rectLength * (rectLengthUnit === 'meters' ? 3.28084 : rectLengthUnit === 'yards' ? 3 : 1);
+                const widthInFt = rectWidth * (rectWidthUnit === 'meters' ? 3.28084 : rectWidthUnit === 'yards' ? 3 : 1);
+                areaSqFt = lengthInFt * widthInFt;
+                break;
 
-                    case 'square':
-                        const squareSide = parseFloat(document.getElementById('square-side').value);
-                        const squareUnit = document.getElementById('square-side-unit').value;
-                        const sideInFt = squareSide * (squareUnit === 'meters' ? 3.28084 : squareUnit === 'yards' ? 3 : 1);
-                        areaSqFt = sideInFt * sideInFt;
-                        break;
+            case 'square':
+                const squareSide = parseFloat(document.getElementById('square-side').value);
+                const squareUnit = document.getElementById('square-side-unit').value;
+                const sideInFt = squareSide * (squareUnit === 'meters' ? 3.28084 : squareUnit === 'yards' ? 3 : 1);
+                areaSqFt = sideInFt * sideInFt;
+                break;
 
-                    case 'circle':
-                        const radius = parseFloat(document.getElementById('circle-radius').value);
-                        const radiusUnit = document.getElementById('circle-radius-unit').value;
-                        const radiusInFt = radius * (radiusUnit === 'meters' ? 3.28084 : radiusUnit === 'yards' ? 3 : 1);
-                        areaSqFt = Math.PI * radiusInFt * radiusInFt;
-                        break;
+            case 'circle':
+                const radius = parseFloat(document.getElementById('circle-radius').value);
+                const radiusUnit = document.getElementById('circle-radius-unit').value;
+                const radiusInFt = radius * (radiusUnit === 'meters' ? 3.28084 : radiusUnit === 'yards' ? 3 : 1);
+                areaSqFt = Math.PI * radiusInFt * radiusInFt;
+                break;
 
-                    case 'triangle':
-                        const triBase = parseFloat(document.getElementById('triangle-base').value);
-                        const triHeight = parseFloat(document.getElementById('triangle-height').value);
-                        const triBaseUnit = document.getElementById('triangle-base-unit').value;
-                        const triHeightUnit = document.getElementById('triangle-height-unit').value;
-                        const baseInFt = triBase * (triBaseUnit === 'meters' ? 3.28084 : triBaseUnit === 'yards' ? 3 : 1);
-                        const heightInFt = triHeight * (triHeightUnit === 'meters' ? 3.28084 : triHeightUnit === 'yards' ? 3 : 1);
-                        areaSqFt = 0.5 * baseInFt * heightInFt;
-                        break;
+            case 'triangle':
+                const triBase = parseFloat(document.getElementById('triangle-base').value);
+                const triHeight = parseFloat(document.getElementById('triangle-height').value);
+                const triBaseUnit = document.getElementById('triangle-base-unit').value;
+                const triHeightUnit = document.getElementById('triangle-height-unit').value;
+                const baseInFt = triBase * (triBaseUnit === 'meters' ? 3.28084 : triBaseUnit === 'yards' ? 3 : 1);
+                const heightInFt = triHeight * (triHeightUnit === 'meters' ? 3.28084 : triHeightUnit === 'yards' ? 3 : 1);
+                areaSqFt = 0.5 * baseInFt * heightInFt;
+                break;
 
-                    case 'parallelogram':
-                        const paraBase = parseFloat(document.getElementById('para-base').value);
-                        const paraHeight = parseFloat(document.getElementById('para-height').value);
-                        const paraBaseUnit = document.getElementById('para-base-unit').value;
-                        const paraHeightUnit = document.getElementById('para-height-unit').value;
-                        const paraBaseInFt = paraBase * (paraBaseUnit === 'meters' ? 3.28084 : paraBaseUnit === 'yards' ? 3 : 1);
-                        const paraHeightInFt = paraHeight * (paraHeightUnit === 'meters' ? 3.28084 : paraHeightUnit === 'yards' ? 3 : 1);
-                        areaSqFt = paraBaseInFt * paraHeightInFt;
-                        break;
+            case 'parallelogram':
+                const paraBase = parseFloat(document.getElementById('para-base').value);
+                const paraHeight = parseFloat(document.getElementById('para-height').value);
+                const paraBaseUnit = document.getElementById('para-base-unit').value;
+                const paraHeightUnit = document.getElementById('para-height-unit').value;
+                const paraBaseInFt = paraBase * (paraBaseUnit === 'meters' ? 3.28084 : paraBaseUnit === 'yards' ? 3 : 1);
+                const paraHeightInFt = paraHeight * (paraHeightUnit === 'meters' ? 3.28084 : paraHeightUnit === 'yards' ? 3 : 1);
+                areaSqFt = paraBaseInFt * paraHeightInFt;
+                break;
 
-                    case 'trapezoid':
-                        const trapBase1 = parseFloat(document.getElementById('trap-base1').value);
-                        const trapBase2 = parseFloat(document.getElementById('trap-base2').value);
-                        const trapHeight = parseFloat(document.getElementById('trap-height').value);
-                        const trapBase1Unit = document.getElementById('trap-base1-unit').value;
-                        const trapBase2Unit = document.getElementById('trap-base2-unit').value;
-                        const trapHeightUnit = document.getElementById('trap-height-unit').value;
-                        const base1InFt = trapBase1 * (trapBase1Unit === 'meters' ? 3.28084 : trapBase1Unit === 'yards' ? 3 : 1);
-                        const base2InFt = trapBase2 * (trapBase2Unit === 'meters' ? 3.28084 : trapBase2Unit === 'yards' ? 3 : 1);
-                        const trapHeightInFt = trapHeight * (trapHeightUnit === 'meters' ? 3.28084 : trapHeightUnit === 'yards' ? 3 : 1);
-                        areaSqFt = 0.5 * (base1InFt + base2InFt) * trapHeightInFt;
-                        break;
-                }
+            case 'trapezoid':
+                const trapBase1 = parseFloat(document.getElementById('trap-base1').value);
+                const trapBase2 = parseFloat(document.getElementById('trap-base2').value);
+                const trapHeight = parseFloat(document.getElementById('trap-height').value);
+                const trapBase1Unit = document.getElementById('trap-base1-unit').value;
+                const trapBase2Unit = document.getElementById('trap-base2-unit').value;
+                const trapHeightUnit = document.getElementById('trap-height-unit').value;
+                const base1InFt = trapBase1 * (trapBase1Unit === 'meters' ? 3.28084 : trapBase1Unit === 'yards' ? 3 : 1);
+                const base2InFt = trapBase2 * (trapBase2Unit === 'meters' ? 3.28084 : trapBase2Unit === 'yards' ? 3 : 1);
+                const trapHeightInFt = trapHeight * (trapHeightUnit === 'meters' ? 3.28084 : trapHeightUnit === 'yards' ? 3 : 1);
+                areaSqFt = 0.5 * (base1InFt + base2InFt) * trapHeightInFt;
+                break;
+        }
 
-                if (isNaN(areaSqFt) || areaSqFt <= 0) {
-                    alert('Please enter valid measurements!');
-                    return;
-                }
+        if (isNaN(areaSqFt) || areaSqFt <= 0) {
+            alert('Please enter valid measurements!');
+            return;
+        }
 
-                const sqMeters = areaSqFt / 10.7639;
-                const acres = areaSqFt / 43560;
+        const sqMeters = areaSqFt / 10.7639;
+        const acres = areaSqFt / 43560;
 
-                document.getElementById('areaResult').textContent = areaSqFt.toFixed(2) + ' sq ft';
-                document.getElementById('sqftResult').textContent = areaSqFt.toFixed(2) + ' sq ft';
-                document.getElementById('sqmResult').textContent = sqMeters.toFixed(2) + ' sq m';
-                document.getElementById('acresResult').textContent = acres.toFixed(4) + ' acres';
+        document.getElementById('areaResult').textContent = areaSqFt.toFixed(2) + ' sq ft';
+        document.getElementById('sqftResult').textContent = areaSqFt.toFixed(2) + ' sq ft';
+        document.getElementById('sqmResult').textContent = sqMeters.toFixed(2) + ' sq m';
+        document.getElementById('acresResult').textContent = acres.toFixed(4) + ' acres';
 
-                resultSection.classList.add('show');
+        resultSection.classList.add('show');
 
-            } catch (error) {
-                alert('Please fill in all required fields with valid numbers!');
-            }
-        });
+    } catch (error) {
+        alert('Please fill in all required fields with valid numbers!');
+    }
+});
 
-        // Contact Form Submission
-        const contactForm = document.getElementById('contactForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const formMessage = document.getElementById('formMessage');
+(function(){
+  const form = document.getElementById('contactForm');
+  if (!form) return;
 
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                message: document.getElementById('message').value
-            };
+  const submitBtn = document.getElementById('submitBtn');
+  const formMessage = document.getElementById('formMessage');
 
-            // Disable submit button
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
+  function showMessage(type, text) {
+    formMessage.className = 'form-message ' + (type === 'success' ? 'success' : 'error');
+    formMessage.style.display = 'block';
+    formMessage.textContent = text;
+    // auto-hide success after 5s
+    if (type === 'success') {
+      setTimeout(() => { formMessage.style.display = 'none'; }, 5000);
+    }
+  }
 
-            // Create mailto link with form data
-            const subject = encodeURIComponent('New Contact Form Submission - MSN Architects');
-            const body = encodeURIComponent(
-                `Name: ${formData.name}\n` +
-                `Email: ${formData.email}\n` +
-                `Phone: ${formData.phone}\n\n` +
-                `Message:\n${formData.message}`
-            );
-            
-            // Open default email client
-            window.location.href = `mailto:info@msnarchitects.in?subject=${subject}&body=${body}`;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // stop default navigation / mailto
 
-            // Show success message
-            formMessage.className = 'form-message success';
-            formMessage.textContent = 'Opening your email client... Please send the email to complete the submission.';
-            
-            // Reset form
-            setTimeout(() => {
-                contactForm.reset();
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Send Message';
-                formMessage.style.display = 'none';
-            }, 3000);
-        });
-    </script>
+    // basic validation (optional, already required on inputs)
+    const name = form.querySelector('#name').value.trim();
+    const email = form.querySelector('#email').value.trim();
+    const message = form.querySelector('#message').value.trim();
+    if (!name || !email || !message) {
+      showMessage('error', 'Please fill in required fields.');
+      return;
+    }
+
+    // disable button while sending
+    submitBtn.disabled = true;
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+
+    const endpoint = form.getAttribute('action'); // https://formsubmit.co/youremail@domain.com
+    const data = new FormData(form);
+
+    // Send as fetch to FormSubmit - ask JSON response
+    fetch(endpoint, {
+  method: 'POST',
+  body: data,
+  headers: {
+    'Accept': 'application/json'
+  }
+})
+.then(async (response) => {
+  console.log('FormSubmit response status:', response.status, response.statusText);
+  const contentType = response.headers.get('content-type') || '';
+  let bodyText = '';
+  if (contentType.includes('application/json')) {
+    try {
+      const json = await response.json();
+      bodyText = JSON.stringify(json);
+    } catch (err) {
+      bodyText = '(invalid json)';
+    }
+  } else {
+    bodyText = await response.text();
+  }
+  console.log('FormSubmit response body:', bodyText);
+
+  if (response.ok) {
+    showMessage('success', 'Thanks — your message has been sent. We will contact you soon.');
+    form.reset();
+  } else {
+    // show friendly error and log details
+    showMessage('error', 'Submission failed. Check console for details (status ' + response.status + ').');
+    console.error('FormSubmit error:', response.status, bodyText);
+  }
+})
+.catch(err => {
+  console.error('Network / fetch error:', err);
+  showMessage('error', 'Unable to send message right now. Network/extension blocked or offline. Check console/network tab.');
+})
+.finally(() => {
+  submitBtn.disabled = false;
+  submitBtn.textContent = originalBtnText;
+});
+    });
+})();
+</script>
 </body>
 </html>
