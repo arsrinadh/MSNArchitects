@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://msnarchitects.in/sitemap.xml
+Host: https://msnarchitects.in

@@ -4,6 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MSN Architects - Architecture & Interior Design</title>
+    <meta name="description" content="MSN Architects offers architectural and interior design services including concept design, working drawings, 3D elevation, interior design, and construction consultation across Chennai, Bangalore, Hyderabad, and Coimbatore.">
+<link rel="canonical" href="https://msnarchitects.in/">
+<!-- Open Graph Tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="MSN Architects — Architecture & Interior Design in Chennai">
+<meta property="og:description" content="Expert architectural and interior design services...">
+<meta property="og:url" content="https://msnarchitects.in/">
+<meta property="og:site_name" content="MSN Architects">
+<meta property="og:image" content="https://msnarchitects.in/Header-Logo/MSNLogo-header.png">
+<meta property="og:image:alt" content="MSN Architects logo">
+
+<!-- Twitter Card Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MSN Architects — Architecture & Interior Design in Chennai">
+<meta name="twitter:description" content="Expert architectural and interior design services across Chennai, Bangalore, Hyderabad, and Coimbatore.">
+<meta name="twitter:image" content="https://msnarchitects.in/Header-Logo/MSNLogo-header.png">
+
+<!-- Favicon & App Icons -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- Browser Theme Color (Mobile address bar color) -->
+<meta name="theme-color" content="#00d4ff">
+
     <style>
         * {
             margin: 0;
@@ -543,111 +567,168 @@
         }
 
         /* Calculator Section */
-       /* Calculator Section */
-        #calculator {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 4rem 2rem;
-        }
+       /* Two-column calculator layout */
+/* Two-column calculator layout & sidebar styles */
+/* Two-column calculator layout & sidebar styles */
+.calculator-container.two-column {
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 2.4rem;
+  padding: 2.8rem;
+  margin: 0 auto;
+  align-items: start;
+}
 
-        .calculator-container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-            border: 2px solid #f0f0f0;
-            padding: 2.5rem;
-            max-width: 700px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
+.calculator-left {
+  background: white;
+  border-radius: 14px;
+  padding: 1.8rem 2rem;
+  box-shadow: 0 12px 34px rgba(0,0,0,0.06);
+  border: 1px solid #f0f0f0;
+}
 
-        .calculator-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #00d4ff 0%, #0099cc 100%);
-        }
+/* nicer title spacing */
+.calculator-left .calculator-title {
+  margin: 0 0 1.1rem 0;
+  font-size: 1.35rem;
+  line-height: 1.25;
+  color: #121212;
+}
 
-        .calculator-title {
-            color: #1a1a1a;
-            margin-bottom: 2rem;
-            text-align: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-            position: relative;
-            padding-bottom: 1rem;
-        }
+/* Form groups more airy */
+.form-group {
+  margin-bottom: 1.15rem;
+}
 
-        .calculator-title::after {
-            content: '📐';
-            display: block;
-            font-size: 2rem;
-            margin-top: 0.5rem;
-        }
+/* Label style: smaller, lighter, spaced */
+label {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: #222;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+  line-height: 1.3;
+}
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
+/* Inputs and selects: larger & consistent */
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 130px;
+  gap: 12px;
+  align-items: center;
+}
 
-        label {
-            display: block;
-            margin-bottom: 0.6rem;
-            color: #1a1a1a;
-            font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-        }
+.input-field,
+.unit-select,
+select,
+input[type="number"] {
+  height: 44px;
+  padding: 10px 12px;
+  border: 1.5px solid #e6e6e6;
+  border-radius: 10px;
+  font-size: 15px;
+  background: #fff;
+  transition: border-color .18s, box-shadow .18s, transform .06s;
+  -webkit-appearance: none;
+}
 
-        select, input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 15px;
-            transition: all 0.3s ease;
-            background: #fafafa;
-            font-family: inherit;
-        }
+/* Focus states */
+.input-field:focus,
+.unit-select:focus,
+select:focus {
+  outline: none;
+  border-color: #00d4ff;
+  box-shadow: 0 6px 20px rgba(0,212,255,0.06);
+  transform: translateY(-1px);
+}
 
-        select:focus, input:focus {
-            outline: none;
-            border-color: #00d4ff;
-            background: white;
-            box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.1);
-            transform: translateY(-2px);
-        }
+/* Give selects slightly smaller font to avoid wrapping */
+.unit-select { font-size: 14px; padding: 8px 10px; }
 
-        select:hover, input:hover {
-            border-color: #00d4ff;
-        }
+/* Calculate button style */
+.calculate-btn {
+  display:inline-block;
+  padding:12px 22px;
+  margin-top: 0.8rem;
+  background: linear-gradient(135deg,#00d4ff 0%,#0099cc 100%);
+  color:#fff;
+  border-radius: 999px;
+  border:none;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow: 0 10px 30px rgba(0,212,255,0.12);
+}
 
-        .input-row {
-            display: grid;
-            grid-template-columns: 1fr 140px;
-            gap: 12px;
-            align-items: stretch;
-        }
+/* Result area: clear lines, spacing & right aligned values */
+.result-section {
+  margin-top: 1.4rem;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 1.1rem;
+}
 
-        .input-field {
-            width: 100%;
-        }
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #f4f4f4;
+}
 
-        .unit-select {
-            width: 100%;
-        }
+.result-item:last-child { border-bottom: none; }
 
-        @media (max-width: 600px) {
-            .input-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .calculator-container {
-                padding: 1.5rem;
-            }
-        }
+.result-label {
+  color: #222;
+  font-weight: 700;
+  font-size: 0.98rem;
+  line-height: 1;
+}
+
+.result-value {
+  color: #00d4ff;
+  font-weight: 800;
+  font-size: 1.05rem;
+  min-width: 110px;
+  text-align: right;
+}
+
+/* sidebar cards */
+.calculator-right { display:flex; flex-direction:column; gap:1rem; align-items:stretch; }
+
+.tips-card, .vaastu-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 8px 26px rgba(0,0,0,0.08);
+  border: 1px solid #f0f0f0;
+}
+
+.tips-card h4, .vaastu-card h4 { color:#1a1a1a; margin-bottom:0.6rem; font-size:1.05rem; }
+.tips-card ul { list-style:none; padding-left:0; color:#555; line-height:1.6; }
+.tips-card li::before { content:"•"; color:#00d4ff; margin-right:0.5rem; display:inline-block; width:1rem; }
+
+.vaastu-header { display:flex; justify-content:space-between; align-items:center; gap:0.7rem; margin-bottom:0.6rem; }
+.compass { width:48px; height:48px; border-radius:8px; background:#fff; display:flex; align-items:center; justify-content:center; box-shadow: 0 6px 18px rgba(0,0,0,0.06); border:1px solid #f0f0f0; }
+.vaastu-body p { color:#444; margin:0.45rem 0; font-size:0.95rem; line-height:1.45; }
+.vaastu-cta { margin-top:0.8rem; text-align:center; }
+
+/* small-note */
+.small-note { background:transparent; font-size:0.95rem; color:#666; padding:0.6rem 0.2rem; }
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px) {
+  .calculator-container.two-column { grid-template-columns: 1fr; padding: 1.5rem; }
+  .calculator-right { order: 2; }
+  .calculator-left { order: 1; }
+  .input-row { grid-template-columns: 1fr; }
+  .unit-select { width: 100%; }
+  .result-value { text-align: left; margin-top: 0.25rem; }
+  .result-item { flex-direction: column; align-items: flex-start; gap: 6px; padding: 12px 0; }
+  .compass { margin-left: auto; }
+}
+
+
         /* Projects quick styles */
 .filter-btn {
   padding: 0.45rem 0.9rem;
@@ -1465,6 +1546,57 @@
             }
         }
     </style>
+    <!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://msnarchitects.in/#organization",
+      "name": "MSN Architects",
+      "url": "https://msnarchitects.in/",
+      "logo": "https://msnarchitects.in/Header-Logo/MSNLogo-header.png",
+      "sameAs": [
+        "https://www.instagram.com/yourprofile",
+        "https://www.facebook.com/yourprofile",
+        "https://www.linkedin.com/company/yourprofile",
+        "https://wa.me/919566121294"
+      ]
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://msnarchitects.in/#localbusiness",
+      "name": "MSN Architects",
+      "image": "https://msnarchitects.in/Header-Logo/MSNLogo-header.png",
+      "url": "https://msnarchitects.in/",
+      "telephone": "+919566121294",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Chennai",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "IN"
+      },
+      "priceRange": "₹₹"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://msnarchitects.in/#website",
+      "url": "https://msnarchitects.in/",
+      "name": "MSN Architects",
+      "publisher": {
+        "@id": "https://msnarchitects.in/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://msnarchitects.in/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+}
+</script>
+
 </head>
 <body>
     <!-- Header -->
@@ -1881,193 +2013,235 @@
 </section>
 <!-- ========== PROJECTS SECTION END ========== -->
 <!-- ========== PROJECTS SECTION ENDS HERE ========== -->
+<div class="calculator-container two-column">
+  <!-- LEFT: Calculator (FULL original inputs preserved) -->
+  <div class="calculator-left">
+    <h3 class="calculator-title">Calculate Your Plot Area</h3>
+    
+    <div class="form-group">
+      <label for="shapeSelect">Select Area Shape</label>
+      <select id="shapeSelect">
+        <option value="">-- Choose Shape --</option>
+        <option value="rectangle">Rectangle</option>
+        <option value="square">Square</option>
+        <option value="circle">Circle</option>
+        <option value="triangle">Triangle</option>
+        <option value="parallelogram">Parallelogram</option>
+        <option value="trapezoid">Trapezoid</option>
+      </select>
+    </div>
 
-    <!-- Calculator Section -->
-    <section id="calculator">
-        <h2 class="section-title">Land Area Calculator</h2>
-        <div class="calculator-container">
-            <h3 class="calculator-title">Calculate Your Plot Area</h3>
-            
-            <div class="form-group">
-                <label for="shapeSelect">Select Area Shape</label>
-                <select id="shapeSelect">
-                    <option value="">-- Choose Shape --</option>
-                    <option value="rectangle">Rectangle</option>
-                    <option value="square">Square</option>
-                    <option value="circle">Circle</option>
-                    <option value="triangle">Triangle</option>
-                    <option value="parallelogram">Parallelogram</option>
-                    <option value="trapezoid">Trapezoid</option>
-                </select>
-            </div>
-
-            <!-- Rectangle -->
-            <div id="rectangle-inputs" class="input-fields-container">
-                <div class="form-group">
-                    <label>Length</label>
-                    <div class="input-row">
-                        <input type="number" id="rect-length" class="input-field" placeholder="Enter length" step="0.01">
-                        <select id="rect-length-unit" class="unit-select">
-                            <option value="feet">Feet</option>
-                            <option value="meters">Meters</option>
-                            <option value="yards">Yards</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Width</label>
-                    <div class="input-row">
-                        <input type="number" id="rect-width" class="input-field" placeholder="Enter width" step="0.01">
-                        <select id="rect-width-unit" class="unit-select">
-                            <option value="feet">Feet</option>
-                            <option value="meters">Meters</option>
-                            <option value="yards">Yards</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Square -->
-            <div id="square-inputs" class="input-fields-container">
-                <div class="form-group">
-                    <label>Side</label>
-                    <div class="input-row">
-                        <input type="number" id="square-side" class="input-field" placeholder="Enter side length" step="0.01">
-                        <select id="square-side-unit" class="unit-select">
-                            <option value="feet">Feet</option>
-                            <option value="meters">Meters</option>
-                            <option value="yards">Yards</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Circle -->
-            <div id="circle-inputs" class="input-fields-container">
-                <div class="form-group">
-                    <label>Radius</label>
-                    <div class="input-row">
-                        <input type="number" id="circle-radius" class="input-field" placeholder="Enter radius" step="0.01">
-                        <select id="circle-radius-unit" class="unit-select">
-                            <option value="feet">Feet</option>
-                            <option value="meters">Meters</option>
-                            <option value="yards">Yards</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Triangle -->
-            <div id="triangle-inputs" class="input-fields-container">
-                <div class="form-group">
-                    <label>Base</label>
-                    <div class="input-row">
-                        <input type="number" id="triangle-base" class="input-field" placeholder="Enter base" step="0.01">
-                        <select id="triangle-base-unit" class="unit-select">
-                            <option value="feet">Feet</option>
-                            <option value="meters">Meters</option>
-                            <option value="yards">Yards</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Height</label>
-                    <div class="input-row">
-                        <input type="number" id="triangle-height" class="input-field" placeholder="Enter height" step="0.01">
-                        <select id="triangle-height-unit" class="unit-select">
-                            <option value="feet">Feet</option>
-                            <option value="meters">Meters</option>
-                            <option value="yards">Yards</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Parallelogram -->
-            <div id="parallelogram-inputs" class="input-fields-container">
-                <div class="form-group">
-                    <label>Base</label>
-                    <div class="input-row">
-                        <input type="number" id="para-base" class="input-field" placeholder="Enter base" step="0.01">
-                        <select id="para-base-unit" class="unit-select">
-                            <option value="feet">Feet</option>
-                            <option value="meters">Meters</option>
-                            <option value="yards">Yards</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Height</label>
-                    <div class="input-row">
-                        <input type="number" id="para-height" class="input-field" placeholder="Enter height" step="0.01">
-                        <select id="para-height-unit" class="unit-select">
-                            <option value="feet">Feet</option>
-                            <option value="meters">Meters</option>
-                            <option value="yards">Yards</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Trapezoid -->
-            <div id="trapezoid-inputs" class="input-fields-container">
-                <div class="form-group">
-                    <label>Base 1 (Top)</label>
-                    <div class="input-row">
-                        <input type="number" id="trap-base1" class="input-field" placeholder="Enter base 1" step="0.01">
-                        <select id="trap-base1-unit" class="unit-select">
-                            <option value="feet">Feet</option>
-                            <option value="meters">Meters</option>
-                            <option value="yards">Yards</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Base 2 (Bottom)</label>
-                    <div class="input-row">
-                        <input type="number" id="trap-base2" class="input-field" placeholder="Enter base 2" step="0.01">
-                        <select id="trap-base2-unit" class="unit-select">
-                            <option value="feet">Feet</option>
-                            <option value="meters">Meters</option>
-                            <option value="yards">Yards</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Height</label>
-                    <div class="input-row">
-                        <input type="number" id="trap-height" class="input-field" placeholder="Enter height" step="0.01">
-                        <select id="trap-height-unit" class="unit-select">
-                            <option value="feet">Feet</option>
-                            <option value="meters">Meters</option>
-                            <option value="yards">Yards</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <button class="calculate-btn" id="calculateBtn">Calculate Area</button>
-
-            <div class="result-section" id="resultSection">
-                <div class="result-item">
-                    <span class="result-label">Area:</span>
-                    <span class="result-value" id="areaResult">0</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Square Feet:</span>
-                    <span class="result-value" id="sqftResult">0</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Square Meters:</span>
-                    <span class="result-value" id="sqmResult">0</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Acres:</span>
-                    <span class="result-value" id="acresResult">0</span>
-                </div>
-            </div>
+    <!-- Rectangle -->
+    <div id="rectangle-inputs" class="input-fields-container">
+      <div class="form-group">
+        <label>Length</label>
+        <div class="input-row">
+          <input type="number" id="rect-length" class="input-field" placeholder="Enter length" step="0.01">
+          <select id="rect-length-unit" class="unit-select">
+            <option value="feet">Feet</option>
+            <option value="meters">Meters</option>
+            <option value="yards">Yards</option>
+          </select>
         </div>
-    </section>
+      </div>
+      <div class="form-group">
+        <label>Width</label>
+        <div class="input-row">
+          <input type="number" id="rect-width" class="input-field" placeholder="Enter width" step="0.01">
+          <select id="rect-width-unit" class="unit-select">
+            <option value="feet">Feet</option>
+            <option value="meters">Meters</option>
+            <option value="yards">Yards</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Square -->
+    <div id="square-inputs" class="input-fields-container">
+      <div class="form-group">
+        <label>Side</label>
+        <div class="input-row">
+          <input type="number" id="square-side" class="input-field" placeholder="Enter side length" step="0.01">
+          <select id="square-side-unit" class="unit-select">
+            <option value="feet">Feet</option>
+            <option value="meters">Meters</option>
+            <option value="yards">Yards</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Circle -->
+    <div id="circle-inputs" class="input-fields-container">
+      <div class="form-group">
+        <label>Radius</label>
+        <div class="input-row">
+          <input type="number" id="circle-radius" class="input-field" placeholder="Enter radius" step="0.01">
+          <select id="circle-radius-unit" class="unit-select">
+            <option value="feet">Feet</option>
+            <option value="meters">Meters</option>
+            <option value="yards">Yards</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Triangle -->
+    <div id="triangle-inputs" class="input-fields-container">
+      <div class="form-group">
+        <label>Base</label>
+        <div class="input-row">
+          <input type="number" id="triangle-base" class="input-field" placeholder="Enter base" step="0.01">
+          <select id="triangle-base-unit" class="unit-select">
+            <option value="feet">Feet</option>
+            <option value="meters">Meters</option>
+            <option value="yards">Yards</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Height</label>
+        <div class="input-row">
+          <input type="number" id="triangle-height" class="input-field" placeholder="Enter height" step="0.01">
+          <select id="triangle-height-unit" class="unit-select">
+            <option value="feet">Feet</option>
+            <option value="meters">Meters</option>
+            <option value="yards">Yards</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parallelogram -->
+    <div id="parallelogram-inputs" class="input-fields-container">
+      <div class="form-group">
+        <label>Base</label>
+        <div class="input-row">
+          <input type="number" id="para-base" class="input-field" placeholder="Enter base" step="0.01">
+          <select id="para-base-unit" class="unit-select">
+            <option value="feet">Feet</option>
+            <option value="meters">Meters</option>
+            <option value="yards">Yards</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Height</label>
+        <div class="input-row">
+          <input type="number" id="para-height" class="input-field" placeholder="Enter height" step="0.01">
+          <select id="para-height-unit" class="unit-select">
+            <option value="feet">Feet</option>
+            <option value="meters">Meters</option>
+            <option value="yards">Yards</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trapezoid -->
+    <div id="trapezoid-inputs" class="input-fields-container">
+      <div class="form-group">
+        <label>Base 1 (Top)</label>
+        <div class="input-row">
+          <input type="number" id="trap-base1" class="input-field" placeholder="Enter base 1" step="0.01">
+          <select id="trap-base1-unit" class="unit-select">
+            <option value="feet">Feet</option>
+            <option value="meters">Meters</option>
+            <option value="yards">Yards</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Base 2 (Bottom)</label>
+        <div class="input-row">
+          <input type="number" id="trap-base2" class="input-field" placeholder="Enter base 2" step="0.01">
+          <select id="trap-base2-unit" class="unit-select">
+            <option value="feet">Feet</option>
+            <option value="meters">Meters</option>
+            <option value="yards">Yards</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Height</label>
+        <div class="input-row">
+          <input type="number" id="trap-height" class="input-field" placeholder="Enter height" step="0.01">
+          <select id="trap-height-unit" class="unit-select">
+            <option value="feet">Feet</option>
+            <option value="meters">Meters</option>
+            <option value="yards">Yards</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <button class="calculate-btn" id="calculateBtn">Calculate Area</button>
+
+   <div class="result-section" id="resultSection">
+  <h4 style="margin:0 0 0.6rem; font-size:0.95rem; color:#666;">Results</h4>
+
+      <div class="result-item">
+        <span class="result-label">Area:</span>
+        <span class="result-value" id="areaResult">0</span>
+      </div>
+      <div class="result-item">
+        <span class="result-label">Square Feet:</span>
+        <span class="result-value" id="sqftResult">0</span>
+      </div>
+      <div class="result-item">
+        <span class="result-label">Square Meters:</span>
+        <span class="result-value" id="sqmResult">0</span>
+      </div>
+      <div class="result-item">
+        <span class="result-label">Acres:</span>
+        <span class="result-value" id="acresResult">0</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Tips + Vaastu -->
+  <aside class="calculator-right" aria-label="Tips and Vaastu guidance">
+    <div class="tips-card">
+      <h4>Plot Measurement Tips</h4>
+      <ul>
+        <li>Use a long tape (30m / 50m) and re-measure twice.</li>
+        <li>Measure all sides and note corner angles.</li>
+        <li>Measure along the ground (not the slope) for accuracy.</li>
+        <li>Mark irregular edges and take multiple point readings.</li>
+      </ul>
+    </div>
+
+    <div class="vaastu-card">
+      <div class="vaastu-header">
+        <h4>Vaastu Guidelines</h4>
+        <div class="compass" title="North direction">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" stroke="#00d4ff" stroke-width="1.2" fill="#fff"/>
+            <path d="M12 6 L14 12 L12 11 L10 12 Z" fill="#00d4ff"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="vaastu-body">
+        <p><strong>Ideal Entrance:</strong> North / East</p>
+        <p><strong>Kitchen:</strong> South-East</p>
+        <p><strong>Master Bedroom:</strong> South-West</p>
+        <p><strong>Water / Pooja:</strong> North-East</p>
+        <p><strong>Recommended Shapes:</strong> Rectangle / Square</p>
+
+        <div class="vaastu-cta">
+          <button class="book-btn" onclick="scrollToContact()">Speak to an Architect</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="small-note">
+      <p><strong>Need site help?</strong> We offer a site visit & assessment. <a href="#contact">Contact us</a>.</p>
+    </div>
+  </aside>
+</div>
+
 
    
 
@@ -2242,7 +2416,7 @@
             </div>
             <div class="project-modal-gallery" id="modalProjectGallery"></div>
             <div class="project-modal-info">
-                <h3>Project Details</h3>
+                <!-- <h3>Project Details</h3> -->
                 <p id="modalProjectDescription"></p>
             </div>
         </div>
@@ -2817,6 +2991,12 @@ if (shapeSelect && calculateBtn) {
     }
   });
 })();
+// scroll to contact form when CTA clicked
+function scrollToContact() {
+  const el = document.querySelector('#contact');
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
 </script>
 </body>
 </html>
