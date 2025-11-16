@@ -1557,7 +1557,6 @@ section, .calculator-container, .packages-grid, .services-grid {
 }
 
 /* Responsive nav layout */
-/* Responsive nav layout */
 nav { background: transparent; }
 .nav-inner {
   max-width: 1400px;
@@ -1610,7 +1609,6 @@ nav { background: transparent; }
 /* mobile styles */
 @media (max-width: 900px) {
   .nav-toggle { display: flex; }
-
   #navLinks {
     position: fixed;
     top: 68px; /* below header/top-bar */
@@ -1628,46 +1626,12 @@ nav { background: transparent; }
     transition: opacity .22s ease, transform .22s ease;
     z-index: 1200;
   }
-
   #navLinks.show {
     transform: translateY(0) scale(1);
     opacity: 1;
     pointer-events: auto;
   }
-
-  .nav-links a { 
-    color: #fff; 
-    font-size: 1.05rem; 
-    padding: 0.25rem 0.5rem; 
-  }
-}
-
-/* 🔥 FIX: Logo left + Hamburger right (add override rules) */
-@media (max-width: 900px) {
-
-  .nav-inner {
-    align-items: center;
-    justify-content: flex-start;
-  }
-
-  .nav-left,
-  .brand {
-    display: flex;
-    align-items: center;
-    flex: 0 0 auto;
-    margin-right: 0;
-  }
-
-  .nav-toggle {
-    display: flex;
-    margin-left: auto;   /* pushes it to right */
-    order: 99;           /* forces right alignment */
-  }
-
-  .logo-img {
-    height: 44px;
-    max-height: 44px;
-  }
+  .nav-links a { color: #fff; font-size: 1.05rem; padding: 0.25rem 0.5rem; }
 }
 
 /* reduce hero padding for small screens (already you had similar rules) */
@@ -1675,10 +1639,6 @@ nav { background: transparent; }
   .hero { padding: 4.5rem 1rem; min-height: 420px; }
   .hero h1 { font-size: 1.9rem; }
   .nav-inner { padding: 0.5rem 0.8rem; }
-
-  .logo-img { height: 40px; max-height: 40px; }
-  .nav-toggle { width: 46px; height: 46px; }
-
   .top-bar { padding: 0.45rem 0.8rem; font-size: 0.95rem; }
 }
 
