@@ -291,46 +291,157 @@
         }
 
         /* Hero Section */
+      /* ENHANCED HERO SECTION - Replace your existing hero CSS */
         .hero {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(0, 212, 255, 0.1)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231a1a1a" width="1200" height="600"/><path fill="%2300d4ff" opacity="0.1" d="M0 300L50 280L100 320L150 290L200 310L250 285L300 315L350 295L400 325L450 300L500 280L550 305L600 290L650 315L700 285L750 310L800 295L850 320L900 290L950 305L1000 285L1050 310L1100 295L1150 315L1200 300V600H0Z"/></svg>');
-            background-size: cover;
-            background-position: center;
+            position: relative;
             color: white;
             text-align: center;
-            padding: 8rem 2rem;
+            padding: 10rem 2rem;
+            overflow: hidden;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Background Slider Container */
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        /* Dark overlay with gradient for better text readability */
+        /* Dark overlay with gradient for better text readability */
+.hero-slider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(0, 0, 0, 0.5) 0%, 
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.5) 100%);
+    z-index: 2;
+}
+
+        /* Content should be above slider */
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
             font-weight: 700;
+            text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.7);
+            line-height: 1.2;
+            letter-spacing: -1px;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+            line-height: 1.6;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1rem 2.5rem;
+            padding: 1.2rem 3rem;
             background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
             color: white;
             text-decoration: none;
             border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.4s;
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .cta-button:hover {
             background: linear-gradient(135deg, #00b8e6 0%, #0088bb 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
+        }
+
+        /* Slide Progress Bar */
+        .slide-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #00d4ff 0%, #0099cc 100%);
+            z-index: 4;
+            transition: width 0.3s linear;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 6rem 1.5rem;
+                min-height: 550px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .slider-dots {
+                bottom: 25px;
+            }
         }
 
         /* Section Styles */
@@ -432,103 +543,110 @@
         }
 
         /* Calculator Section */
+       /* Calculator Section */
         #calculator {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 4rem 2rem;
         }
 
         .calculator-container {
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid #f0f0f0;
-            padding: 30px;
-            max-width: 900px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            border: 2px solid #f0f0f0;
+            padding: 2.5rem;
+            max-width: 700px;
             margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calculator-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #00d4ff 0%, #0099cc 100%);
         }
 
         .calculator-title {
             color: #1a1a1a;
-            margin-bottom: 25px;
+            margin-bottom: 2rem;
             text-align: center;
-            font-size: 24px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .calculator-title::after {
+            content: '📐';
+            display: block;
+            font-size: 2rem;
+            margin-top: 0.5rem;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 0.6rem;
             color: #1a1a1a;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
         }
 
         select, input {
             width: 100%;
-            padding: 12px 15px;
-            border: 1.5px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 15px;
             transition: all 0.3s ease;
             background: #fafafa;
+            font-family: inherit;
         }
 
         select:focus, input:focus {
             outline: none;
             border-color: #00d4ff;
             background: white;
-            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
-        }
-
-        .input-row {
-            display: flex;
-            gap: 10px;
-            align-items: flex-end;
-        }
-
-        .input-field {
-            flex: 1;
-        }
-
-        .unit-select {
-            width: 120px;
-        }
-
-        .calculate-btn {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
-        }
-
-        .calculate-btn:hover {
-            background: linear-gradient(135deg, #00b8e6 0%, #0088bb 100%);
-            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+            box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.1);
             transform: translateY(-2px);
         }
 
-        .result-section {
-            margin-top: 30px;
-            padding: 20px;
-            background: #f8f9fa;
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            display: none;
+        select:hover, input:hover {
+            border-color: #00d4ff;
         }
 
-        .result-section.show {
-            display: block;
-            animation: slideIn 0.3s ease;
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 140px;
+            gap: 12px;
+            align-items: stretch;
+        }
+
+        .input-field {
+            width: 100%;
+        }
+
+        .unit-select {
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            .input-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .calculator-container {
+                padding: 1.5rem;
+            }
         }
         /* Projects quick styles */
 .filter-btn {
@@ -1375,13 +1493,25 @@
 </header>
 
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <h1>Design Spaces That Inspire</h1>
-        <p>Architecture combined with Interior Design - Understanding the art, science, and business of building</p>
-        <a href="#contact" class="cta-button">Get Started</a>
-    </section>
 
+
+<section id="home" class="hero">
+    <!-- Background Image Slider -->
+    <div class="hero-slider">
+        <div class="hero-slide active" style="background-image: url('./Header-Logo/Header-landing-Images/1header.jpeg');"></div>
+        <div class="hero-slide" style="background-image: url('./Header-Logo/Header-landing-Images/2header.jpeg');"></div>
+        <div class="hero-slide" style="background-image: url('./Header-Logo/Header-landing-Images/3header.jpeg');"></div>
+        <div class="hero-slide" style="background-image: url('./Header-Logo/Header-landing-Images/4header.jpeg');"></div>
+        <div class="hero-slide" style="background-image: url('./Header-Logo/Header-landing-Images/5header.jpeg');"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+        <h1>Designing Multidimensional Space & Nature</h1>
+        <p>Architecture combined with Interior Design - Understanding the art, science, and business of building with excellence and innovation</p>
+        <a href="#contact" class="cta-button">Get Started</a>
+    </div>
+</section>
     <!-- About Section -->
     <section id="about">
         <h2 class="section-title">About MSN Architects</h2>
@@ -1445,7 +1575,7 @@
             <div class="package-card">
                 <div class="package-header">
                     <div class="package-title">Basic</div>
-                    <div class="package-price">₹45 <span class="package-price-unit">per sqft</span></div>
+                    <div class="package-price">₹55 <span class="package-price-unit">per sqft</span></div>
                     <div class="package-subtitle">Concept Design</div>
                 </div>
                 <div class="package-features">
@@ -1464,7 +1594,7 @@
             <div class="package-card">
                 <div class="package-header">
                     <div class="package-title">Standard</div>
-                    <div class="package-price">₹95 <span class="package-price-unit">per sqft</span></div>
+                    <div class="package-price">₹110 <span class="package-price-unit">per sqft</span></div>
                     <div class="package-subtitle">Concept Design + Working Drawings</div>
                 </div>
                 <div class="package-features">
@@ -1491,7 +1621,7 @@
             <div class="package-card premium">
                 <div class="package-header">
                     <div class="package-title">Premium</div>
-                    <div class="package-price">₹140 <span class="package-price-unit">per sqft</span></div>
+                    <div class="package-price">₹170 <span class="package-price-unit">per sqft</span></div>
                     <div class="package-subtitle">Concept Design + Working Drawings + Interior</div>
                 </div>
                 <div class="package-features">
@@ -1511,7 +1641,7 @@
                     <div class="feature-item included">Construction Quotation</div>
                     <div class="feature-item included">Interior Quotation</div>
                 </div>
-                <div class="package-footer">
+                <div class="package-footer"> 
                     <div class="package-delivery">Delivery: 30 Working Days</div>
                     <button class="book-btn" onclick="alert('Please call +91 95661 21294 to book this package')">Book Now</button>
                 </div>
@@ -1521,7 +1651,7 @@
             <div class="package-card ultra">
                 <div class="package-header">
                     <div class="package-title">Ultra Premium</div>
-                    <div class="package-price">₹240 <span class="package-price-unit">per sqft</span></div>
+                    <div class="package-price">₹250 <span class="package-price-unit">per sqft</span></div>
                     <div class="package-subtitle">Complete Package + Material Selection</div>
                 </div>
                 <div class="package-features">
@@ -1675,7 +1805,7 @@
 
   <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa10')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./VILLAS/JSR VILLA/#" alt="Villa Project 10" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+        <img src="./Header-Logo/Header-landing-Images/2header.jpeg" alt="Villa Project 10" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
       </div>
       <div class="project-info" style="padding:1.2rem;">
         <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Desert Villa — Project 10</h3>
@@ -1946,28 +2076,30 @@
     <section id="contact">
         <h2 class="section-title">Get In Touch</h2>
  
-<!-- Contact Form -->
+
+        <!-- Contact Form -->
+        <!-- Contact Form -->
 <div class="contact-form-container">
     <h3 class="form-title">Send Us a Message</h3>
-    <form action="https://formspree.io/f/xrbrkdng" method="POST" id="contactForm">
+    <form id="contactForm">
         <div class="form-group-contact">
             <label>Your Name *</label>
-            <input type="text" name="name" required placeholder="Enter your name">
+            <input type="text" name="name" id="contact-name" required placeholder="Enter your name">
         </div>
 
         <div class="form-group-contact">
             <label>Your Email *</label>
-            <input type="email" name="_replyto" required placeholder="Enter your email">
+            <input type="email" name="email" id="contact-email" required placeholder="Enter your email">
         </div>
 
         <div class="form-group-contact">
             <label>Your Phone *</label>
-            <input type="tel" name="phone" required placeholder="+91 XXXXX XXXXX">
+            <input type="tel" name="phone" id="contact-phone" required placeholder="+91 XXXXX XXXXX">
         </div>
 
         <div class="form-group-contact">
             <label>Your Message *</label>
-            <textarea name="message" required placeholder="Tell us about your project..."></textarea>
+            <textarea name="message" id="contact-message" required placeholder="Tell us about your project..."></textarea>
         </div>
 
         <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
@@ -2057,7 +2189,7 @@
         </div>
     </footer>
 
-    <!-- Floating Action Buttons -->
+   <!-- Floating Action Buttons -->
     <div class="floating-buttons">
         <a href="https://wa.me/919611196716" class="floating-btn whatsapp-btn" target="_blank" title="WhatsApp Us">
             💬
@@ -2070,7 +2202,36 @@
         </button>
     </div>
 
-    </div>
+    <!-- Contact Popup Modal (for the ✉️ floating button) -->
+<div class="popup-modal" id="contactPopup" aria-hidden="true">
+  <div class="popup-content" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+    <button class="popup-close" id="contactPopupClose" aria-label="Close popup">&times;</button>
+    <h2 class="popup-title" id="popupTitle">Quick Contact</h2>
+
+    <!-- Option A: small quick form (you can choose to keep or remove) -->
+    <form id="popupContactForm" class="popup-form">
+      <div class="form-group-contact">
+        <label for="popup-name">Name</label>
+        <input id="popup-name" type="text" placeholder="Your name" required>
+      </div>
+      <div class="form-group-contact">
+        <label for="popup-email">Email</label>
+        <input id="popup-email" type="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group-contact">
+        <label for="popup-message">Message</label>
+        <textarea id="popup-message" placeholder="Short message..." required></textarea>
+      </div>
+      <button class="popup-submit-btn" type="button" id="popupSendBtn">Send</button>
+      <div id="popupFormMsg" class="form-message" style="display:none; margin-top:0.75rem;"></div>
+    </form>
+
+    <!-- Option B: or link to main contact section (comment out if using quick form) -->
+    <!-- <p style="text-align:center; margin-top:1rem;"><a href="#contact" id="gotoContactFromPopup">Open full contact form</a></p> -->
+  </div>
+</div>
+
+
 <!-- Project Modal -->
     <div class="project-modal" id="projectModal">
         <button class="project-modal-close" onclick="closeProjectModal()">&times;</button>
@@ -2095,7 +2256,7 @@ const projectData = {
   villa1: {
     title: 'Chittoor Residence',
     subtitle: 'Modern Villa Design',
-    description: 'A stunning residential project featuring open-plan living spaces with panoramic views. This contemporary villa showcases clean architectural lines, spacious interiors, and thoughtful integration with the surrounding landscape.',
+    // description: 'A stunning residential project featuring open-plan living spaces with panoramic views. This contemporary villa showcases clean architectural lines, spacious interiors, and thoughtful integration with the surrounding landscape.',
     images: [
       './VILLAS/Chittoor Residence/CR - RD - 1.jpg'
     ]
@@ -2103,7 +2264,7 @@ const projectData = {
   villa2: {
     title: 'Balaji Residence',
     subtitle: 'Courtyard Villa Design',
-    description: 'Private central courtyard with natural light flooding through spacious rooms. Features traditional elements with modern amenities.',
+    // description: 'Private central courtyard with natural light flooding through spacious rooms. Features traditional elements with modern amenities.',
     images: [
         './VILLAS/balaji residence/PHOTO-2024-09-14-23-17-16.jpg',
          './VILLAS/balaji residence/balaji-sabdata/PHOTO-2024-09-14-23-17-49.jpg',
@@ -2116,7 +2277,7 @@ const projectData = {
   villa3: {
     title: 'Duplex Villa 02',
     subtitle: 'Minimalist Contemporary Design',
-    description: 'Clean lines and refined materials define this minimalist villa. Focus on simplicity and functionality with modern aesthetics.',
+    // description: 'Clean lines and refined materials define this minimalist villa. Focus on simplicity and functionality with modern aesthetics.',
     images: [
       './VILLAS/Duplex Villas 02/DV2 - RD - 2.jpg'
     ]
@@ -2124,7 +2285,7 @@ const projectData = {
   villa4: {
     title: 'Neelanmangala Villa',
     subtitle: 'Tropical Living Design',
-    description: 'Indoor-outdoor living with lush landscaping. Perfect blend of tropical architecture and modern comfort.',
+    // description: 'Indoor-outdoor living with lush landscaping. Perfect blend of tropical architecture and modern comfort.',
     images: [
       './VILLAS/Neelanmangala villa/NR - RD - 1.jpg'
     ]
@@ -2132,7 +2293,7 @@ const projectData = {
   villa5: {
     title: 'Sekar Naidu Villa - Tatchoor',
     subtitle: 'Hilltop Residence',
-    description: 'Multi-level terraces and panoramic decks offer breathtaking views. Designed to maximize natural light and ventilation.',
+    // description: 'Multi-level terraces and panoramic decks offer breathtaking views. Designed to maximize natural light and ventilation.',
     images: [
       './VILLAS/Sekar naidu villa - TATCHOOR/sekar-naidu/PHOTO-2024-09-17-09-01-22.jpg',
       './VILLAS/Sekar naidu villa - TATCHOOR/sekar-naidu/PHOTO-2024-09-17-09-01-23 2.jpg',
@@ -2143,7 +2304,7 @@ const projectData = {
   villa6: {
     title: 'Slope Roof House',
     subtitle: 'Eco-Friendly Villa Design',
-    description: 'Sustainable design with passive cooling techniques. Features sloped roofs for natural ventilation and rainwater harvesting.',
+    // description: 'Sustainable design with passive cooling techniques. Features sloped roofs for natural ventilation and rainwater harvesting.',
     images: [
       './VILLAS/SLOPE ROOF HOUSE/Sloperoofhouse01.jpg',
       './VILLAS/SLOPE ROOF HOUSE/Sloperoofhouse02.jpg',
@@ -2153,7 +2314,7 @@ const projectData = {
   villa7: {
     title: 'Tumkur Villa',
     subtitle: 'Contemporary Bold Design',
-    description: 'Bold geometry and dramatic facades create a striking presence. Modern materials and innovative structural solutions.',
+    // description: 'Bold geometry and dramatic facades create a striking presence. Modern materials and innovative structural solutions.',
     images: [
          './VILLAS/Tumkur VILLA/tumkur-villa/TR - RD - 1.jpg',
       './VILLAS/Tumkur VILLA/tumkur-villa/TR - RD - 2.jpg'
@@ -2162,7 +2323,7 @@ const projectData = {
   villa8: {
     title: 'Vargese Villa',
     subtitle: 'Riverside Luxury Villa',
-    description: 'Waterfront terraces and reflective pools create a serene atmosphere. Seamless connection between indoor and outdoor spaces.',
+    // description: 'Waterfront terraces and reflective pools create a serene atmosphere. Seamless connection between indoor and outdoor spaces.',
     images: [
         './VILLAS/Vargese VILLA/VR - RD - 1.jpg',
       './VILLAS/Vargese VILLA/vargese-villa/VR - FP - 1.jpg'
@@ -2172,7 +2333,7 @@ const projectData = {
   villa9: {
     title: 'Rammoorthy Nagar Villa',
     subtitle: 'Heritage Contemporary Villa',
-    description: 'Adaptive reuse with traditional detailing. Preserving heritage elements while incorporating modern comforts.',
+    // description: 'Adaptive reuse with traditional detailing. Preserving heritage elements while incorporating modern comforts.',
     images: [
         './VILLAS/villa -Rammoorthy Nagar /RNR - RD - 1.jpg',
       './VILLAS/villa -Rammoorthy Nagar /rammoorthy-nagar/RNR - FP - 1.jpg',
@@ -2182,9 +2343,9 @@ const projectData = {
   villa10: {
     title: 'JSR Villa',
     subtitle: 'Desert Climate Villa',
-    description: 'Thermal massing and sheltered courtyards designed for desert climates. Focus on natural cooling and energy efficiency.',
+    // description: 'Thermal massing and sheltered courtyards designed for desert climates. Focus on natural cooling and energy efficiency.',
     images: [
-      './VILLAS/JSR VILLA/#',
+      './Header-Logo/Header-landing-Images/2header.jpeg',
     ]
   },
   
@@ -2192,7 +2353,7 @@ const projectData = {
   apt1: {
     title: 'Kayal Builders - Kolapakkam',
     subtitle: 'Skyline Premium Apartments',
-    description: 'Premium tower with double-height lobby and modern amenities. Spacious apartments with panoramic city views.',
+    // description: 'Premium tower with double-height lobby and modern amenities. Spacious apartments with panoramic city views.',
     images: [
         './APPARTMENTS/ KAYAL BUILDERS - KOLAPAKKAM/011.jpg',
       './APPARTMENTS/ KAYAL BUILDERS - KOLAPAKKAM/untitled folder/007.jpeg',
@@ -2206,7 +2367,7 @@ const projectData = {
   apt2: {
     title: 'Kayal Builders',
     subtitle: 'Urban Residences',
-    description: 'Compact modern homes with efficient layouts. Perfect for urban living with all modern conveniences.',
+    // description: 'Compact modern homes with efficient layouts. Perfect for urban living with all modern conveniences.',
     images: [
         './APPARTMENTS/ KAYAL BUILDERS/001.jpg',
   './APPARTMENTS/ KAYAL BUILDERS/untitled folder/007.jpg'
@@ -2215,7 +2376,7 @@ const projectData = {
   apt3: {
     title: 'Hanstec - Tirupathi',
     subtitle: 'Green Living Apartments',
-    description: 'Landscape-integrated multi-level residences. Sustainable living with abundant green spaces and community areas.',
+    // description: 'Landscape-integrated multi-level residences. Sustainable living with abundant green spaces and community areas.',
     images: [
         './APPARTMENTS/HANSTEC - TIRUPATHI/1.jpg',
       './APPARTMENTS/HANSTEC - TIRUPATHI/hanstec-tirupati/2.jpg',
@@ -2229,7 +2390,7 @@ const projectData = {
   apt4: {
     title: 'Magadi Apartments',
     subtitle: 'Luxury High-Rise',
-    description: 'High-rise project with rooftop amenities. Premium living spaces with world-class facilities and stunning views.',
+    // description: 'High-rise project with rooftop amenities. Premium living spaces with world-class facilities and stunning views.',
     images: [
         './APPARTMENTS/MAGADI APPARTMENTS/NIGHT RENDER.jpg',
       './APPARTMENTS/MAGADI APPARTMENTS/Magadi-Apartment/DAY RENDER.jpg',
@@ -2242,7 +2403,7 @@ const projectData = {
   commercial1: {
     title: 'Royal Complex',
     subtitle: 'Corporate Tower Complex',
-    description: 'Modern office and retail space with sky bridges. State-of-the-art commercial development with premium finishes and smart building features.',
+    // description: 'Modern office and retail space with sky bridges. State-of-the-art commercial development with premium finishes and smart building features.',
     images: [
         './COMMERCIAL PROJECTS/Royal Complex/RC - RD - 1.jpg',
       './COMMERCIAL PROJECTS/Royal Complex/Royal-complex/RC - RD - 2.jpg',
@@ -2254,7 +2415,7 @@ const projectData = {
   institution1: {
     title: 'Euro Kids School',
     subtitle: 'Educational Campus',
-    description: 'Modern learning spaces with sustainable design. Child-friendly architecture promoting creativity, learning, and play.',
+    // description: 'Modern learning spaces with sustainable design. Child-friendly architecture promoting creativity, learning, and play.',
     images: [
         './INSTITUTIONS/Euro Kids School/EKS - RD - 2.jpg',
       './INSTITUTIONS/Euro Kids School/Euro-kids/EKS - RD - 1.jpg',
@@ -2263,7 +2424,8 @@ const projectData = {
     ]
   }
 };
-// Open Project Modal
+
+// Project Modal Functions
 function openProjectModal(projectId) {
   const modal = document.getElementById('projectModal');
   const project = projectData[projectId];
@@ -2288,21 +2450,19 @@ function openProjectModal(projectId) {
   document.body.style.overflow = 'hidden';
 }
 
-// Close Project Modal
 function closeProjectModal() {
   const modal = document.getElementById('projectModal');
   modal.classList.remove('show');
   document.body.style.overflow = 'auto';
 }
 
-// Close modal on ESC key
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
     closeProjectModal();
   }
 });
 
-// Projects filter (lightweight)
+// Projects filter
 (function(){
   const filterButtons = document.querySelectorAll('.filter-btn');
   const projectItems = document.querySelectorAll('#projectsGallery .project-item');
@@ -2338,142 +2498,119 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Popup Modal Functionality
-const openPopupBtn = document.getElementById('openPopupBtn');
-const closePopupBtn = document.getElementById('closePopupBtn');
-const contactPopup = document.getElementById('contactPopup');
-const popupContactForm = document.getElementById('popupContactForm');
-
-openPopupBtn.addEventListener('click', () => {
-    contactPopup.classList.add('show');
-});
-
-closePopupBtn.addEventListener('click', () => {
-    contactPopup.classList.remove('show');
-});
-
-// Close popup when clicking outside
-contactPopup.addEventListener('click', (e) => {
-    if (e.target === contactPopup) {
-        contactPopup.classList.remove('show');
-    }
-});
-
-
-
 // Calculator functionality
 const shapeSelect = document.getElementById('shapeSelect');
 const calculateBtn = document.getElementById('calculateBtn');
 const resultSection = document.getElementById('resultSection');
 
-shapeSelect.addEventListener('change', function() {
-    const containers = document.querySelectorAll('.input-fields-container');
-    containers.forEach(c => c.classList.remove('active'));
-    
-    const selectedShape = this.value;
-    if (selectedShape) {
-        const container = document.getElementById(selectedShape + '-inputs');
-        if (container) {
-            container.classList.add('active');
+if (shapeSelect && calculateBtn) {
+    shapeSelect.addEventListener('change', function() {
+        const containers = document.querySelectorAll('.input-fields-container');
+        containers.forEach(c => c.classList.remove('active'));
+        
+        const selectedShape = this.value;
+        if (selectedShape) {
+            const container = document.getElementById(selectedShape + '-inputs');
+            if (container) {
+                container.classList.add('active');
+            }
         }
-    }
-    
-    resultSection.classList.remove('show');
-});
+        
+        if (resultSection) resultSection.classList.remove('show');
+    });
 
-calculateBtn.addEventListener('click', function() {
-    const shape = shapeSelect.value;
-    if (!shape) {
-        alert('Please select a shape first!');
-        return;
-    }
-
-    let areaSqFt = 0;
-
-    try {
-        switch(shape) {
-            case 'rectangle':
-                const rectLength = parseFloat(document.getElementById('rect-length').value);
-                const rectWidth = parseFloat(document.getElementById('rect-width').value);
-                const rectLengthUnit = document.getElementById('rect-length-unit').value;
-                const rectWidthUnit = document.getElementById('rect-width-unit').value;
-                
-                const lengthInFt = rectLength * (rectLengthUnit === 'meters' ? 3.28084 : rectLengthUnit === 'yards' ? 3 : 1);
-                const widthInFt = rectWidth * (rectWidthUnit === 'meters' ? 3.28084 : rectWidthUnit === 'yards' ? 3 : 1);
-                areaSqFt = lengthInFt * widthInFt;
-                break;
-
-            case 'square':
-                const squareSide = parseFloat(document.getElementById('square-side').value);
-                const squareUnit = document.getElementById('square-side-unit').value;
-                const sideInFt = squareSide * (squareUnit === 'meters' ? 3.28084 : squareUnit === 'yards' ? 3 : 1);
-                areaSqFt = sideInFt * sideInFt;
-                break;
-
-            case 'circle':
-                const radius = parseFloat(document.getElementById('circle-radius').value);
-                const radiusUnit = document.getElementById('circle-radius-unit').value;
-                const radiusInFt = radius * (radiusUnit === 'meters' ? 3.28084 : radiusUnit === 'yards' ? 3 : 1);
-                areaSqFt = Math.PI * radiusInFt * radiusInFt;
-                break;
-
-            case 'triangle':
-                const triBase = parseFloat(document.getElementById('triangle-base').value);
-                const triHeight = parseFloat(document.getElementById('triangle-height').value);
-                const triBaseUnit = document.getElementById('triangle-base-unit').value;
-                const triHeightUnit = document.getElementById('triangle-height-unit').value;
-                const baseInFt = triBase * (triBaseUnit === 'meters' ? 3.28084 : triBaseUnit === 'yards' ? 3 : 1);
-                const heightInFt = triHeight * (triHeightUnit === 'meters' ? 3.28084 : triHeightUnit === 'yards' ? 3 : 1);
-                areaSqFt = 0.5 * baseInFt * heightInFt;
-                break;
-
-            case 'parallelogram':
-                const paraBase = parseFloat(document.getElementById('para-base').value);
-                const paraHeight = parseFloat(document.getElementById('para-height').value);
-                const paraBaseUnit = document.getElementById('para-base-unit').value;
-                const paraHeightUnit = document.getElementById('para-height-unit').value;
-                const paraBaseInFt = paraBase * (paraBaseUnit === 'meters' ? 3.28084 : paraBaseUnit === 'yards' ? 3 : 1);
-                const paraHeightInFt = paraHeight * (paraHeightUnit === 'meters' ? 3.28084 : paraHeightUnit === 'yards' ? 3 : 1);
-                areaSqFt = paraBaseInFt * paraHeightInFt;
-                break;
-
-            case 'trapezoid':
-                const trapBase1 = parseFloat(document.getElementById('trap-base1').value);
-                const trapBase2 = parseFloat(document.getElementById('trap-base2').value);
-                const trapHeight = parseFloat(document.getElementById('trap-height').value);
-                const trapBase1Unit = document.getElementById('trap-base1-unit').value;
-                const trapBase2Unit = document.getElementById('trap-base2-unit').value;
-                const trapHeightUnit = document.getElementById('trap-height-unit').value;
-                const base1InFt = trapBase1 * (trapBase1Unit === 'meters' ? 3.28084 : trapBase1Unit === 'yards' ? 3 : 1);
-                const base2InFt = trapBase2 * (trapBase2Unit === 'meters' ? 3.28084 : trapBase2Unit === 'yards' ? 3 : 1);
-                const trapHeightInFt = trapHeight * (trapHeightUnit === 'meters' ? 3.28084 : trapHeightUnit === 'yards' ? 3 : 1);
-                areaSqFt = 0.5 * (base1InFt + base2InFt) * trapHeightInFt;
-                break;
-        }
-
-        if (isNaN(areaSqFt) || areaSqFt <= 0) {
-            alert('Please enter valid measurements!');
+    calculateBtn.addEventListener('click', function() {
+        const shape = shapeSelect.value;
+        if (!shape) {
+            alert('Please select a shape first!');
             return;
         }
 
-        const sqMeters = areaSqFt / 10.7639;
-        const acres = areaSqFt / 43560;
+        let areaSqFt = 0;
 
-        document.getElementById('areaResult').textContent = areaSqFt.toFixed(2) + ' sq ft';
-        document.getElementById('sqftResult').textContent = areaSqFt.toFixed(2) + ' sq ft';
-        document.getElementById('sqmResult').textContent = sqMeters.toFixed(2) + ' sq m';
-        document.getElementById('acresResult').textContent = acres.toFixed(4) + ' acres';
+        try {
+            switch(shape) {
+                case 'rectangle':
+                    const rectLength = parseFloat(document.getElementById('rect-length').value);
+                    const rectWidth = parseFloat(document.getElementById('rect-width').value);
+                    const rectLengthUnit = document.getElementById('rect-length-unit').value;
+                    const rectWidthUnit = document.getElementById('rect-width-unit').value;
+                    
+                    const lengthInFt = rectLength * (rectLengthUnit === 'meters' ? 3.28084 : rectLengthUnit === 'yards' ? 3 : 1);
+                    const widthInFt = rectWidth * (rectWidthUnit === 'meters' ? 3.28084 : rectWidthUnit === 'yards' ? 3 : 1);
+                    areaSqFt = lengthInFt * widthInFt;
+                    break;
 
-        resultSection.classList.add('show');
+                case 'square':
+                    const squareSide = parseFloat(document.getElementById('square-side').value);
+                    const squareUnit = document.getElementById('square-side-unit').value;
+                    const sideInFt = squareSide * (squareUnit === 'meters' ? 3.28084 : squareUnit === 'yards' ? 3 : 1);
+                    areaSqFt = sideInFt * sideInFt;
+                    break;
 
-    } catch (error) {
-        alert('Please fill in all required fields with valid numbers!');
-    }
-});
+                case 'circle':
+                    const radius = parseFloat(document.getElementById('circle-radius').value);
+                    const radiusUnit = document.getElementById('circle-radius-unit').value;
+                    const radiusInFt = radius * (radiusUnit === 'meters' ? 3.28084 : radiusUnit === 'yards' ? 3 : 1);
+                    areaSqFt = Math.PI * radiusInFt * radiusInFt;
+                    break;
 
-// Contact Form Handler - Stay on same page
-// Contact Form Handler - Stay on same page
-// Contact Form Handler - Formspree Integration
+                case 'triangle':
+                    const triBase = parseFloat(document.getElementById('triangle-base').value);
+                    const triHeight = parseFloat(document.getElementById('triangle-height').value);
+                    const triBaseUnit = document.getElementById('triangle-base-unit').value;
+                    const triHeightUnit = document.getElementById('triangle-height-unit').value;
+                    const baseInFt = triBase * (triBaseUnit === 'meters' ? 3.28084 : triBaseUnit === 'yards' ? 3 : 1);
+                    const heightInFt = triHeight * (triHeightUnit === 'meters' ? 3.28084 : triHeightUnit === 'yards' ? 3 : 1);
+                    areaSqFt = 0.5 * baseInFt * heightInFt;
+                    break;
+
+                case 'parallelogram':
+                    const paraBase = parseFloat(document.getElementById('para-base').value);
+                    const paraHeight = parseFloat(document.getElementById('para-height').value);
+                    const paraBaseUnit = document.getElementById('para-base-unit').value;
+                    const paraHeightUnit = document.getElementById('para-height-unit').value;
+                    const paraBaseInFt = paraBase * (paraBaseUnit === 'meters' ? 3.28084 : paraBaseUnit === 'yards' ? 3 : 1);
+                    const paraHeightInFt = paraHeight * (paraHeightUnit === 'meters' ? 3.28084 : paraHeightUnit === 'yards' ? 3 : 1);
+                    areaSqFt = paraBaseInFt * paraHeightInFt;
+                    break;
+
+                case 'trapezoid':
+                    const trapBase1 = parseFloat(document.getElementById('trap-base1').value);
+                    const trapBase2 = parseFloat(document.getElementById('trap-base2').value);
+                    const trapHeight = parseFloat(document.getElementById('trap-height').value);
+                    const trapBase1Unit = document.getElementById('trap-base1-unit').value;
+                    const trapBase2Unit = document.getElementById('trap-base2-unit').value;
+                    const trapHeightUnit = document.getElementById('trap-height-unit').value;
+                    const base1InFt = trapBase1 * (trapBase1Unit === 'meters' ? 3.28084 : trapBase1Unit === 'yards' ? 3 : 1);
+                    const base2InFt = trapBase2 * (trapBase2Unit === 'meters' ? 3.28084 : trapBase2Unit === 'yards' ? 3 : 1);
+                    const trapHeightInFt = trapHeight * (trapHeightUnit === 'meters' ? 3.28084 : trapHeightUnit === 'yards' ? 3 : 1);
+                    areaSqFt = 0.5 * (base1InFt + base2InFt) * trapHeightInFt;
+                    break;
+            }
+
+            if (isNaN(areaSqFt) || areaSqFt <= 0) {
+                alert('Please enter valid measurements!');
+                return;
+            }
+
+            const sqMeters = areaSqFt / 10.7639;
+            const acres = areaSqFt / 43560;
+
+            document.getElementById('areaResult').textContent = areaSqFt.toFixed(2) + ' sq ft';
+            document.getElementById('sqftResult').textContent = areaSqFt.toFixed(2) + ' sq ft';
+            document.getElementById('sqmResult').textContent = sqMeters.toFixed(2) + ' sq m';
+            document.getElementById('acresResult').textContent = acres.toFixed(4) + ' acres';
+
+            if (resultSection) resultSection.classList.add('show');
+
+        } catch (error) {
+            alert('Please fill in all required fields with valid numbers!');
+        }
+    });
+}
+
+// Contact Form Handler
 (function(){
   const form = document.getElementById('contactForm');
   if (!form) return;
@@ -2485,11 +2622,8 @@ calculateBtn.addEventListener('click', function() {
     formMessage.className = 'form-message ' + type;
     formMessage.style.display = 'block';
     formMessage.textContent = text;
-    
-    // Scroll to message
     formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     
-    // Auto-hide success message after 8 seconds
     if (type === 'success') {
       setTimeout(() => {
         formMessage.style.display = 'none';
@@ -2498,15 +2632,21 @@ calculateBtn.addEventListener('click', function() {
   }
 
   form.addEventListener('submit', async function(e){
-    e.preventDefault(); // Prevent default form submission and redirect
+    e.preventDefault();
 
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
 
+    const formData = new FormData();
+    formData.append('name', document.getElementById('contact-name').value);
+    formData.append('email', document.getElementById('contact-email').value);
+    formData.append('phone', document.getElementById('contact-phone').value);
+    formData.append('message', document.getElementById('contact-message').value);
+
     try {
-      const response = await fetch(form.action, {
+      const response = await fetch('https://formspree.io/f/xrbrkdng', {
         method: 'POST',
-        body: new FormData(form),
+        body: formData,
         headers: {
           'Accept': 'application/json'
         }
@@ -2514,21 +2654,167 @@ calculateBtn.addEventListener('click', function() {
 
       if (response.ok) {
         showMessage('success', '✓ Thank you! Your message has been sent successfully. We will contact you soon.');
-        form.reset(); // Clear all form fields
+        form.reset();
       } else {
-        const data = await response.json();
-        if (data.errors) {
-          showMessage('error', '✗ Oops! There were some errors: ' + data.errors.map(e => e.message).join(', '));
-        } else {
-          showMessage('error', '✗ Oops! There was a problem submitting your form. Please try again.');
-        }
+        showMessage('error', '✗ Oops! There was a problem. Please try again or call us directly.');
       }
-    } catch (error) {
-      showMessage('error', '✗ Network error. Please check your internet connection and try again.');
+    } catch (err) {
+      showMessage('error', '✗ Network error. Please check your connection and try again.');
     }
 
     submitBtn.disabled = false;
     submitBtn.textContent = 'Send Message';
+  });
+})();
+
+// ✅ HERO SLIDER - CLEAN & WORKING VERSION
+(function() {
+    const slides = document.querySelectorAll('.hero-slide');
+    const progressBar = document.getElementById('slideProgress');
+    
+    if (!slides.length) return;
+    
+    let currentSlide = 0;
+    const slideInterval = 5000; // 5 seconds
+    let slideTimer = null;
+    let progressTimer = null;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+        
+        if (progressBar) {
+            progressBar.style.width = '0%';
+            animateProgress();
+        }
+    }
+
+    function animateProgress() {
+        if (!progressBar) return;
+        
+        let width = 0;
+        const increment = 100 / (slideInterval / 50);
+        
+        if (progressTimer) clearInterval(progressTimer);
+        
+        progressTimer = setInterval(() => {
+            width += increment;
+            if (width >= 100) {
+                width = 100;
+                clearInterval(progressTimer);
+            }
+            progressBar.style.width = width + '%';
+        }, 50);
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function startSlider() {
+        if (slideTimer) clearInterval(slideTimer);
+        slideTimer = setInterval(nextSlide, slideInterval);
+        showSlide(currentSlide);
+    }
+
+    // Start the slider
+    startSlider();
+    
+    console.log('✅ Hero slider initialized with', slides.length, 'slides');
+})();
+
+// CONTACT POPUP logic
+(function(){
+  const openBtn = document.getElementById('openPopupBtn');
+  const popup = document.getElementById('contactPopup');
+  const closeBtn = document.getElementById('contactPopupClose');
+  const popupSendBtn = document.getElementById('popupSendBtn');
+  const popupFormMsg = document.getElementById('popupFormMsg');
+
+  if (!openBtn || !popup) return;
+
+  function openPopup() {
+    popup.classList.add('show');
+    popup.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    // focus the first input for accessibility
+    const firstInput = popup.querySelector('input, textarea, button');
+    if (firstInput) firstInput.focus();
+  }
+
+  function closePopup() {
+    popup.classList.remove('show');
+    popup.setAttribute('aria-hidden','true');
+    document.body.style.overflow = 'auto';
+  }
+
+  openBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    openPopup();
+  });
+
+  closeBtn && closeBtn.addEventListener('click', closePopup);
+
+  // close when clicking outside content
+  popup.addEventListener('click', (e) => {
+    if (e.target === popup) closePopup();
+  });
+
+  // close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && popup.classList.contains('show')) closePopup();
+  });
+
+  // Optional: send quick popup form via Formspree
+  popupSendBtn && popupSendBtn.addEventListener('click', async () => {
+    const name = document.getElementById('popup-name').value.trim();
+    const email = document.getElementById('popup-email').value.trim();
+    const message = document.getElementById('popup-message').value.trim();
+
+    if (!name || !email || !message) {
+      popupFormMsg.className = 'form-message error';
+      popupFormMsg.style.display = 'block';
+      popupFormMsg.textContent = 'Please fill all fields.';
+      return;
+    }
+
+    popupSendBtn.disabled = true;
+    popupSendBtn.textContent = 'Sending...';
+
+    try {
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('message', message);
+
+      const res = await fetch('https://formspree.io/f/xrbrkdng', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        popupFormMsg.className = 'form-message success';
+        popupFormMsg.style.display = 'block';
+        popupFormMsg.textContent = '✓ Message sent. We will contact you shortly.';
+        // reset quick popup form
+        document.getElementById('popupContactForm').reset();
+        setTimeout(() => { closePopup(); popupFormMsg.style.display = 'none'; }, 1600);
+      } else {
+        popupFormMsg.className = 'form-message error';
+        popupFormMsg.style.display = 'block';
+        popupFormMsg.textContent = '✗ Error sending. Try again later.';
+      }
+    } catch (err) {
+      popupFormMsg.className = 'form-message error';
+      popupFormMsg.style.display = 'block';
+      popupFormMsg.textContent = '✗ Network error.';
+    } finally {
+      popupSendBtn.disabled = false;
+      popupSendBtn.textContent = 'Send';
+    }
   });
 })();
 </script>
