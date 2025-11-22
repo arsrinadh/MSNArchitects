@@ -29,17 +29,31 @@
 <meta name="theme-color" content="#00d4ff">
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-            line-height: 1.6;
-        }
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    position: relative;
+}
 
         /* Header & Navigation */
         header {
@@ -125,9 +139,19 @@
         }
 
         /* Packages Section */
-        #packages {
-            background: #f8f9fa;
-        }
+        /* Packages Section */
+#packages {
+    background: #f8f9fa;
+    width: 100%;
+    padding: 4rem 0;
+}
+
+#packages .section-title,
+#packages .packages-grid,
+#packages .package-notes {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
 
       .packages-grid {
   display: grid;
@@ -316,18 +340,21 @@
 
         /* Hero Section */
       /* ENHANCED HERO SECTION - Replace your existing hero CSS */
-        .hero {
-            position: relative;
-            color: white;
-            text-align: center;
-            padding: 10rem 2rem;
-            overflow: hidden;
-            min-height: 700px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
+       /* Hero Section */
+.hero {
+    position: relative;
+    color: white;
+    text-align: center;
+    padding: 10rem 2rem;
+    overflow: hidden;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100vw;
+    margin: 0;
+}
         /* Background Slider Container */
         .hero-slider {
             position: absolute;
@@ -469,11 +496,18 @@
         }
 
         /* Section Styles */
-        section {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
+       /* Section Styles */
+section {
+    width: 100%;
+    margin: 0;
+    padding: 4rem 2rem;
+}
+
+section > * {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
         .section-title {
             text-align: center;
@@ -553,9 +587,16 @@
         }
 
         /* About Section */
-        #about {
-            background: #f8f9fa;
-        }
+       /* About Section */
+#about {
+    background: #f8f9fa;
+    width: 100%;
+    padding: 4rem 0;
+}
+
+#about .about-content {
+    padding: 0 2rem;
+}
 
         .about-content {
             max-width: 800px;
@@ -1086,15 +1127,15 @@ select:focus {
         }
 
         /* Floating Action Buttons */
-        .floating-buttons {
-            position: fixed;
-            right: 30px;
-            bottom: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 999;
-        }
+       .floating-buttons {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 999;
+}
 
         .floating-btn {
             width: 60px;
@@ -1657,7 +1698,15 @@ nav { background: transparent; }
 @media (max-width: 768px) {
   .footer-content { grid-template-columns: 1fr; gap: 1.5rem; padding: 1rem; }
 }
+/* Force full width - Emergency fix */
+body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+}
 
+.floating-buttons {
+    right: 15px !important;
+}
     </style>
     <!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
