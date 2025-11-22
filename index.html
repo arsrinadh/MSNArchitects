@@ -22,8 +22,12 @@
 <meta name="twitter:image" content="https://msnarchitects.in/Header-Logo/MSNLogo-header.png">
 
 <!-- Favicon & App Icons -->
-<link rel="icon" href="Header-Logo/MSNLogo-header.png" type="image/png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<!-- Favicon & App Icons -->
+<link rel="icon" type="image/png" sizes="32x32" href="https://msnarchitects.in/Header-Logo/MSNLogo-header.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://msnarchitects.in/Header-Logo/MSNLogo-header.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://msnarchitects.in/Header-Logo/MSNLogo-header.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://msnarchitects.in/Header-Logo/MSNLogo-header.png">
+<link rel="shortcut icon" href="https://msnarchitects.in/Header-Logo/MSNLogo-header.png">
 
 <!-- Browser Theme Color (Mobile address bar color) -->
 <meta name="theme-color" content="#00d4ff">
@@ -1718,7 +1722,12 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
       "@id": "https://msnarchitects.in/#organization",
       "name": "MSN Architects",
       "url": "https://msnarchitects.in/",
-      "logo": "https://msnarchitects.in/Header-Logo/MSNLogo-header.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://msnarchitects.in/Header-Logo/MSNLogo-header.png",
+        "width": 512,
+        "height": 512
+      },
       "sameAs": [
         "https://www.instagram.com/yourprofile",
         "https://www.facebook.com/yourprofile",
@@ -1730,16 +1739,28 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
       "@type": "LocalBusiness",
       "@id": "https://msnarchitects.in/#localbusiness",
       "name": "MSN Architects",
-      "image": "https://msnarchitects.in/Header-Logo/MSNLogo-header.png",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://msnarchitects.in/Header-Logo/MSNLogo-header.png",
+        "width": 512,
+        "height": 512
+      },
       "url": "https://msnarchitects.in/",
       "telephone": "+919566121294",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Bangalore",
+        "streetAddress": "A25, Ferns City Road, Doddanekundi",
+        "addressLocality": "Bengaluru",
         "addressRegion": "Karnataka",
+        "postalCode": "560037",
         "addressCountry": "IN"
       },
-      "priceRange": "₹₹"
+      "priceRange": "₹₹",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 12.9716,
+        "longitude": 77.5946
+      }
     },
     {
       "@type": "WebSite",
