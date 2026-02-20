@@ -160,17 +160,21 @@ body {
     padding-right: 2rem;
 }
 
-      .packages-grid {
+   .packages-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-top: 3rem;
   align-items: start;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media (max-width: 900px) {
-  .packages-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+ /* fluid packages grid using auto-fit */
+.packages-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
 }
 @media (max-width: 600px) {
   .packages-grid {
@@ -199,7 +203,7 @@ body {
         }
 
         .package-header {
-            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+                background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
             color: white;
             padding: 1.5rem;
             text-align: center;
@@ -207,11 +211,12 @@ body {
         }
 
         .package-card.premium .package-header {
-            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            background: linear-gradient(135deg, #0099cc 0%, #00d4ff 100%);
         }
 
         .package-card.ultra .package-header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #00d4ff 100%);
+              background: linear-gradient(135deg, #b8860b 0%, #ffd700 100%);
+    color: #1a1a1a;
         }
 
         .package-title {
@@ -1908,115 +1913,96 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
         
         <div class="packages-grid">
             <!-- Basic Package -->
-            <div class="package-card">
-                <div class="package-header">
-                    <div class="package-title">Basic</div>
-                    <div class="package-price">₹55 <span class="package-price-unit">per sqft</span></div>
-                    <div class="package-subtitle">Concept Design</div>
-                </div>
-                <div class="package-features">
-                    <div class="feature-item included">Scheme Drawing: All Floors (2D)</div>
-                    <div class="feature-item included">Furniture Layout: All Floors (2D)</div>
-                    <div class="feature-item included">Elevation Design (3D)</div>
-                </div>
-                <div class="package-footer">
-                    <div class="package-visits">Office Visits: Max 4</div>
-                    <div class="package-delivery">Delivery: 6 Working Days</div>
-                    <button class="book-btn" onclick="alert('Please call +91 9611196716 to book this package')">Book Now</button>
-                </div>
-            </div>
+           <!-- Basic Package -->
+<div class="package-card">
+    <div class="package-header">
+        <div class="package-title">Basic</div>
+        <div class="package-price">₹140 <span class="package-price-unit">per sqft</span></div>
+        <div class="package-subtitle">Concept Design + Working Drawings</div>
+    </div>
+    <div class="package-features">
+        <div class="feature-item included">Site Assessment & Site Plan</div>
+        <div class="feature-item included">Scheme Drawing: All Floors (2D) + Furniture Layouts</div>
+        <div class="feature-item included">Elevation Design (2D + 3D)</div>
+        <div class="feature-item included">Landscaping Architecture Design</div>
+        <div class="feature-item included">Working Drawing: All Floors (2D)</div>
+        <div class="feature-item included">Elevation Detail Drawing (2D)</div>
+        <div class="feature-item included">Structural Drawings</div>
+    </div>
+    <div class="package-footer">
+        <div class="package-visits">Site Visits: Max 4</div>
+        <div class="package-delivery">Delivery: 24 Working Days</div>
+        <button class="book-btn" onclick="alert('Please call +91 9611196716 to book this package')">Book Now</button>
+    </div>
+</div>
 
-            <!-- Standard Package -->
-            <div class="package-card">
-                <div class="package-header">
-                    <div class="package-title">Standard</div>
-                    <div class="package-price">₹110 <span class="package-price-unit">per sqft</span></div>
-                    <div class="package-subtitle">Concept Design + Working Drawings</div>
-                </div>
-                <div class="package-features">
-                    <div class="feature-item included">Scheme Drawing: All Floors (2D)</div>
-                    <div class="feature-item included">Furniture Layout: All Floors (2D)</div>
-                    <div class="feature-item included">Elevation Design (3D)</div>
-                    <div class="feature-item included">Electrical Drawings: All Floors (2D)</div>
-                    <div class="feature-item included">Plumbing Drawing: All Floors (2D)</div>
-                    <div class="feature-item included">Working Drawing: All Floors (2D)</div>
-                    <div class="feature-item included">Soil Testing Report</div>
-                    <div class="feature-item included">Structural Drawings</div>
-                    <div class="feature-item included">Site Assessment & Site Plan</div>
-                    <div class="feature-item included">Elevation Detail Drawing (2D)</div>
-                    <div class="feature-item included">Construction Quotation</div>
-                </div>
-                <div class="package-footer">
-                    <div class="package-visits">Office Visits: Max 8</div>
-                    <div class="package-delivery">Delivery: 20 Working Days</div>
-                    <button class="book-btn" onclick="alert('Please call +91 9611196716 to book this package')">Book Now</button>
-                </div>
-            </div>
+<!-- Standard Package -->
+<div class="package-card">
+    <div class="package-header">
+        <div class="package-title">Standard</div>
+        <div class="package-price">₹250 <span class="package-price-unit">per sqft</span></div>
+        <div class="package-subtitle">Concept Design + Working Drawings + Interior</div>
+    </div>
+    <div class="package-features">
+        <div class="feature-item included">Site Assessment & Site Plan</div>
+        <div class="feature-item included">Scheme Drawing: All Floors (2D) + Furniture Layouts</div>
+        <div class="feature-item included">Elevation Design (2D + 3D)</div>
+        <div class="feature-item included">Landscaping Architecture Design</div>
+        <div class="feature-item included">Working Drawing: All Floors (2D)</div>
+        <div class="feature-item included">Elevation Detail Drawing (2D)</div>
+        <div class="feature-item included">Structural Drawings + BOQ</div>
+        <div class="feature-item included">Electrical & Plumbing Drawings: All Floors (2D)</div>
+        <div class="feature-item included">Interior Design Concept</div>
+        <div class="feature-item included">Interior Design Detail Drawings</div>
+        <div class="feature-item included">Interior Views: All Rooms (3D)</div>
+        <div class="feature-item included">Interior Detailing: All Rooms (2D)</div>
+        <div class="feature-item included">Interior Quotation</div>
+        <div class="feature-item included">Construction Quotation</div>
+        <div class="feature-item included">Approval Drawing</div>
+    </div>
+    <div class="package-footer">
+        <div class="package-visits">Site Visits: Max 6</div>
+        <div class="package-delivery">Delivery: 24 Working Days</div>
+        <button class="book-btn" onclick="alert('Please call +91 9611196716 to book this package')">Book Now</button>
+    </div>
+</div>
 
-            <!-- Premium Package -->
-            <div class="package-card premium">
-                <div class="package-header">
-                    <div class="package-title">Premium</div>
-                    <div class="package-price">₹170 <span class="package-price-unit">per sqft</span></div>
-                    <div class="package-subtitle">Concept Design + Working Drawings + Interior</div>
-                </div>
-                <div class="package-features">
-                    <div class="feature-item included">Scheme Drawing: All Floors (2D)</div>
-                    <div class="feature-item included">Furniture Layout: All Floors (2D)</div>
-                    <div class="feature-item included">Elevation Design (3D)</div>
-                    <div class="feature-item included">Electrical Drawings: All Floors (2D)</div>
-                    <div class="feature-item included">Plumbing Drawing: All Floors (2D)</div>
-                    <div class="feature-item included">Working Drawing: All Floors (2D)</div>
-                    <div class="feature-item included">Soil Testing Report</div>
-                    <div class="feature-item included">Structural Drawings</div>
-                    <div class="feature-item included">Site Assessment & Site Plan</div>
-                    <div class="feature-item included">Elevation Detail Drawing (2D)</div>
-                    <div class="feature-item included">Hall Layout: All Floors (3D)</div>
-                    <div class="feature-item included">Interior Views: All Rooms (3D)</div>
-                    <div class="feature-item included">Interior Detailing: All Rooms (2D)</div>
-                    <div class="feature-item included">Construction Quotation</div>
-                    <div class="feature-item included">Interior Quotation</div>
-                </div>
-                <div class="package-footer"> 
-                    <div class="package-delivery">Delivery: 30 Working Days</div>
-                    <button class="book-btn" onclick="alert('Please call +91 9611196716 to book this package')">Book Now</button>
-                </div>
-            </div>
-
-            <!-- Ultra Premium Package -->
-            <div class="package-card ultra">
-                <div class="package-header">
-                    <div class="package-title">Ultra Premium</div>
-                    <div class="package-price">₹250 <span class="package-price-unit">per sqft</span></div>
-                    <div class="package-subtitle">Complete Package + Material Selection</div>
-                </div>
-                <div class="package-features">
-                    <div class="feature-item included">Scheme Drawing: All Floors (2D)</div>
-                    <div class="feature-item included">Furniture Layout: All Floors (2D)</div>
-                    <div class="feature-item included">Elevation Design (3D)</div>
-                    <div class="feature-item included">Electrical Drawings: All Floors (2D)</div>
-                    <div class="feature-item included">Plumbing Drawing: All Floors (2D)</div>
-                    <div class="feature-item included">Working Drawing: All Floors (2D)</div>
-                    <div class="feature-item included">Soil Testing Report</div>
-                    <div class="feature-item included">Structural Drawings</div>
-                    <div class="feature-item included">Site Assessment & Site Plan</div>
-                    <div class="feature-item included">Elevation Detail Drawing (2D)</div>
-                    <div class="feature-item included">Hall Layout: All Floors (3D)</div>
-                    <div class="feature-item included">Interior Views: All Rooms (3D)</div>
-                    <div class="feature-item included">Interior Detailing: All Rooms (2D)</div>
-                    <div class="feature-item included">Material & Brand Selection</div>
-                    <div class="feature-item included">Landscaping Architecture Design</div>
-                    <div class="feature-item included">Topographical Survey</div>
-                    <div class="feature-item included">Approval Drawing</div>
-                    <div class="feature-item included">Construction Quotation</div>
-                    <div class="feature-item included">Interior Quotation</div>
-                </div>
-                <div class="package-footer">
-                    <div class="package-delivery">Delivery: 45 Working Days</div>
-                    <button class="book-btn" onclick="alert('Please call +91 9611196716 to book this package')">Book Now</button>
-                </div>
-            </div>
-        </div>
+<!-- Premium Package -->
+<div class="package-card premium">
+    <div class="package-header">
+        <div class="package-title">Premium</div>
+        <div class="package-price">₹320 <span class="package-price-unit">per sqft</span></div>
+        <div class="package-subtitle">Complete Package + Material Selection</div>
+    </div>
+    <div class="package-features">
+        <div class="feature-item included">Site Assessment & Site Plan</div>
+        <div class="feature-item included">Scheme Drawing: All Floors (2D) + Furniture Layouts</div>
+        <div class="feature-item included">Elevation Design (2D + 3D)</div>
+        <div class="feature-item included">Landscaping Architecture Design</div>
+        <div class="feature-item included">Working Drawing: All Floors (2D)</div>
+        <div class="feature-item included">Elevation Detail Drawing (2D)</div>
+        <div class="feature-item included">Structural Drawings + BOQ</div>
+        <div class="feature-item included">Electrical & Plumbing Drawings: All Floors (2D)</div>
+        <div class="feature-item included">Interior Design Concept</div>
+        <div class="feature-item included">Interior Design Detail Drawings</div>
+        <div class="feature-item included">Interior Views: All Rooms (3D)</div>
+        <div class="feature-item included">Interior Detailing: All Rooms (2D)</div>
+        <div class="feature-item included">Interior Quotation</div>
+        <div class="feature-item included">Construction Quotation</div>
+        <div class="feature-item included">Approval Drawing</div>
+        <div class="feature-item included">Material & Brand Selection</div>
+        <div class="feature-item included">Vendor Meetings</div>
+        <div class="feature-item included">Topographical Survey</div>
+    </div>
+    <div class="package-footer">
+        <div class="package-visits">Site Visits: Max 10</div>
+        <div class="package-delivery">Delivery: 24 Working Days</div>
+        <button class="book-btn" onclick="alert('Please call +91 9611196716 to book this package')">Book Now</button>
+    </div>
+</div>
+<!-- END Premium card -->
+</div>
+<!-- END packages-grid -->
 
         <!-- Package Notes -->
         <div class="package-notes">
@@ -2029,7 +2015,7 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
                 <li>2-Sets of A3 Printed hard copies will be provided</li>
             </ul>
         </div>
-    </section><!-- CLOSED #packages here -->
+    </section>
 
   <!-- ========== PROJECTS SECTION START ========== -->
 <section id="projects" style="background: #f8f9fa;">
