@@ -29,8 +29,10 @@
 <link rel="apple-touch-icon" sizes="180x180" href="https://msnarchitects.in/Header-Logo/MSNLogo-header.png">
 <link rel="shortcut icon" href="https://msnarchitects.in/Header-Logo/MSNLogo-header.png">
 
-<!-- Browser Theme Color (Mobile address bar color) -->
-<meta name="theme-color" content="#00d4ff">
+<!-- Google Fonts: Outfit (Headings) & Plus Jakarta Sans (Body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
     * {
@@ -41,11 +43,38 @@
 }
 :root {
     font-size: 75%;
+    --header-height: 90px;
+    --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --cyan: #00d4ff;
+    --cyan-dark: #0099cc;
+    --cyan-glow: rgba(0, 212, 255, 0.4);
+    --dark-bg: #0c0e14;
+    --dark-surface: #131722;
+    --gold: #f59e0b;
 }
+
 html {
+    scroll-behavior: smooth;
     overflow-x: hidden;
     width: 100%;
 }
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0f1218;
+}
+::-webkit-scrollbar-thumb {
+    background: #00d4ff;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #38e1ff;
+}
+
 html, body {
     width: 100%;
     max-width: 100vw;
@@ -55,48 +84,86 @@ html, body {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
+    font-family: var(--font-body);
+    color: #2b313d;
     line-height: 1.6;
     position: relative;
+    background: #ffffff;
+    -webkit-font-smoothing: antialiased;
 }
 
+h1, h2, h3, h4, h5, h6, .brand, .logo, .section-title, .form-title {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+}
 
         /* Header & Navigation */
         header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            background: rgba(15, 18, 24, 0.94);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
             position: sticky;
             top: 0;
             z-index: 1000;
+            transition: all 0.3s ease;
         }
 
         .top-bar {
-            background: rgba(0, 0, 0, 0.2);
-            color: white;
-            padding: 0.5rem 2rem;
-            text-align: right;
+            background: rgba(0, 0, 0, 0.4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #d1d5db;
+            padding: 0.45rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
         }
 
-        .phone-number {
-            font-size: 16px;
-            font-weight: 500;
+        .top-bar-left {
+            font-size: 12.5px;
+            color: #94a3b8;
+            letter-spacing: 0.3px;
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .top-bar-right span {
+            color: #cbd5e1;
+            font-size: 12.5px;
         }
 
         .phone-number a {
-            color: white;
+            color: #ffffff;
             text-decoration: none;
-            margin-left: 0.5rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
         }
 
         .phone-number a:hover {
             color: #00d4ff;
         }
 
+        .top-whatsapp-link {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 12.5px;
+            transition: opacity 0.2s;
+        }
+        .top-whatsapp-link:hover {
+            opacity: 0.8;
+        }
+
         nav {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1rem 3rem;
+            padding: 0.85rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -115,6 +182,7 @@ body {
             max-width: 240px;
             object-fit: contain;
             display: block;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
         }
 
         .logo {
@@ -129,16 +197,18 @@ body {
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.8rem;
+            align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #ffffff;
+            color: #e2e8f0;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: all 0.3s;
             position: relative;
             font-size: 1.05rem;
+            letter-spacing: 0.2px;
         }
 
         .nav-links a:hover {
@@ -153,11 +223,31 @@ body {
             bottom: -5px;
             left: 0;
             background: #00d4ff;
+            box-shadow: 0 0 8px rgba(0, 212, 255, 0.8);
             transition: width 0.3s;
         }
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        .nav-consult-btn {
+            padding: 0.55rem 1.3rem !important;
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%) !important;
+            color: #0b192c !important;
+            border-radius: 50px !important;
+            font-weight: 700 !important;
+            font-size: 0.95rem !important;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.35) !important;
+            transition: all 0.3s ease !important;
+        }
+        .nav-consult-btn:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.6) !important;
+            color: #0b192c !important;
+        }
+        .nav-consult-btn::after {
+            display: none !important;
         }
 
         /* Packages Section */
@@ -258,6 +348,7 @@ body {
     padding-left: 2.2rem;
     background: #f8fafc;
     color: #1a1a1a;
+    border-top: 4px solid transparent;
 }
 
 .comparison-table th.col-pkg {
@@ -265,6 +356,7 @@ body {
     background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
     color: #ffffff;
     transition: background 0.3s;
+    border-top: 4px solid transparent;
 }
 
 .comparison-table th.col-pkg.popular-th {
@@ -274,8 +366,9 @@ body {
 }
 
 .comparison-table th.col-pkg.ultra-th {
-    background: linear-gradient(135deg, #2b2313 0%, #1a1508 100%);
-    border-top: 4px solid #f59e0b;
+    background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+    border-top: 4px solid #6366f1;
+    box-shadow: inset 0 0 20px rgba(99, 102, 241, 0.15);
 }
 
 /* Header Badges & Typography */
@@ -297,9 +390,9 @@ body {
 }
 
 .th-badge.ultra {
-    background: linear-gradient(135deg, #f59e0b, #d97706);
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
     color: #ffffff;
-    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+    box-shadow: 0 2px 10px rgba(99, 102, 241, 0.35);
 }
 
 .th-tier-name {
@@ -330,7 +423,7 @@ body {
 }
 
 .ultra-th .th-price {
-    color: #fbbf24;
+    color: #a5b4fc;
 }
 
 .th-sub {
@@ -393,7 +486,7 @@ body {
     background: #ffffff;
 }
 .comparison-table tr:hover td.col-ultra {
-    background: #fefce8;
+    background: #f5f7ff;
 }
 
 /* Badges & Checks */
@@ -485,15 +578,15 @@ body {
 }
 
 .tbl-cta-btn.ultra {
-    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
     color: #ffffff;
     font-weight: 800;
-    box-shadow: 0 4px 18px rgba(245, 158, 11, 0.45);
+    box-shadow: 0 4px 18px rgba(79, 70, 229, 0.35);
 }
 .tbl-cta-btn.ultra:hover {
-    background: linear-gradient(135deg, #fbbf24 0%, #b45309 100%);
+    background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
     transform: translateY(-2px);
-    box-shadow: 0 7px 25px rgba(245, 158, 11, 0.6);
+    box-shadow: 0 7px 25px rgba(99, 102, 241, 0.55);
 }
 
 /* Pricing Note Cards */
@@ -568,9 +661,8 @@ body {
             position: relative;
             color: white;
             text-align: center;
-            height: 82vh;
-            min-height: 560px;
-            max-height: 820px;
+            min-height: calc(100vh - var(--header-height, 90px));
+            min-height: calc(100dvh - var(--header-height, 90px));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -648,47 +740,239 @@ body {
             }
         }
 
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            color: #e0f7fa;
+            padding: 0.5rem 1.4rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: #00d4ff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00d4ff;
+            animation: pulseDot 2s infinite ease-in-out;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.35); opacity: 0.7; }
+        }
+
         .hero h1 {
-            font-size: 3.2rem;
+            font-size: 3.4rem;
             margin-bottom: 1.2rem;
             font-weight: 800;
-            text-shadow: 0 3px 16px rgba(0, 0, 0, 0.85), 0 1px 4px rgba(0, 0, 0, 0.9);
+            text-shadow: 0 4px 24px rgba(0, 0, 0, 0.85);
             line-height: 1.2;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.03em;
             color: #ffffff;
+        }
+
+        .highlight-text {
+            background: linear-gradient(135deg, #00d4ff 0%, #ffffff 65%, #70e0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline;
+            text-shadow: none;
         }
 
         .hero p {
             font-size: 1.25rem;
             margin-bottom: 2rem;
-            max-width: 780px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            color: #f8fafc;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.85);
-            line-height: 1.6;
+            color: #f1f5f9;
+            text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
+            line-height: 1.65;
+            font-weight: 400;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
         }
 
         .cta-button {
-            display: inline-block;
-            padding: 1.1rem 2.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1.05rem 2.5rem;
             background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
-            color: #ffffff;
+            color: #081b29;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1.05rem;
-            letter-spacing: 0.5px;
+            font-size: 1.02rem;
+            letter-spacing: 0.4px;
             text-transform: uppercase;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 22px rgba(0, 212, 255, 0.45);
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 6px 24px rgba(0, 212, 255, 0.45);
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(0, 212, 255, 0.65);
-            background: linear-gradient(135deg, #2ae0ff 0%, #00ade6 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 32px rgba(0, 212, 255, 0.7);
+            background: linear-gradient(135deg, #38e1ff 0%, #00aee6 100%);
+            color: #081b29;
+        }
+
+        .cta-button.secondary-cta {
+            background: rgba(255, 255, 255, 0.12) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            color: #ffffff !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .cta-button.secondary-cta:hover {
+            background: rgba(255, 255, 255, 0.24) !important;
+            border-color: #00d4ff;
+            color: #00d4ff !important;
+            transform: translateY(-3px);
+        }
+
+        .btn-arrow {
+            font-size: 1.15rem;
+            transition: transform 0.25s ease;
+        }
+
+        .cta-button:hover .btn-arrow {
+            transform: translateX(4px);
+        }
+
+        .secondary-cta:hover .btn-arrow {
+            transform: translateY(3px);
+        }
+
+        /* Hero Stats Strip */
+        .hero-stats-bar {
+            position: absolute;
+            bottom: 22px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+            background: rgba(12, 15, 22, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 50px;
+            padding: 0.7rem 2.2rem;
+            z-index: 5;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+            max-width: 92vw;
+        }
+
+        .hero-stats-bar .stat-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .hero-stats-bar .stat-number {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #00d4ff;
+            font-family: var(--font-heading);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-stats-bar .stat-label {
+            font-size: 0.88rem;
+            color: #cbd5e1;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .hero-stats-bar .stat-divider {
+            width: 1px;
+            height: 22px;
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        /* Hero Nav Buttons */
+        .hero-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: rgba(10, 12, 16, 0.45);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.22);
             color: #ffffff;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            transition: all 0.25s ease;
+        }
+
+        .hero-nav-btn:hover {
+            background: rgba(0, 212, 255, 0.85);
+            color: #081b29;
+            border-color: #00d4ff;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .hero-nav-btn.prev-btn { left: 24px; }
+        .hero-nav-btn.next-btn { right: 24px; }
+
+        /* Slider Dots */
+        .slider-dots {
+            position: absolute;
+            bottom: 74px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 5;
+        }
+
+        .slider-dots .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dots .dot:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .slider-dots .dot.active {
+            width: 28px;
+            border-radius: 12px;
+            background: #00d4ff;
+            box-shadow: 0 0 12px rgba(0, 212, 255, 0.85);
         }
 
         /* Slide Progress Bar */
@@ -699,19 +983,32 @@ body {
             width: 0%;
             height: 4px;
             background: linear-gradient(90deg, #00d4ff 0%, #0099cc 100%);
-            z-index: 4;
-            transition: width 0.3s linear;
+            z-index: 6;
+            transition: width 0.05s linear;
+            box-shadow: 0 0 10px #00d4ff;
+        }
+
+        @media (max-width: 820px) {
+            .hero-stats-bar {
+                display: none;
+            }
+            .hero-nav-btn {
+                display: none;
+            }
+            .slider-dots {
+                bottom: 22px;
+            }
         }
 
         @media (max-width: 768px) {
             .hero {
-                height: auto;
-                min-height: 480px;
+                min-height: calc(100vh - var(--header-height, 70px));
+                min-height: calc(100dvh - var(--header-height, 70px));
                 padding: 4.5rem 1.5rem 3rem;
             }
 
             .hero h1 {
-                font-size: 2.1rem;
+                font-size: 2.3rem;
             }
             
             .hero p {
@@ -720,21 +1017,16 @@ body {
             }
 
             .cta-button {
-                padding: 0.85rem 2.2rem;
+                padding: 0.85rem 2rem;
                 font-size: 0.95rem;
-            }
-
-            .slider-dots {
-                bottom: 25px;
             }
         }
 
         /* Section Styles */
-       /* Section Styles */
 section {
     width: 100%;
     margin: 0;
-    padding: 4rem 2rem;
+    padding: 5rem 2rem;
 }
 
 section > * {
@@ -745,11 +1037,13 @@ section > * {
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            color: #1a1a1a;
+            font-size: 2.6rem;
+            color: #111827;
             margin-bottom: 3rem;
             position: relative;
-            padding-bottom: 1rem;
+            padding-bottom: 1.1rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
         }
 
         .section-title::after {
@@ -758,10 +1052,15 @@ section > * {
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 70px;
             height: 4px;
-            background: linear-gradient(90deg, #2d2d2d 0%, #1a1a1a 100%);
-            border-radius: 2px;
+            background: linear-gradient(90deg, #00d4ff 0%, #0099cc 100%);
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 212, 255, 0.4);
+        }
+
+        .section-title.dark-title {
+            color: #ffffff;
         }
 
         /* Services Section */
@@ -1241,26 +1540,88 @@ select:focus {
 
         /* Projects quick styles */
 .filter-btn {
-  padding: 0.45rem 0.9rem;
-  background: #fff;
-  border: 1px solid #e6e6e6;
-  border-radius: 999px;
+  padding: 0.55rem 1.25rem;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 50px;
   cursor: pointer;
   font-weight: 600;
-  transition: all .18s;
+  font-size: 0.95rem;
+  color: #475569;
+  transition: all .22s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
 }
-.filter-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
-.filter-btn.active { background: linear-gradient(90deg,#00d4ff 0%,#0099cc 100%); color: #fff; border-color: transparent; box-shadow: 0 8px 30px rgba(0,212,255,0.12); }
+.filter-btn:hover {
+  transform: translateY(-2px);
+  border-color: #00d4ff;
+  color: #0099cc;
+  box-shadow: 0 6px 18px rgba(0,212,255,0.18);
+}
+.filter-btn.active {
+  background: linear-gradient(135deg, #12161f 0%, #202633 100%) !important;
+  color: #00d4ff !important;
+  border-color: #00d4ff !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25), 0 0 12px rgba(0,212,255,0.3) !important;
+}
 
-.projects-gallery { display: grid; gap: 1.25rem; grid-template-columns: repeat(3,1fr); }
+.projects-gallery { display: grid; gap: 1.8rem; grid-template-columns: repeat(3,1fr); }
 @media (max-width: 1024px) { .projects-gallery { grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 640px) { .projects-gallery { grid-template-columns: 1fr; } }
 
-.project-item { transition: transform .25s, box-shadow .25s; }
+.project-item {
+  border-radius: 16px !important;
+  overflow: hidden;
+  background: #ffffff !important;
+  border: 1px solid #eef2f6 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  position: relative;
+}
+.project-item:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 212, 255, 0.35) !important;
+}
+.project-image-container {
+  position: relative;
+  overflow: hidden;
+}
+.project-image-container::after {
+  content: 'View Project Details →';
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(12, 15, 22, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #00d4ff;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  z-index: 2;
+}
+.project-item:hover .project-image-container::after {
+  opacity: 1;
+  transform: translateY(0);
+}
 .project-item.hide { display: none !important; opacity: 0; transform: scale(.99); pointer-events: none; }
-.project-image-container img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .45s; }
-.project-item:hover .project-image-container img { transform: scale(1.05); }
+.project-image-container img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .6s cubic-bezier(0.165, 0.84, 0.44, 1); }
+.project-item:hover .project-image-container img { transform: scale(1.08); }
 
+.project-info h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.25rem !important;
+  color: #0f172a !important;
+  transition: color 0.2s ease;
+}
+.project-item:hover .project-info h3 {
+  color: #0099cc !important;
+}
 
         @keyframes slideIn {
             from {
@@ -1303,120 +1664,310 @@ select:focus {
             display: block;
         }
 
-        /* Contact Section */
-        .contact-grid {
+        /* About Section Styles */
+        .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
         }
-
-        .contact-item {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid #f0f0f0;
-            transition: all 0.3s;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.15);
-        }
-
-        .contact-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-item h3 {
-            color: #1a1a1a;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-item p {
-            color: #666;
-        }
-
-        .contact-item a {
-            color: #00d4ff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-item a:hover {
+        .about-tag {
+            display: inline-block;
             color: #0099cc;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.75rem;
+        }
+        .about-headline {
+            font-size: 2.2rem;
+            color: #0f172a;
+            margin-bottom: 1.4rem;
+            line-height: 1.3;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        .about-body {
+            color: #475569;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+        .about-bullets {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-top: 1.8rem;
+        }
+        .about-bullet-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .bullet-check {
+            color: #00d4ff;
+            font-size: 1.2rem;
+            line-height: 1.2;
+        }
+        .about-bullet-item strong {
+            display: block;
+            color: #0f172a;
+            font-size: 1.02rem;
+            margin-bottom: 0.2rem;
+        }
+        .about-bullet-item p {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+        .about-highlights-column {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.4rem;
+        }
+        .highlight-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 1.8rem;
+            transition: all 0.3s ease;
+        }
+        .highlight-card:hover {
+            transform: translateY(-4px);
+            border-color: #00d4ff;
+            box-shadow: 0 10px 28px rgba(0, 212, 255, 0.12);
+            background: #ffffff;
+        }
+        .hl-number {
+            display: block;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #0099cc;
+            font-family: var(--font-heading);
+            margin-bottom: 0.4rem;
+        }
+        .highlight-card h4 {
+            font-size: 1.05rem;
+            color: #1e293b;
+            margin-bottom: 0.4rem;
+            font-weight: 700;
+        }
+        .highlight-card p {
+            font-size: 0.88rem;
+            color: #64748b;
+            margin: 0;
+            line-height: 1.5;
+        }
+        @media (max-width: 960px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            .about-highlights-column {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Contact Section */
+        .contact-layout-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 3rem;
+            align-items: stretch;
+        }
+        .contact-info-card {
+            background: rgba(22, 27, 36, 0.7);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .contact-badge {
+            display: inline-block;
+            color: #00d4ff;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.8rem;
+        }
+        .contact-info-card h3 {
+            font-size: 1.85rem;
+            color: #ffffff;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+        .contact-detail-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.3rem;
+            margin-bottom: 2.2rem;
+        }
+        .contact-detail-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.1rem;
+        }
+        .c-icon {
+            font-size: 1.3rem;
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: rgba(0, 212, 255, 0.12);
+            border: 1px solid rgba(0, 212, 255, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-detail-row strong {
+            display: block;
+            color: #f1f5f9;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+        .contact-detail-row p {
+            color: #94a3b8;
+            font-size: 0.92rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+        .contact-quick-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .contact-wa-btn {
+            flex: 1;
+            min-width: 170px;
+            padding: 0.9rem 1.4rem;
+            background: #25D366;
+            color: #ffffff;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            text-align: center;
+            font-size: 0.95rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+        }
+        .contact-wa-btn:hover {
+            background: #20ba59;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 22px rgba(37, 211, 102, 0.5);
+        }
+        .contact-call-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 0.9rem 1.4rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            text-align: center;
+            font-size: 0.95rem;
+            transition: all 0.25s ease;
+        }
+        .contact-call-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #00d4ff;
+            color: #00d4ff;
+            transform: translateY(-2px);
         }
 
         /* Contact Form */
         .contact-form-container {
-            max-width: 700px;
-            margin: 3rem auto 0;
-            background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid #f0f0f0;
+            background: #ffffff;
+            padding: 2.8rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid #e2e8f0;
+            margin: 0;
+            max-width: 100%;
         }
 
         .form-title {
             text-align: center;
             font-size: 2rem;
-            color: #1a1a1a;
-            margin-bottom: 2rem;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
         }
 
         .form-group-contact {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.35rem;
         }
 
         .form-group-contact label {
             display: block;
-            margin-bottom: 0.5rem;
-            color: #1a1a1a;
+            margin-bottom: 0.45rem;
+            color: #1e293b;
             font-weight: 600;
+            font-size: 0.92rem;
         }
 
         .form-group-contact input,
         .form-group-contact textarea {
             width: 100%;
-            padding: 12px 15px;
-            border: 1.5px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
+            padding: 12px 16px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 15px;
             font-family: inherit;
-            transition: all 0.3s ease;
-            background: #fafafa;
+            transition: all 0.25s ease;
+            background: #f8fafc;
+            color: #1e293b;
         }
 
         .form-group-contact input:focus,
         .form-group-contact textarea:focus {
             outline: none;
             border-color: #00d4ff;
-            background: white;
-            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.15);
         }
 
         .form-group-contact textarea {
-            min-height: 150px;
+            min-height: 130px;
             resize: vertical;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #000000 0%, #000000 100%);
-            color: white;
-            border: none;
+            padding: 14px;
+            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+            color: #ffffff;
+            border: 1.5px solid transparent;
             border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 16px;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            color: #0b192c;
+            box-shadow: 0 6px 24px rgba(0, 212, 255, 0.45);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 960px) {
+            .contact-layout-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .submit-btn:hover {
@@ -1455,10 +2006,11 @@ select:focus {
 
         /* Footer */
         footer {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            background: linear-gradient(180deg, #131722 0%, #0b0d13 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             color: white;
-            padding: 3rem 2rem 1.5rem;
-            margin-top: 4rem;
+            padding: 4rem 2rem 2rem;
+            margin-top: 0;
         }
 
         .footer-content {
@@ -2155,7 +2707,7 @@ nav { background: transparent; }
 
 /* reduce hero padding for small screens */
 @media (max-width: 480px) {
-  .hero { padding: 3rem 1rem 2rem; min-height: 440px; }
+  .hero { padding: 3rem 1rem 2rem; min-height: calc(100vh - var(--header-height, 70px)); min-height: calc(100dvh - var(--header-height, 70px)); }
   .hero h1 { font-size: 1.6rem; }
   .hero p { font-size: 0.95rem; }
   .nav-inner { padding: 0.5rem 0.8rem; }
@@ -2260,8 +2812,13 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
     <!-- Header -->
   <header>
     <div class="top-bar">
-        <div class="phone-number">
-            📞 Call Us: <a href="tel:+919611196716">+91 96111 96716</a>
+        <div class="top-bar-left">
+            <span>📍 Premier Architectural & Luxury Interior Studio · Bengaluru · Chennai · Hyderabad</span>
+        </div>
+        <div class="top-bar-right">
+            <span>🕒 Mon - Sat: 9:30 AM - 7:30 PM</span>
+            <span class="phone-number">📞 <a href="tel:+919611196716">+91 96111 96716</a></span>
+            <a href="https://wa.me/919611196716?text=Hi%20MSN%20Architects%2C%20I%20would%20like%20to%20consult%20on%20my%20project." target="_blank" class="top-whatsapp-link">💬 WhatsApp Us</a>
         </div>
     </div>
    <nav>
@@ -2288,6 +2845,7 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
       <li><a href="#about">About</a></li>
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li class="nav-cta-li"><a href="#contact" class="nav-consult-btn">Book Consultation</a></li>
     </ul>
   </div>
 </nav>
@@ -2311,22 +2869,81 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
 
     <!-- Hero Content -->
     <div class="hero-content">
-        <h1>Designing Multidimensional Space & Nature</h1>
-        <p>Architecture combined with Interior Design - Understanding the art, science, and business of building with excellence and innovation</p>
-        <a href="#contact" class="cta-button">Get Started</a>
+        <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span>Award-Winning Architectural & Luxury Interior Studio</span>
+        </div>
+        <h1>Designing Multidimensional <span class="highlight-text">Space & Nature</span></h1>
+        <p>Architecture combined with Interior Design — Understanding the art, science, and business of building with excellence, innovation, and timeless Vastu harmony.</p>
+        <div class="hero-cta-group">
+            <a href="#contact" class="cta-button primary-cta">
+                <span>Book Consultation</span>
+                <span class="btn-arrow">→</span>
+            </a>
+            <a href="#projects" class="cta-button secondary-cta">
+                <span>Explore Portfolio</span>
+                <span class="btn-arrow">↓</span>
+            </a>
+        </div>
     </div>
+
+    <!-- Slide Navigation Arrows -->
+    <button class="hero-nav-btn prev-btn" id="heroPrevBtn" aria-label="Previous slide">&#10094;</button>
+    <button class="hero-nav-btn next-btn" id="heroNextBtn" aria-label="Next slide">&#10095;</button>
+
+    <!-- Slide Indicators -->
+    <div class="slider-dots" id="sliderDots">
+        <span class="dot active" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+        <span class="dot" data-slide="3"></span>
+        <span class="dot" data-slide="4"></span>
+        <span class="dot" data-slide="5"></span>
+        <span class="dot" data-slide="6"></span>
+    </div>
+
+    <!-- Floating Metrics Strip -->
+    <div class="hero-stats-bar">
+        <div class="stat-item">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Luxury Projects</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Vastu Compliant</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-number">4</span>
+            <span class="stat-label">Major Cities</span>
+        </div>
+    </div>
+
+    <!-- Slide Progress Bar -->
+    <div class="slide-progress" id="slideProgress"></div>
 </section>
  <!-- ========== PROJECTS SECTION START ========== -->
-<section id="projects" style="background: #f8f9fa;">
-  <h2 class="section-title">Our Projects</h2>
+<section id="projects" style="background: #f8fafc; padding: 5.5rem 1.5rem;">
+  <div style="text-align: center; max-width: 820px; margin: 0 auto 2.8rem;">
+    <h2 class="section-title">Our Featured Projects</h2>
+    <p style="color: #64748b; font-size: 1.15rem; margin-top: 0.5rem; line-height: 1.6;">
+      Explore our signature portfolio of bespoke luxury villas, modern duplexes, multi-storey residences, and landmark commercial spaces.
+    </p>
+  </div>
 
   <!-- Project Filter Buttons -->
-  <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;" id="projectsFilterBar">
-    <button class="filter-btn active" data-filter="all">All (20)</button>
-    <button class="filter-btn" data-filter="villa">Villa (13)</button>
-    <button class="filter-btn" data-filter="apartment">Apartment (4)</button>
+  <div style="display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 3rem;" id="projectsFilterBar">
+    <button class="filter-btn active" data-filter="all">All Projects (20)</button>
+    <button class="filter-btn" data-filter="villa">Villas (13)</button>
+    <button class="filter-btn" data-filter="apartment">Apartments (4)</button>
     <button class="filter-btn" data-filter="commercial">Commercial (2)</button>
-    <button class="filter-btn" data-filter="institution">Institution (1)</button>
+    <button class="filter-btn" data-filter="institution">Institutions (1)</button>
   </div>
 
   <!-- Projects Grid -->
@@ -2553,25 +3170,13 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
     <!-- Unified Package Comparison Matrix Section -->
     <div class="package-comparison-section">
         <div class="comparison-card">
-            <div class="comparison-header">
-                <div>
-                    <h3>📊 Deliverables & Scope Comparison</h3>
-                    <p>Complete deliverable checklist, timeline, site visits & per-sqft pricing across all 4 architectural tiers</p>
-                </div>
-                <div>
-                    <a href="https://wa.me/919611196716?text=Hi%20MSN%20Architects%2C%20I%20would%20like%20to%20consult%20on%20the%20best%20package%20for%20my%20plot." target="_blank" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.7rem 1.4rem; background:#00d4ff; color:#0b192c; font-weight:800; border-radius:50px; text-decoration:none; font-size:0.92rem; box-shadow:0 4px 15px rgba(0,212,255,0.3); transition: transform 0.2s ease;">
-                        <span>💬</span> Consult With Architect
-                    </a>
-                </div>
-            </div>
-            
             <div class="comparison-table-scroll">
                 <table class="comparison-table">
                     <thead>
                         <tr>
                             <th class="col-feature">
-                                <span style="font-size:1.2rem; font-weight:800; color:#0f172a; display:block;">Scope & Deliverables</span>
-                                <span style="display:block; font-size:0.84rem; color:#64748b; font-weight:500; margin-top:0.3rem;">Compare all 4 design tiers</span>
+                                <span style="font-size:1.75rem; font-weight:800; color:#0f172a; display:block; line-height:1.25;">Scope & Deliverables</span>
+                                <span style="display:block; font-size:1.1rem; color:#64748b; font-weight:600; margin-top:0.45rem;">Compare all 4 design tiers</span>
                             </th>
                             
                             <!-- Basic Column -->
@@ -2599,8 +3204,8 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
                             <!-- Ultra Premium Column -->
                             <th class="col-pkg ultra-th">
                                 <span class="th-badge ultra">👑 Ultra Luxury</span>
-                                <span class="th-tier-name" style="color:#b45309;">Ultra Premium</span>
-                                <span class="th-price">₹349<span class="unit"> / sqft</span></span>
+                                <span class="th-tier-name" style="color:#818cf8;">Ultra Premium</span>
+                                <span class="th-price">₹350<span class="unit"> / sqft</span></span>
                                 <span class="th-sub">Turnkey Luxury & Full Execution</span>
                             </th>
                         </tr>
@@ -2612,19 +3217,14 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
                             <td><span class="cmp-badge-value">2 Visits</span></td>
                             <td><span class="cmp-badge-value">3 Visits</span></td>
                             <td class="col-popular"><span class="cmp-badge-value" style="background:#cffafe; color:#0369a1; border-color:#7dd3fc;">6 Visits</span></td>
-                            <td class="col-ultra"><span class="cmp-badge-value" style="background:#fef3c7; color:#92400e; border-color:#fde68a;">10 Visits</span></td>
+                            <td class="col-ultra"><span class="cmp-badge-value" style="background:#eef2ff; color:#3730a3; border-color:#c7d2fe;">10 Visits</span></td>
                         </tr>
                         <tr style="background:#f8fafc; font-weight:bold;">
                             <td class="cell-feature" style="font-weight:700; color:#0f172a;">⏱ Delivery Timeline</td>
                             <td><span class="cmp-badge-value">14 Days</span></td>
                             <td><span class="cmp-badge-value">21 Days</span></td>
                             <td class="col-popular"><span class="cmp-badge-value" style="background:#cffafe; color:#0369a1; border-color:#7dd3fc;">30 Days</span></td>
-                            <td class="col-ultra"><span class="cmp-badge-value" style="background:#fef3c7; color:#92400e; border-color:#fde68a;">45 Days</span></td>
-                        </tr>
-
-                        <!-- CATEGORY 1: ARCHITECTURAL PLANNING -->
-                        <tr class="category-row">
-                            <td colspan="5">🏛️ 1. Architectural Planning & 3D Visualization</td>
+                            <td class="col-ultra"><span class="cmp-badge-value" style="background:#eef2ff; color:#3730a3; border-color:#c7d2fe;">45 Days</span></td>
                         </tr>
                         <tr>
                             <td class="cell-feature">Site Assessment & Site Plan</td>
@@ -2676,10 +3276,6 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
                             <td class="col-ultra"><span class="cmp-check">✓</span></td>
                         </tr>
 
-                        <!-- CATEGORY 2: STRUCTURAL & WORKING DRAWINGS -->
-                        <tr class="category-row">
-                            <td colspan="5">📐 2. Structural, Working Drawings & MEP Engineering</td>
-                        </tr>
                         <tr>
                             <td class="cell-feature">Construction Working Drawings</td>
                             <td><span class="cmp-dash">—</span></td>
@@ -2707,11 +3303,6 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
                             <td><span class="cmp-check">✓</span></td>
                             <td class="col-popular"><span class="cmp-check">✓</span></td>
                             <td class="col-ultra"><span class="cmp-check">✓</span></td>
-                        </tr>
-
-                        <!-- CATEGORY 3: INTERIOR DESIGN -->
-                        <tr class="category-row">
-                            <td colspan="5">🛋️ 3. Complete Interior Design & 3D Renders</td>
                         </tr>
                         <tr>
                             <td class="cell-feature">Interior Design Concept</td>
@@ -2747,11 +3338,6 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
                             <td><span class="cmp-dash">—</span></td>
                             <td class="col-popular"><span class="cmp-check">✓</span></td>
                             <td class="col-ultra"><span class="cmp-check">✓</span></td>
-                        </tr>
-
-                        <!-- CATEGORY 4: TURNKEY PROCUREMENT & BOQ -->
-                        <tr class="category-row">
-                            <td colspan="5">👑 4. Turnkey Procurement & Project Governance</td>
                         </tr>
                         <tr>
                             <td class="cell-feature">Construction Quotation & Detailed BOQ</td>
@@ -2802,51 +3388,25 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
                             <td><a href="https://wa.me/919611196716?text=Hi%20MSN%20Architects%2C%20I%20am%20interested%20in%20the%20Basic%20Package%20(%E2%82%B9110%2Fsqft)." target="_blank" class="tbl-cta-btn basic">Book Basic</a></td>
                             <td><a href="https://wa.me/919611196716?text=Hi%20MSN%20Architects%2C%20I%20am%20interested%20in%20the%20Standard%20Package%20(%E2%82%B9160%2Fsqft)." target="_blank" class="tbl-cta-btn standard">Book Standard</a></td>
                             <td class="col-popular"><a href="https://wa.me/919611196716?text=Hi%20MSN%20Architects%2C%20I%20am%20interested%20in%20the%20Premium%20Package%20(%E2%82%B9250%2Fsqft)." target="_blank" class="tbl-cta-btn popular">Book Premium</a></td>
-                            <td class="col-ultra"><a href="https://wa.me/919611196716?text=Hi%20MSN%20Architects%2C%20I%20am%20interested%20in%20the%20Ultra%20Premium%20Package%20(%E2%82%B9349%2Fsqft)." target="_blank" class="tbl-cta-btn ultra">Book Ultra</a></td>
+                            <td class="col-ultra"><a href="https://wa.me/919611196716?text=Hi%20MSN%20Architects%2C%20I%20am%20interested%20in%20the%20Ultra%20Premium%20Package%20(%E2%82%B9350%2Fsqft)." target="_blank" class="tbl-cta-btn ultra">Book Ultra</a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Informational Key Notes Grid -->
-        <div class="pricing-notes-grid">
-            <div class="pricing-note-card">
-                <div class="pricing-note-icon">💳</div>
-                <div>
-                    <h5>Payment Structure</h5>
-                    <p>50% upfront upon agreement signing, with remaining balanced across milestones.</p>
-                </div>
-            </div>
-
-            <div class="pricing-note-card">
-                <div class="pricing-note-icon">📐</div>
-                <div>
-                    <h5>Minimum Built-Up Area</h5>
-                    <p>Minimum 1,800 sq.ft built-up area for custom residential architecture packages.</p>
-                </div>
-            </div>
-
-            <div class="pricing-note-card">
-                <div class="pricing-note-icon">📍</div>
-                <div>
-                    <h5>Site Visits Coverage</h5>
-                    <p>Physical visits across Bengaluru, Chennai, Hyderabad, and Coimbatore.</p>
-                </div>
-            </div>
-
-            <div class="pricing-note-card">
-                <div class="pricing-note-icon">🏗️</div>
-                <div>
-                    <h5>Supervision & PMC</h5>
-                    <p>On-site construction supervision and project management available on request.</p>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
- 
-<div id="calculator" class="calculator-container two-column">
+
+<!-- Calculator Section -->
+<section id="calculator" class="calculator-section" style="background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%); padding: 5.5rem 1.5rem; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+  <div style="text-align: center; max-width: 820px; margin: 0 auto 3rem;">
+    <h2 class="section-title">Plot Area & Architectural Estimator</h2>
+    <p style="color: #64748b; font-size: 1.15rem; margin-top: 0.5rem; line-height: 1.6;">
+      Accurately calculate your site dimensions across standard Indian land units (Sq. Ft, Cents, Gunthas, Sq. Yards) and plan your built-up space.
+    </p>
+  </div>
+  <div class="calculator-container two-column" style="margin-top: 0;">
 
   <!-- LEFT: Calculator (FULL original inputs preserved) -->
   <div class="calculator-left">
@@ -3075,6 +3635,7 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
     </div>
   </aside>
 </div>
+</section>
 
 
 
@@ -3116,19 +3677,66 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
     </section>
 
        <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About MSN Architects</h2>
-        <div class="about-content">
-            <p>
-                At MSN Architects, we believe that Architecture combined with Interior Design is all about 
-                understanding the art, the science, and the business of building with keen knowledge in social 
-                trends and innovations that shape lifestyles. We design spaces that speak - not just structures, 
-                but experiences that move you and inspire.
-            </p>
-            <p style="margin-top: 1.5rem;">
-                Architecture tells a story. Make yours unforgettable with MSN Architects. We deliver the best 
-                to the best, combining creativity, functionality, and timeless design in every project.
-            </p>
+    <section id="about" style="background: #ffffff; padding: 5.5rem 1.5rem; border-top: 1px solid #eef2f6;">
+        <div style="max-width: 1380px; margin: 0 auto;">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 3.5rem;">
+                <h2 class="section-title">About MSN Architects</h2>
+                <p style="color: #64748b; font-size: 1.15rem; margin-top: 0.5rem; line-height: 1.6;">
+                    Blending contemporary spatial geometry, sustainable natural light, and cultural Vastu principles.
+                </p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-text-column">
+                    <span class="about-tag">DESIGN PHILOSOPHY</span>
+                    <h3 class="about-headline">We don't just build structures — We craft living experiences that inspire.</h3>
+                    <p class="about-body">
+                        At MSN Architects, we believe that Architecture combined with Interior Design is all about understanding the art, the science, and the business of building with keen knowledge of social trends and innovations that shape modern lifestyles.
+                    </p>
+                    <p class="about-body">
+                        Architecture tells a story. From private luxury villas in Bengaluru and Chennai to commercial hubs and luxury duplexes, our team brings meticulous attention to Vastu planning, spatial ergonomics, sustainable ventilation, and precision construction execution.
+                    </p>
+                    <div class="about-bullets">
+                        <div class="about-bullet-item">
+                            <span class="bullet-check">✦</span>
+                            <div>
+                                <strong>Holistic Architectural Engineering</strong>
+                                <p>Seamless synergy between structural drawings, electrical-plumbing (MEP), and interior fitouts.</p>
+                            </div>
+                        </div>
+                        <div class="about-bullet-item">
+                            <span class="bullet-check">✦</span>
+                            <div>
+                                <strong>100% Vastu Aligned Planning</strong>
+                                <p>Ancient scientific space orientation harmonized with modern open-concept aesthetics.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-highlights-column">
+                    <div class="highlight-card">
+                        <span class="hl-number">50+</span>
+                        <h4>Completed Landmarks</h4>
+                        <p>Luxury residential villas, commercial structures, and contemporary duplexes across South India.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <span class="hl-number">10+</span>
+                        <h4>Years of Practice</h4>
+                        <p>Deep domain expertise in architectural planning, statutory norms, and structural consultancy.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <span class="hl-number">3D / VR</span>
+                        <h4>Photorealistic Visuals</h4>
+                        <p>High-fidelity exterior 3D renders and material walkthroughs before physical ground-breaking.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <span class="hl-number">100%</span>
+                        <h4>Transparent Pricing</h4>
+                        <p>Clear per-square-foot tiered architectural packages with defined deliverables and site visits.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -3274,40 +3882,102 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title">Get In Touch</h2>
- 
+    <section id="contact" style="background: linear-gradient(180deg, #0b0d13 0%, #131722 100%); color: #ffffff; padding: 5.5rem 1.5rem;">
+        <div style="max-width: 1380px; margin: 0 auto;">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 3.5rem;">
+                <h2 class="section-title dark-title">Get In Touch</h2>
+                <p style="color: #94a3b8; font-size: 1.15rem; margin-top: 0.5rem; line-height: 1.6;">
+                    Ready to build your dream residence or commercial space? Book an architectural consultation with our senior designers.
+                </p>
+            </div>
 
-        <!-- Contact Form -->
-        <!-- Contact Form -->
-<div class="contact-form-container">
-    <h3 class="form-title">Send Us a Message</h3>
-    <form id="contactForm">
-        <div class="form-group-contact">
-            <label>Your Name *</label>
-            <input type="text" name="name" id="contact-name" required placeholder="Enter your name">
+            <div class="contact-layout-grid">
+                <!-- Left: Direct Office & Reach Us Card -->
+                <div class="contact-info-card">
+                    <div>
+                        <span class="contact-badge">DIRECT CONSULTATION</span>
+                        <h3>Start Your Project Conversation</h3>
+                        <p style="color: #94a3b8; line-height: 1.6; margin-bottom: 2rem;">
+                            Visit our Bengaluru studio or connect directly over phone or WhatsApp for instant plot assessment, drawing estimates, and package guidance.
+                        </p>
+
+                        <div class="contact-detail-items">
+                            <div class="contact-detail-row">
+                                <div class="c-icon">📍</div>
+                                <div>
+                                    <strong>Principal Studio</strong>
+                                    <p>A25, Ferns City Road, Doddanekundi, Bengaluru – 560037, Karnataka</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-row">
+                                <div class="c-icon">📞</div>
+                                <div>
+                                    <strong>Direct Line</strong>
+                                    <p><a href="tel:+919611196716" style="color:#00d4ff; text-decoration:none; font-weight:700;">+91 96111 96716</a></p>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-row">
+                                <div class="c-icon">📧</div>
+                                <div>
+                                    <strong>Official Email</strong>
+                                    <p><a href="mailto:srinadh@msnarchitects.in" style="color:#00d4ff; text-decoration:none;">srinadh@msnarchitects.in</a></p>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-row">
+                                <div class="c-icon">🕒</div>
+                                <div>
+                                    <strong>Working Hours</strong>
+                                    <p>Monday – Saturday: 9:30 AM – 7:30 PM (Sunday by appointment)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-quick-buttons">
+                        <a href="https://wa.me/919611196716?text=Hi%20MSN%20Architects%2C%20I%20would%20like%20to%20discuss%20my%20architectural%20project." target="_blank" class="contact-wa-btn">
+                            <span>💬 Chat on WhatsApp</span>
+                        </a>
+                        <a href="tel:+919611196716" class="contact-call-btn">
+                            <span>📞 Call Directly</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: The Contact Form -->
+                <div class="contact-form-container">
+                    <h3 class="form-title">Send Us a Message</h3>
+                    <p style="text-align:center; color:#64748b; font-size:0.95rem; margin-top:-0.5rem; margin-bottom:2rem;">Fill the details below and we will get back to you within 24 hours.</p>
+                    <form id="contactForm">
+                        <div class="form-group-contact">
+                            <label>Your Name *</label>
+                            <input type="text" name="name" id="contact-name" required placeholder="Enter your full name">
+                        </div>
+
+                        <div class="form-group-contact">
+                            <label>Your Email *</label>
+                            <input type="email" name="email" id="contact-email" required placeholder="name@example.com">
+                        </div>
+
+                        <div class="form-group-contact">
+                            <label>Your Phone *</label>
+                            <input type="tel" name="phone" id="contact-phone" required placeholder="+91 98765 43210">
+                        </div>
+
+                        <div class="form-group-contact">
+                            <label>Your Message / Project Details *</label>
+                            <textarea name="message" id="contact-message" required placeholder="Tell us about your plot location, dimensions, requirements, or desired package..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn" id="submitBtn">Send Message →</button>
+                        
+                        <div class="form-message" id="formMessage"></div>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <div class="form-group-contact">
-            <label>Your Email *</label>
-            <input type="email" name="email" id="contact-email" required placeholder="Enter your email">
-        </div>
-
-        <div class="form-group-contact">
-            <label>Your Phone *</label>
-            <input type="tel" name="phone" id="contact-phone" required placeholder="+91 XXXXX XXXXX">
-        </div>
-
-        <div class="form-group-contact">
-            <label>Your Message *</label>
-            <textarea name="message" id="contact-message" required placeholder="Tell us about your project..."></textarea>
-        </div>
-
-        <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
-        
-        <div class="form-message" id="formMessage"></div>
-    </form>
-</div>
     </section>
 
 
@@ -3937,21 +4607,42 @@ if (shapeSelect && calculateBtn) {
   });
 })();
 
-// ✅ HERO SLIDER - CLEAN & WORKING VERSION
+// ✅ Dynamically match hero banner height to fill full screen below header
+(function() {
+    function updateHeaderHeight() {
+        const header = document.querySelector('header');
+        if (header) {
+            document.documentElement.style.setProperty('--header-height', header.offsetHeight + 'px');
+        }
+    }
+    updateHeaderHeight();
+    window.addEventListener('resize', updateHeaderHeight);
+    window.addEventListener('DOMContentLoaded', updateHeaderHeight);
+})();
+
+// ✅ HERO SLIDER - LUXURY INTERACTIVE VERSION
 (function() {
     const slides = document.querySelectorAll('.hero-slide');
     const progressBar = document.getElementById('slideProgress');
+    const dots = document.querySelectorAll('#sliderDots .dot');
+    const prevBtn = document.getElementById('heroPrevBtn');
+    const nextBtn = document.getElementById('heroNextBtn');
     
     if (!slides.length) return;
     
     let currentSlide = 0;
-    const slideInterval = 5000; // 5 seconds
+    const slideInterval = 5500; // 5.5 seconds
     let slideTimer = null;
     let progressTimer = null;
 
     function showSlide(index) {
+        currentSlide = (index + slides.length) % slides.length;
         slides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
+            slide.classList.toggle('active', i === currentSlide);
+        });
+        
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentSlide);
         });
         
         if (progressBar) {
@@ -3964,7 +4655,8 @@ if (shapeSelect && calculateBtn) {
         if (!progressBar) return;
         
         let width = 0;
-        const increment = 100 / (slideInterval / 50);
+        const stepTime = 50;
+        const increment = 100 / (slideInterval / stepTime);
         
         if (progressTimer) clearInterval(progressTimer);
         
@@ -3975,24 +4667,52 @@ if (shapeSelect && calculateBtn) {
                 clearInterval(progressTimer);
             }
             progressBar.style.width = width + '%';
-        }, 50);
+        }, stepTime);
     }
 
     function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
+        showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+
+    function resetTimer() {
+        if (slideTimer) clearInterval(slideTimer);
+        slideTimer = setInterval(nextSlide, slideInterval);
     }
 
     function startSlider() {
-        if (slideTimer) clearInterval(slideTimer);
-        slideTimer = setInterval(nextSlide, slideInterval);
-        showSlide(currentSlide);
+        resetTimer();
+        showSlide(0);
     }
 
-    // Start the slider
+    // Attach dot click listeners
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            showSlide(i);
+            resetTimer();
+        });
+    });
+
+    // Attach button listeners
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetTimer();
+        });
+    }
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetTimer();
+        });
+    }
+
+    // Start slider
     startSlider();
-    
-    console.log('✅ Hero slider initialized with', slides.length, 'slides');
+    console.log('✅ Luxury Hero slider initialized with controls and', slides.length, 'slides');
 })();
 
 // CONTACT POPUP logic
