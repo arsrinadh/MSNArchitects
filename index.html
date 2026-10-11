@@ -29,8 +29,10 @@
 <link rel="apple-touch-icon" sizes="180x180" href="https://msnarchitects.in/Header-Logo/MSNLogo-header.png">
 <link rel="shortcut icon" href="https://msnarchitects.in/Header-Logo/MSNLogo-header.png">
 
-<!-- Browser Theme Color (Mobile address bar color) -->
-<meta name="theme-color" content="#00d4ff">
+<!-- Google Fonts: Outfit (Headings) & Plus Jakarta Sans (Body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
     * {
@@ -41,11 +43,38 @@
 }
 :root {
     font-size: 75%;
+    --header-height: 90px;
+    --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --cyan: #00d4ff;
+    --cyan-dark: #0099cc;
+    --cyan-glow: rgba(0, 212, 255, 0.4);
+    --dark-bg: #0c0e14;
+    --dark-surface: #131722;
+    --gold: #f59e0b;
 }
+
 html {
+    scroll-behavior: smooth;
     overflow-x: hidden;
     width: 100%;
 }
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0f1218;
+}
+::-webkit-scrollbar-thumb {
+    background: #00d4ff;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #38e1ff;
+}
+
 html, body {
     width: 100%;
     max-width: 100vw;
@@ -55,51 +84,105 @@ html, body {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
+    font-family: var(--font-body);
+    color: #2b313d;
     line-height: 1.6;
     position: relative;
+    background: #ffffff;
+    -webkit-font-smoothing: antialiased;
 }
 
+h1, h2, h3, h4, h5, h6, .brand, .logo, .section-title, .form-title {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+}
 
         /* Header & Navigation */
         header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            background: rgba(15, 18, 24, 0.94);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
             position: sticky;
             top: 0;
             z-index: 1000;
+            transition: all 0.3s ease;
         }
 
         .top-bar {
-            background: rgba(0, 0, 0, 0.2);
-            color: white;
-            padding: 0.5rem 2rem;
-            text-align: right;
+            background: rgba(0, 0, 0, 0.4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #d1d5db;
+            padding: 0.45rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
         }
 
-        .phone-number {
-            font-size: 16px;
-            font-weight: 500;
+        .top-bar-left {
+            font-size: 12.5px;
+            color: #94a3b8;
+            letter-spacing: 0.3px;
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .top-bar-right span {
+            color: #cbd5e1;
+            font-size: 12.5px;
         }
 
         .phone-number a {
-            color: white;
+            color: #ffffff;
             text-decoration: none;
-            margin-left: 0.5rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
         }
 
         .phone-number a:hover {
             color: #00d4ff;
         }
 
+        .top-whatsapp-link {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 12.5px;
+            transition: opacity 0.2s;
+        }
+        .top-whatsapp-link:hover {
+            opacity: 0.8;
+        }
+
         nav {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1rem 3rem;
+            padding: 0.85rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 48px;
+            width: auto;
+            max-height: 48px;
+            max-width: 240px;
+            object-fit: contain;
+            display: block;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
         }
 
         .logo {
@@ -114,16 +197,18 @@ body {
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.8rem;
+            align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #ffffff;
+            color: #e2e8f0;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: all 0.3s;
             position: relative;
             font-size: 1.05rem;
+            letter-spacing: 0.2px;
         }
 
         .nav-links a:hover {
@@ -138,6 +223,7 @@ body {
             bottom: -5px;
             left: 0;
             background: #00d4ff;
+            box-shadow: 0 0 8px rgba(0, 212, 255, 0.8);
             transition: width 0.3s;
         }
 
@@ -145,230 +231,448 @@ body {
             width: 100%;
         }
 
+        .nav-consult-btn {
+            padding: 0.55rem 1.3rem !important;
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%) !important;
+            color: #0b192c !important;
+            border-radius: 50px !important;
+            font-weight: 700 !important;
+            font-size: 0.95rem !important;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.35) !important;
+            transition: all 0.3s ease !important;
+        }
+        .nav-consult-btn:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.6) !important;
+            color: #0b192c !important;
+        }
+        .nav-consult-btn::after {
+            display: none !important;
+        }
+
         /* Packages Section */
         /* Packages Section */
+/* ==================== PACKAGES & PRICING TABLE SECTION ==================== */
 #packages {
     background: #f8f9fa;
     width: 100%;
-    padding: 4rem 0;
+    padding: 4.5rem 0;
 }
 
-#packages .section-title,
-#packages .packages-grid,
-#packages .package-notes {
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
-
-   .packages-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 3rem;
-  align-items: start;
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-}
-@media (max-width: 900px) {
- /* fluid packages grid using auto-fit */
-.packages-grid {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-}
-@media (max-width: 600px) {
-  .packages-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-
-        .package-card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 2px solid #f0f0f0;
-            overflow: hidden;
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-            height: fit-content;
-        }
-
-        .package-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.2);
-            border-color: #00d4ff;
-        }
-
-        .package-header {
-                background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
-            color: white;
-            padding: 1.5rem;
-            text-align: center;
-            flex-shrink: 0;
-        }
-
-        .package-card.premium .package-header {
-            background: linear-gradient(135deg,  #2d2d2d 0%, #1a1a1a 100%);
-        }
-
-        .package-card.ultra .package-header {
-              background: linear-gradient(135deg, #b8860b 0%, #ffd700 100%);
-    color: #1a1a1a;
-        }
-
-        .package-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .package-price {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.3rem;
-        }
-
-        .package-price-unit {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .package-subtitle {
-            font-size: 0.9rem;
-            opacity: 0.95;
-            margin-top: 0.5rem;
-        }
-
-        .package-features {
-            padding: 1.5rem;
-            padding-bottom: 0.5rem;
-            flex-shrink: 0;
-        }
-
-        .feature-item {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 0.9rem;
-            color: #555;
-            display: flex;
-            align-items: flex-start;
-            line-height: 1.4;
-        }
-
-        .feature-item:last-child {
-            border-bottom: none;
-        }
-
-        .feature-item.included {
-            color: #1a1a1a;
-            font-weight: 500;
-        }
-
-        .feature-item.included::before {
-            content: "✓";
-            color: #00d4ff;
-            font-weight: 700;
-            margin-right: 0.5rem;
-            flex-shrink: 0;
-        }
-
-        .package-footer {
-            padding: 1rem 1.5rem 1.5rem 1.5rem;
-            text-align: center;
-            flex-shrink: 0;
-        }
-
-        .book-btn {
-            display: inline-block;
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
-        }
-
-        .book-btn:hover {
-            background: linear-gradient(135deg, #00b8e6 0%, #0088bb 100%);
-            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .package-visits {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #f0f0f0;
-            color: #788789;
-            font-weight: 600;
-        }
-
-        .package-delivery {
-            margin-top: 0.5rem;
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .package-notes {
-            background: #f8f9fa;
-            border-left: 4px solid #00d4ff;
-            padding: 1.5rem;
-            margin-top: 2rem;
-            border-radius: 8px;
-        }
-
-        .package-notes h4 {
-            color: #1a1a1a;
-            margin-bottom: 1rem;
-        }
-
-        .package-notes ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .package-notes li {
-            padding: 0.5rem 0;
-            color: #666;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .package-notes li::before {
-            content: "•";
-            color: #00d4ff;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-.hero-content {
-    margin-top: 8rem; /* adjust value as you like */
-}
-        /* Hero Section */
-      /* ENHANCED HERO SECTION - Replace your existing hero CSS */
-       /* Hero Section */
-.hero {
-    position: relative;
-    color: white;
+#packages .section-title {
     text-align: center;
-   padding: 16rem 2rem 4rem;
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.packages-subtitle {
+    text-align: center;
+    color: #666666;
+    font-size: 1.15rem;
+    max-width: 820px;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.5;
+}
+
+.package-comparison-section {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.comparison-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
     overflow: hidden;
-    min-height:750px;
+}
+
+.comparison-header {
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    color: white;
+    padding: 1.4rem 2.2rem;
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    border-bottom: 2px solid #00d4ff;
+}
+
+.comparison-header h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.comparison-header p {
+    margin: 0.25rem 0 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.92rem;
+}
+
+.comparison-table-scroll {
+    overflow-x: auto;
     width: 100%;
-    max-width: 100vw;
+    -webkit-overflow-scrolling: touch;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: center;
+    font-size: 0.98rem;
+    min-width: 860px;
+}
+
+/* Header Columns */
+.comparison-table th {
+    padding: 2rem 1.2rem 1.6rem;
+    font-weight: 700;
+    border-bottom: 2px solid #e2e8f0;
+    vertical-align: top;
+    position: relative;
+}
+
+.comparison-table th.col-feature {
+    text-align: left;
+    width: 32%;
+    padding-left: 2.2rem;
+    background: #f8fafc;
+    color: #1a1a1a;
+    border-top: 4px solid transparent;
+}
+
+.comparison-table th.col-pkg {
+    width: 17%;
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    color: #ffffff;
+    transition: background 0.3s;
+    border-top: 4px solid transparent;
+}
+
+.comparison-table th.col-pkg.popular-th {
+    background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+    border-top: 4px solid #00d4ff;
+    box-shadow: inset 0 0 20px rgba(0, 212, 255, 0.15);
+}
+
+.comparison-table th.col-pkg.ultra-th {
+    background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+    border-top: 4px solid #6366f1;
+    box-shadow: inset 0 0 20px rgba(99, 102, 241, 0.15);
+}
+
+/* Header Badges & Typography */
+.th-badge {
+    display: inline-block;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 0.75rem;
+}
+
+.th-badge.popular {
+    background: #00d4ff;
+    color: #0b192c;
+    box-shadow: 0 2px 8px rgba(0, 212, 255, 0.4);
+}
+
+.th-badge.ultra {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: #ffffff;
+    box-shadow: 0 2px 10px rgba(99, 102, 241, 0.35);
+}
+
+.th-tier-name {
+    display: block;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.3rem;
+}
+
+.th-price {
+    display: block;
+    font-size: 2.2rem;
+    color: #ffffff;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0.4rem 0 0.5rem;
+}
+
+.th-price span.unit {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.popular-th .th-price {
+    color: #00d4ff;
+}
+
+.ultra-th .th-price {
+    color: #a5b4fc;
+}
+
+.th-sub {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
     margin: 0;
 }
+
+/* Category Divider Rows */
+.category-row td {
+    background: #f1f5f9 !important;
+    color: #1a1a1a !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding: 1rem 2.2rem !important;
+    text-align: left;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+/* Table Cells */
+.comparison-table td {
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
+    font-size: 0.98rem;
+    background: #ffffff;
+}
+
+.comparison-table tr:hover td {
+    background: #f8fafc;
+}
+
+.comparison-table td.cell-feature {
+    text-align: left;
+    font-weight: 500;
+    color: #333333;
+    padding-left: 2.2rem;
+    background: #ffffff;
+    font-size: 1rem;
+}
+
+.comparison-table tr:hover td.cell-feature {
+    background: #f8fafc;
+}
+
+.comparison-table td.col-popular {
+    background: #ffffff;
+}
+.comparison-table tr:hover td.col-popular {
+    background: #f0f9ff;
+}
+
+.comparison-table td.col-ultra {
+    background: #ffffff;
+}
+.comparison-table tr:hover td.col-ultra {
+    background: #f5f7ff;
+}
+
+/* Badges & Checks */
+.cmp-badge-value {
+    display: inline-block;
+    padding: 0.45rem 1rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: #1a1a1a;
+}
+
+.cmp-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(0, 212, 255, 0.12);
+    color: #0284c7;
+    font-weight: 900;
+    font-size: 1rem;
+}
+
+.cmp-dash {
+    color: #cbd5e1;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+/* Bottom CTA Booking Row */
+.tbl-footer-row td {
+    padding: 1.6rem 1.2rem !important;
+    background: #f8fafc !important;
+    border-top: 2px solid #e2e8f0;
+}
+
+.tbl-cta-btn {
+    display: inline-block;
+    width: 100%;
+    max-width: 180px;
+    padding: 0.9rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.tbl-cta-btn.basic {
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    color: white;
+}
+.tbl-cta-btn.basic:hover {
+    background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+    color: #0b192c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+}
+
+.tbl-cta-btn.standard {
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    color: white;
+}
+.tbl-cta-btn.standard:hover {
+    background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+    color: #0b192c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+}
+
+.tbl-cta-btn.popular {
+    background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+    color: #0b192c;
+    font-weight: 800;
+    box-shadow: 0 4px 18px rgba(0, 212, 255, 0.45);
+}
+.tbl-cta-btn.popular:hover {
+    background: linear-gradient(135deg, #33e0ff 0%, #00b4e6 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 25px rgba(0, 212, 255, 0.6);
+}
+
+.tbl-cta-btn.ultra {
+    background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+    color: #ffffff;
+    font-weight: 800;
+    box-shadow: 0 4px 18px rgba(79, 70, 229, 0.35);
+}
+.tbl-cta-btn.ultra:hover {
+    background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 25px rgba(99, 102, 241, 0.55);
+}
+
+/* Pricing Note Cards */
+.pricing-notes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.pricing-note-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #00d4ff;
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.pricing-note-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.pricing-note-card h5 {
+    margin: 0 0 0.25rem 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.pricing-note-card p {
+    margin: 0;
+    font-size: 0.88rem;
+}
+
+@media (max-width: 1024px) {
+    .pricing-notes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .pricing-notes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Modal Video */
+.project-modal-gallery video {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    border: 3px solid #f0f0f0;
+    background: #000;
+}
+        @media (max-width: 768px) {
+            .project-modal-gallery video {
+                height: 280px;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            color: white;
+            text-align: center;
+            min-height: calc(100vh - var(--header-height, 90px));
+            min-height: calc(100dvh - var(--header-height, 90px));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 1.5rem;
+            overflow: hidden;
+            width: 100%;
+            max-width: 100vw;
+            margin: 0;
+        }
+
         /* Background Slider Container */
         .hero-slider {
             position: absolute;
@@ -386,7 +690,7 @@ body {
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 2s ease-in-out;
+            transition: opacity 1.8s ease-in-out;
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -397,32 +701,38 @@ body {
             z-index: 1;
         }
 
-        /* Dark overlay with gradient for better text readability */
-        /* Dark overlay with gradient for better text readability */
-.hero-slider::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: none;
-    z-index: 2;
-}
+        /* Natural contrast overlay to make text pop while keeping architecture bright and vivid */
+        .hero-slider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.45) 0%,
+                rgba(0, 0, 0, 0.25) 45%,
+                rgba(0, 0, 0, 0.55) 100%
+            );
+            z-index: 2;
+            pointer-events: none;
+        }
 
-        /* Content should be above slider */
+        /* Hero Content */
         .hero-content {
             position: relative;
             z-index: 3;
-            max-width: 1200px;
+            max-width: 960px;
             margin: 0 auto;
+            text-align: center;
             animation: fadeInUp 1s ease-out;
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(25px);
             }
             to {
                 opacity: 1;
@@ -430,44 +740,239 @@ body {
             }
         }
 
-        .hero h1 {
-            font-size: 2.5rem;
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            color: #e0f7fa;
+            padding: 0.5rem 1.4rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.4px;
             margin-bottom: 1.5rem;
-            font-weight: 700;
-            text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: #00d4ff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00d4ff;
+            animation: pulseDot 2s infinite ease-in-out;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.35); opacity: 0.7; }
+        }
+
+        .hero h1 {
+            font-size: 3.4rem;
+            margin-bottom: 1.2rem;
+            font-weight: 800;
+            text-shadow: 0 4px 24px rgba(0, 0, 0, 0.85);
             line-height: 1.2;
-            letter-spacing: -1px;
+            letter-spacing: -0.03em;
+            color: #ffffff;
+        }
+
+        .highlight-text {
+            background: linear-gradient(135deg, #00d4ff 0%, #ffffff 65%, #70e0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline;
+            text-shadow: none;
         }
 
         .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 2.5rem;
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
-            line-height: 1.6;
+            color: #f1f5f9;
+            text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
+            line-height: 1.65;
+            font-weight: 400;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
         }
 
         .cta-button {
-            display: inline-block;
-            padding: 1.2rem 3rem;
-            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
-            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1.05rem 2.5rem;
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            color: #081b29;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.4s;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            font-size: 1.02rem;
+            letter-spacing: 0.4px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 6px 24px rgba(0, 212, 255, 0.45);
         }
 
         .cta-button:hover {
-            background: linear-gradient(135deg,  #2d2d2d 0%, #1a1a1a 100%);
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(254, 254, 254, 0.5);
+            box-shadow: 0 10px 32px rgba(0, 212, 255, 0.7);
+            background: linear-gradient(135deg, #38e1ff 0%, #00aee6 100%);
+            color: #081b29;
+        }
+
+        .cta-button.secondary-cta {
+            background: rgba(255, 255, 255, 0.12) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            color: #ffffff !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .cta-button.secondary-cta:hover {
+            background: rgba(255, 255, 255, 0.24) !important;
+            border-color: #00d4ff;
+            color: #00d4ff !important;
+            transform: translateY(-3px);
+        }
+
+        .btn-arrow {
+            font-size: 1.15rem;
+            transition: transform 0.25s ease;
+        }
+
+        .cta-button:hover .btn-arrow {
+            transform: translateX(4px);
+        }
+
+        .secondary-cta:hover .btn-arrow {
+            transform: translateY(3px);
+        }
+
+        /* Hero Stats Strip */
+        .hero-stats-bar {
+            position: absolute;
+            bottom: 22px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+            background: rgba(12, 15, 22, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 50px;
+            padding: 0.7rem 2.2rem;
+            z-index: 5;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+            max-width: 92vw;
+        }
+
+        .hero-stats-bar .stat-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .hero-stats-bar .stat-number {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #00d4ff;
+            font-family: var(--font-heading);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-stats-bar .stat-label {
+            font-size: 0.88rem;
+            color: #cbd5e1;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .hero-stats-bar .stat-divider {
+            width: 1px;
+            height: 22px;
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        /* Hero Nav Buttons */
+        .hero-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: rgba(10, 12, 16, 0.45);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            color: #ffffff;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            transition: all 0.25s ease;
+        }
+
+        .hero-nav-btn:hover {
+            background: rgba(0, 212, 255, 0.85);
+            color: #081b29;
+            border-color: #00d4ff;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .hero-nav-btn.prev-btn { left: 24px; }
+        .hero-nav-btn.next-btn { right: 24px; }
+
+        /* Slider Dots */
+        .slider-dots {
+            position: absolute;
+            bottom: 74px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 5;
+        }
+
+        .slider-dots .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dots .dot:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .slider-dots .dot.active {
+            width: 28px;
+            border-radius: 12px;
+            background: #00d4ff;
+            box-shadow: 0 0 12px rgba(0, 212, 255, 0.85);
         }
 
         /* Slide Progress Bar */
@@ -478,40 +983,50 @@ body {
             width: 0%;
             height: 4px;
             background: linear-gradient(90deg, #00d4ff 0%, #0099cc 100%);
-            z-index: 4;
-            transition: width 0.3s linear;
+            z-index: 6;
+            transition: width 0.05s linear;
+            box-shadow: 0 0 10px #00d4ff;
+        }
+
+        @media (max-width: 820px) {
+            .hero-stats-bar {
+                display: none;
+            }
+            .hero-nav-btn {
+                display: none;
+            }
+            .slider-dots {
+                bottom: 22px;
+            }
         }
 
         @media (max-width: 768px) {
             .hero {
-                padding: 6rem 1.5rem;
-                min-height: 550px;
+                min-height: calc(100vh - var(--header-height, 70px));
+                min-height: calc(100dvh - var(--header-height, 70px));
+                padding: 4.5rem 1.5rem 3rem;
             }
-            
+
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.3rem;
             }
             
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
+                margin-bottom: 1.6rem;
             }
 
             .cta-button {
-                padding: 1rem 2rem;
-                font-size: 1rem;
-            }
-
-            .slider-dots {
-                bottom: 25px;
+                padding: 0.85rem 2rem;
+                font-size: 0.95rem;
             }
         }
 
         /* Section Styles */
-       /* Section Styles */
 section {
     width: 100%;
     margin: 0;
-    padding: 4rem 2rem;
+    padding: 5rem 2rem;
 }
 
 section > * {
@@ -522,11 +1037,13 @@ section > * {
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            color: #1a1a1a;
+            font-size: 2.6rem;
+            color: #111827;
             margin-bottom: 3rem;
             position: relative;
-            padding-bottom: 1rem;
+            padding-bottom: 1.1rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
         }
 
         .section-title::after {
@@ -535,10 +1052,15 @@ section > * {
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 70px;
             height: 4px;
-            background: linear-gradient(90deg, #2d2d2d 0%, #1a1a1a 100%);
-            border-radius: 2px;
+            background: linear-gradient(90deg, #00d4ff 0%, #0099cc 100%);
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 212, 255, 0.4);
+        }
+
+        .section-title.dark-title {
+            color: #ffffff;
         }
 
         /* Services Section */
@@ -616,6 +1138,241 @@ section > * {
             color: #333;
             font-size: 1.1rem;
             line-height: 1.9;
+        }
+
+        /* ==================== GOOGLE REVIEWS SECTION ==================== */
+        #reviews {
+            background: #ffffff;
+            width: 100%;
+            padding: 4.5rem 0;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .reviews-container {
+            max-width: 1380px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .google-header-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+            padding: 1.8rem 2.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .google-brand-summary {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .google-logo-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            flex-shrink: 0;
+        }
+
+        .google-rating-score {
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: #1a1a1a;
+            line-height: 1;
+        }
+
+        .google-stars {
+            color: #f59e0b;
+            font-size: 1.25rem;
+            letter-spacing: 2px;
+            margin: 0.2rem 0;
+        }
+
+        .google-rating-text {
+            font-size: 0.95rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .google-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .google-review-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.4rem;
+            background: #1a1a1a;
+            color: #ffffff;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .google-review-btn:hover {
+            background: #00d4ff;
+            color: #0b192c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0,212,255,0.4);
+        }
+
+        .google-maps-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.4rem;
+            background: #f8fafc;
+            color: #1e293b;
+            border: 1px solid #cbd5e1;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .google-maps-btn:hover {
+            background: #e2e8f0;
+            border-color: #94a3b8;
+            transform: translateY(-2px);
+        }
+
+        /* Review Cards Grid */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .review-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 1.6rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.12);
+            border-color: #00d4ff;
+        }
+
+        .review-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .reviewer-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00d4ff 0%, #0088cc 100%);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .reviewer-name {
+            font-weight: 700;
+            color: #1a1a1a;
+            font-size: 0.98rem;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .reviewer-date {
+            font-size: 0.78rem;
+            color: #94a3b8;
+            margin: 0.15rem 0 0 0;
+        }
+
+        .google-icon-small {
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+        }
+
+        .review-stars {
+            color: #f59e0b;
+            font-size: 1rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.75rem;
+        }
+
+        .review-text {
+            color: #475569;
+            font-size: 0.93rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-style: normal;
+        }
+
+        .review-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #16a34a;
+            background: #f0fdf4;
+            padding: 3px 10px;
+            border-radius: 20px;
+            border: 1px solid #bbf7d0;
+            width: fit-content;
+        }
+
+        @media (max-width: 1200px) {
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+            .google-header-card {
+                padding: 1.4rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
 
         /* Calculator Section */
@@ -783,26 +1540,88 @@ select:focus {
 
         /* Projects quick styles */
 .filter-btn {
-  padding: 0.45rem 0.9rem;
-  background: #fff;
-  border: 1px solid #e6e6e6;
-  border-radius: 999px;
+  padding: 0.55rem 1.25rem;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 50px;
   cursor: pointer;
   font-weight: 600;
-  transition: all .18s;
+  font-size: 0.95rem;
+  color: #475569;
+  transition: all .22s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
 }
-.filter-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
-.filter-btn.active { background: linear-gradient(90deg,#00d4ff 0%,#0099cc 100%); color: #fff; border-color: transparent; box-shadow: 0 8px 30px rgba(0,212,255,0.12); }
+.filter-btn:hover {
+  transform: translateY(-2px);
+  border-color: #00d4ff;
+  color: #0099cc;
+  box-shadow: 0 6px 18px rgba(0,212,255,0.18);
+}
+.filter-btn.active {
+  background: linear-gradient(135deg, #12161f 0%, #202633 100%) !important;
+  color: #00d4ff !important;
+  border-color: #00d4ff !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25), 0 0 12px rgba(0,212,255,0.3) !important;
+}
 
-.projects-gallery { display: grid; gap: 1.25rem; grid-template-columns: repeat(3,1fr); }
+.projects-gallery { display: grid; gap: 1.8rem; grid-template-columns: repeat(3,1fr); }
 @media (max-width: 1024px) { .projects-gallery { grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 640px) { .projects-gallery { grid-template-columns: 1fr; } }
 
-.project-item { transition: transform .25s, box-shadow .25s; }
+.project-item {
+  border-radius: 16px !important;
+  overflow: hidden;
+  background: #ffffff !important;
+  border: 1px solid #eef2f6 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  position: relative;
+}
+.project-item:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 212, 255, 0.35) !important;
+}
+.project-image-container {
+  position: relative;
+  overflow: hidden;
+}
+.project-image-container::after {
+  content: 'View Project Details →';
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(12, 15, 22, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #00d4ff;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  z-index: 2;
+}
+.project-item:hover .project-image-container::after {
+  opacity: 1;
+  transform: translateY(0);
+}
 .project-item.hide { display: none !important; opacity: 0; transform: scale(.99); pointer-events: none; }
-.project-image-container img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .45s; }
-.project-item:hover .project-image-container img { transform: scale(1.05); }
+.project-image-container img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .6s cubic-bezier(0.165, 0.84, 0.44, 1); }
+.project-item:hover .project-image-container img { transform: scale(1.08); }
 
+.project-info h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.25rem !important;
+  color: #0f172a !important;
+  transition: color 0.2s ease;
+}
+.project-item:hover .project-info h3 {
+  color: #0099cc !important;
+}
 
         @keyframes slideIn {
             from {
@@ -845,120 +1664,310 @@ select:focus {
             display: block;
         }
 
-        /* Contact Section */
-        .contact-grid {
+        /* About Section Styles */
+        .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
         }
-
-        .contact-item {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid #f0f0f0;
-            transition: all 0.3s;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.15);
-        }
-
-        .contact-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-item h3 {
-            color: #1a1a1a;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-item p {
-            color: #666;
-        }
-
-        .contact-item a {
-            color: #00d4ff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-item a:hover {
+        .about-tag {
+            display: inline-block;
             color: #0099cc;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.75rem;
+        }
+        .about-headline {
+            font-size: 2.2rem;
+            color: #0f172a;
+            margin-bottom: 1.4rem;
+            line-height: 1.3;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        .about-body {
+            color: #475569;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+        .about-bullets {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-top: 1.8rem;
+        }
+        .about-bullet-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .bullet-check {
+            color: #00d4ff;
+            font-size: 1.2rem;
+            line-height: 1.2;
+        }
+        .about-bullet-item strong {
+            display: block;
+            color: #0f172a;
+            font-size: 1.02rem;
+            margin-bottom: 0.2rem;
+        }
+        .about-bullet-item p {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+        .about-highlights-column {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.4rem;
+        }
+        .highlight-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 1.8rem;
+            transition: all 0.3s ease;
+        }
+        .highlight-card:hover {
+            transform: translateY(-4px);
+            border-color: #00d4ff;
+            box-shadow: 0 10px 28px rgba(0, 212, 255, 0.12);
+            background: #ffffff;
+        }
+        .hl-number {
+            display: block;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #0099cc;
+            font-family: var(--font-heading);
+            margin-bottom: 0.4rem;
+        }
+        .highlight-card h4 {
+            font-size: 1.05rem;
+            color: #1e293b;
+            margin-bottom: 0.4rem;
+            font-weight: 700;
+        }
+        .highlight-card p {
+            font-size: 0.88rem;
+            color: #64748b;
+            margin: 0;
+            line-height: 1.5;
+        }
+        @media (max-width: 960px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            .about-highlights-column {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Contact Section */
+        .contact-layout-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 3rem;
+            align-items: stretch;
+        }
+        .contact-info-card {
+            background: rgba(22, 27, 36, 0.7);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .contact-badge {
+            display: inline-block;
+            color: #00d4ff;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.8rem;
+        }
+        .contact-info-card h3 {
+            font-size: 1.85rem;
+            color: #ffffff;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+        .contact-detail-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.3rem;
+            margin-bottom: 2.2rem;
+        }
+        .contact-detail-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.1rem;
+        }
+        .c-icon {
+            font-size: 1.3rem;
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: rgba(0, 212, 255, 0.12);
+            border: 1px solid rgba(0, 212, 255, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-detail-row strong {
+            display: block;
+            color: #f1f5f9;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+        .contact-detail-row p {
+            color: #94a3b8;
+            font-size: 0.92rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+        .contact-quick-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .contact-wa-btn {
+            flex: 1;
+            min-width: 170px;
+            padding: 0.9rem 1.4rem;
+            background: #25D366;
+            color: #ffffff;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            text-align: center;
+            font-size: 0.95rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+        }
+        .contact-wa-btn:hover {
+            background: #20ba59;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 22px rgba(37, 211, 102, 0.5);
+        }
+        .contact-call-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 0.9rem 1.4rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            text-align: center;
+            font-size: 0.95rem;
+            transition: all 0.25s ease;
+        }
+        .contact-call-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #00d4ff;
+            color: #00d4ff;
+            transform: translateY(-2px);
         }
 
         /* Contact Form */
         .contact-form-container {
-            max-width: 700px;
-            margin: 3rem auto 0;
-            background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid #f0f0f0;
+            background: #ffffff;
+            padding: 2.8rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid #e2e8f0;
+            margin: 0;
+            max-width: 100%;
         }
 
         .form-title {
             text-align: center;
             font-size: 2rem;
-            color: #1a1a1a;
-            margin-bottom: 2rem;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
         }
 
         .form-group-contact {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.35rem;
         }
 
         .form-group-contact label {
             display: block;
-            margin-bottom: 0.5rem;
-            color: #1a1a1a;
+            margin-bottom: 0.45rem;
+            color: #1e293b;
             font-weight: 600;
+            font-size: 0.92rem;
         }
 
         .form-group-contact input,
         .form-group-contact textarea {
             width: 100%;
-            padding: 12px 15px;
-            border: 1.5px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
+            padding: 12px 16px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 15px;
             font-family: inherit;
-            transition: all 0.3s ease;
-            background: #fafafa;
+            transition: all 0.25s ease;
+            background: #f8fafc;
+            color: #1e293b;
         }
 
         .form-group-contact input:focus,
         .form-group-contact textarea:focus {
             outline: none;
             border-color: #00d4ff;
-            background: white;
-            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.15);
         }
 
         .form-group-contact textarea {
-            min-height: 150px;
+            min-height: 130px;
             resize: vertical;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #000000 0%, #000000 100%);
-            color: white;
-            border: none;
+            padding: 14px;
+            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+            color: #ffffff;
+            border: 1.5px solid transparent;
             border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 16px;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            color: #0b192c;
+            box-shadow: 0 6px 24px rgba(0, 212, 255, 0.45);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 960px) {
+            .contact-layout-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .submit-btn:hover {
@@ -997,10 +2006,11 @@ select:focus {
 
         /* Footer */
         footer {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            background: linear-gradient(180deg, #131722 0%, #0b0d13 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             color: white;
-            padding: 3rem 2rem 1.5rem;
-            margin-top: 4rem;
+            padding: 4rem 2rem 2rem;
+            margin-top: 0;
         }
 
         .footer-content {
@@ -1695,21 +2705,22 @@ nav { background: transparent; }
   .nav-links a { color: #fff; font-size: 1.05rem; padding: 0.25rem 0.5rem; }
 }
 
-/* reduce hero padding for small screens (already you had similar rules) */
+/* reduce hero padding for small screens */
 @media (max-width: 480px) {
-  .hero { padding: 4.5rem 1rem; min-height: 420px; }
-  .hero h1 { font-size: 1.9rem; }
+  .hero { padding: 3rem 1rem 2rem; min-height: calc(100vh - var(--header-height, 70px)); min-height: calc(100dvh - var(--header-height, 70px)); }
+  .hero h1 { font-size: 1.6rem; }
+  .hero p { font-size: 0.95rem; }
   .nav-inner { padding: 0.5rem 0.8rem; }
   .top-bar { padding: 0.45rem 0.8rem; font-size: 0.95rem; }
 }
 
 /* fluid packages grid using auto-fit */
 .packages-grid {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
 /* make hero slides use background-size cover safe across devices */
-.hero-slide { background-size: cover; background-position: center; }
+.hero-slide { background-size: cover; background-position: center center; }
 
 /* improve tap targets */
 .book-btn, .filter-btn, .calculate-btn, .submit-btn, .floating-btn { touch-action: manipulation; }
@@ -1801,13 +2812,17 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
     <!-- Header -->
   <header>
     <div class="top-bar">
-        <div class="phone-number">
-            📞 Call Us: <a href="tel:+919611196716">+91 96111 96716</a>
+        <div class="top-bar-left">
+            <span>📍 Premier Architectural & Luxury Interior Studio · Bengaluru · Chennai · Hyderabad</span>
+        </div>
+        <div class="top-bar-right">
+            <span>🕒 Mon - Sat: 9:30 AM - 7:30 PM</span>
+            <span class="phone-number">📞 <a href="tel:+919611196716">+91 96111 96716</a></span>
+            <a href="https://wa.me/919611196716?text=Hi%20MSN%20Architects%2C%20I%20would%20like%20to%20consult%20on%20my%20project." target="_blank" class="top-whatsapp-link">💬 WhatsApp Us</a>
         </div>
     </div>
    <nav>
   <div class="nav-inner">
-    <!-- <div class="nav-left" style="display:flex; align-items:center; gap:14px;"> -->
      <div class="nav-left" style="display:flex; align-items:center; gap:14px;">
       <a href="#home" class="brand">
        <img src="Header-Logo/MSNLogo-header.png"
@@ -1828,7 +2843,9 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
         <li><a href="#calculator">Calculator</a></li>
         <li><a href="#services">Services</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li class="nav-cta-li"><a href="#contact" class="nav-consult-btn">Book Consultation</a></li>
     </ul>
   </div>
 </nav>
@@ -1841,364 +2858,546 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
 <section id="home" class="hero">
     <!-- Background Image Slider -->
     <div class="hero-slider">
-        <!-- <div class="hero-slide active" style="background-image: url('./Header-Logo/Header-landing-Images/1header.jpeg');"></div> -->
-        <div class="hero-slide" style="background-image: url('./Header-Logo/Header-landing-Images/2header.jpeg');"></div>
-       
-        <!-- <div class="hero-slide" style="background-image: url('./Header-Logo/Header-landing-Images/4header.jpeg');"></div> -->
-        <!-- <div class="hero-slide" style="background-image: url('./Header-Logo/Header-landing-Images/5header.jpeg');"></div> -->
-
-             <div class="hero-slide" style="background-image: url('./Header-Logo/Header-landing-Images/7header.jpg');"></div>
-             <div class="hero-slide" style="background-image: url('./Header-Logo/Header-landing-Images/8header.jpg');"></div>
-             <div class="hero-slide" style="background-image: url('./Header-Logo/Header-landing-Images/9header.JPG');"></div>
-             <div class="hero-slide" style="background-image: url('./Header-Logo/Header-landing-Images/10header.JPG');"></div>
-              <div class="hero-slide" style="background-image: url('./Header-Logo/Header-landing-Images/3header.jpeg');"></div>
+        <div class="hero-slide active" style="background-image: url('./VILLAS/JSR/FRONT/14113fa7-bc43-40ad-807c-b3b3af2c390e.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('./VILLAS/Modern Duplex Villa/FRONT/6aa32d62-0a6c-4c0c-ab8f-84a33cf39530.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('./Header-Logo/Header-landing-Images/7header.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('./Header-Logo/Header-landing-Images/8header.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('./Header-Logo/Header-landing-Images/9header.JPG');"></div>
+        <div class="hero-slide" style="background-image: url('./Header-Logo/Header-landing-Images/10header.JPG');"></div>
+        <div class="hero-slide" style="background-image: url('./Header-Logo/Header-landing-Images/3header.jpeg');"></div>
     </div>
 
     <!-- Hero Content -->
     <div class="hero-content">
-        <h1>Designing Multidimensional Space & Nature</h1>
-        <p>Architecture combined with Interior Design - Understanding the art, science, and business of building with excellence and innovation</p>
-        <a href="#contact" class="cta-button">Get Started</a>
+        <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span>Award-Winning Architectural & Luxury Interior Studio</span>
+        </div>
+        <h1>Designing Multidimensional <span class="highlight-text">Space & Nature</span></h1>
+        <p>Architecture combined with Interior Design — Understanding the art, science, and business of building with excellence, innovation, and timeless Vastu harmony.</p>
+        <div class="hero-cta-group">
+            <a href="#contact" class="cta-button primary-cta">
+                <span>Book Consultation</span>
+                <span class="btn-arrow">→</span>
+            </a>
+            <a href="#projects" class="cta-button secondary-cta">
+                <span>Explore Portfolio</span>
+                <span class="btn-arrow">↓</span>
+            </a>
+        </div>
     </div>
+
+    <!-- Slide Navigation Arrows -->
+    <button class="hero-nav-btn prev-btn" id="heroPrevBtn" aria-label="Previous slide">&#10094;</button>
+    <button class="hero-nav-btn next-btn" id="heroNextBtn" aria-label="Next slide">&#10095;</button>
+
+    <!-- Slide Indicators -->
+    <div class="slider-dots" id="sliderDots">
+        <span class="dot active" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+        <span class="dot" data-slide="3"></span>
+        <span class="dot" data-slide="4"></span>
+        <span class="dot" data-slide="5"></span>
+        <span class="dot" data-slide="6"></span>
+    </div>
+
+    <!-- Floating Metrics Strip -->
+    <div class="hero-stats-bar">
+        <div class="stat-item">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Luxury Projects</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Vastu Compliant</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-number">4</span>
+            <span class="stat-label">Major Cities</span>
+        </div>
+    </div>
+
+    <!-- Slide Progress Bar -->
+    <div class="slide-progress" id="slideProgress"></div>
 </section>
  <!-- ========== PROJECTS SECTION START ========== -->
-<section id="projects" style="background: #f8f9fa;">
-  <h2 class="section-title">Our Projects</h2>
+<section id="projects" style="background: #f8fafc; padding: 5.5rem 1.5rem;">
+  <div style="text-align: center; max-width: 820px; margin: 0 auto 2.8rem;">
+    <h2 class="section-title">Our Featured Projects</h2>
+    <p style="color: #64748b; font-size: 1.15rem; margin-top: 0.5rem; line-height: 1.6;">
+      Explore our signature portfolio of bespoke luxury villas, modern duplexes, multi-storey residences, and landmark commercial spaces.
+    </p>
+  </div>
 
   <!-- Project Filter Buttons -->
-  <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;" id="projectsFilterBar">
-    <button class="filter-btn active" data-filter="all">All (16)</button>
-    <button class="filter-btn" data-filter="villa">Villa (10)</button>
-    <button class="filter-btn" data-filter="apartment">Apartment (4)</button>
-    <button class="filter-btn" data-filter="commercial">Commercial (1)</button>
-    <button class="filter-btn" data-filter="institution">Institution (1)</button>
-
+  <div style="display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 3rem;" id="projectsFilterBar">
+    <button class="filter-btn active" data-filter="all">All Projects (20)</button>
+    <button class="filter-btn" data-filter="villa">Villas (13)</button>
+    <button class="filter-btn" data-filter="apartment">Apartments (4)</button>
+    <button class="filter-btn" data-filter="commercial">Commercial (2)</button>
+    <button class="filter-btn" data-filter="institution">Institutions (1)</button>
   </div>
 
   <!-- Projects Grid -->
   <div class="projects-gallery" id="projectsGallery">
-    
-    <!-- ==================== 10 VILLA PROJECTS ==================== -->
 
+    <!-- ==================== 13 VILLA PROJECTS ==================== -->
+
+    <!-- Top Featured Villas: JSR Villa, Luxury Modern House, Modern Duplex Villa -->
     <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa10')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./Header-Logo/Header-landing-Images/2header.jpeg" alt="Villa Project 10" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+        <img src="./VILLAS/JSR/FRONT/14113fa7-bc43-40ad-807c-b3b3af2c390e.jpg" alt="JSR Villa" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
       </div>
       <div class="project-info" style="padding:1.2rem;">
-        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Villa</h3>
-        <p style="color:#666; margin:0; line-height:1.5;">Thermal massing and sheltered courtyards.</p>
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">JSR Villa</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Contemporary luxury villa with striking architectural massing.</p>
       </div>
     </div>
 
-  
-
-    <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('apt1')">
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa11')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./APPARTMENTS/ KAYAL BUILDERS - KOLAPAKKAM/011.jpg" alt="Apartment Project 1" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+        <img src="./VILLAS/Luxuary Modern House/Front/4.png" alt="Luxury Modern House" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
       </div>
       <div class="project-info" style="padding:1.2rem;">
-        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">KAYAL BUILDERS</h3>
-        <p style="color:#666; margin:0; line-height:1.5;">Premium tower with double-height lobby.</p>
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Luxury Modern House</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Modern volumetric luxury residence with curated lighting.</p>
       </div>
     </div>
 
- <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('apt2')">
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa12')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./APPARTMENTS/ KAYAL BUILDERS/001.jpg" alt="Apartment Project 2" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+        <img src="./VILLAS/Modern Duplex Villa/FRONT/6aa32d62-0a6c-4c0c-ab8f-84a33cf39530.jpg" alt="Modern Duplex Villa" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
       </div>
       <div class="project-info" style="padding:1.2rem;">
-        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">KAYAL BUILDERS</h3>
-        <p style="color:#666; margin:0; line-height:1.5;">Compact modern homes with efficient layouts.</p>
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Modern Duplex Villa</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Contemporary duplex architecture with premium finishes.</p>
       </div>
     </div>
 
-      <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa1')">
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa1')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./VILLAS/Chittoor Residence/CR - RD - 1.jpg" alt="Villa Project 1" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+        <img src="./VILLAS/Chittoor Residence/CR - RD - 1.jpg" alt="Chittoor Residence" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
       </div>
       <div class="project-info" style="padding:1.2rem;">
         <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Chittoor Residence</h3>
-        <p style="color:#666; margin:0; line-height:1.5;">Open-plan living with panoramic ocean views.</p>
+        <p style="color:#666; margin:0; line-height:1.5;">Open-plan contemporary villa with expansive views.</p>
       </div>
     </div>
 
-   <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa2')">
-  <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-    <img src="./VILLAS/balaji residence/PHOTO-2024-09-14-23-17-16.jpg" alt="Villa Project 2" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
-  </div>
-  <div class="project-info" style="padding:1.2rem;">
-    <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Balaji Residence</h3>
-    <p style="color:#666; margin:0; line-height:1.5;">Private central courtyard with natural light.</p>
-  </div>
-</div>
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa2')">
+      <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+        <img src="./VILLAS/balaji residence/PHOTO-2024-09-14-23-17-16.jpg" alt="Balaji Residence" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
+      </div>
+      <div class="project-info" style="padding:1.2rem;">
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Balaji Residence</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Private central courtyard flooded with natural light.</p>
+      </div>
+    </div>
 
     <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa3')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./VILLAS/Duplex Villas 02/DV2 - RD - 2.jpg" alt="Villa Project 3" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+        <img src="./VILLAS/Duplex Villas 02/DV2 - RD - 2.jpg" alt="Duplex Villa 02" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
       </div>
       <div class="project-info" style="padding:1.2rem;">
         <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Duplex villa</h3>
-        <p style="color:#666; margin:0; line-height:1.5;">Clean lines and refined materials.</p>
+        <p style="color:#666; margin:0; line-height:1.5;">Clean minimalist lines and refined modern aesthetics.</p>
       </div>
     </div>
 
-<div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa4')">
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa4')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./VILLAS/Neelanmangala villa/NR - RD - 1.jpg" alt="Villa Project 4" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+        <img src="./VILLAS/Neelanmangala villa/NR - RD - 1.jpg" alt="Neelanmangala Villa" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
       </div>
       <div class="project-info" style="padding:1.2rem;">
         <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Neelanmangala villa</h3>
-        <p style="color:#666; margin:0; line-height:1.5;">Indoor–outdoor living with lush landscaping.</p>
+        <p style="color:#666; margin:0; line-height:1.5;">Indoor–outdoor tropical living with lush landscaping.</p>
       </div>
     </div>
 
     <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa5')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./VILLAS/Sekar naidu villa - TATCHOOR/PHOTO-2024-09-17-09-01-23 4.jpg" alt="Villa Project 5" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+        <img src="./VILLAS/Sekar naidu villa - TATCHOOR/PHOTO-2024-09-17-09-01-23 4.jpg" alt="Sekar Naidu Villa" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
       </div>
       <div class="project-info" style="padding:1.2rem;">
         <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Sekar naidu villa</h3>
-        <p style="color:#666; margin:0; line-height:1.5;">Multi-level terraces and panoramic decks.</p>
+        <p style="color:#666; margin:0; line-height:1.5;">Multi-level terraces and panoramic hilltop decks.</p>
       </div>
     </div>
 
     <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa6')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./VILLAS/SLOPE ROOF HOUSE/Sloperoofhouse01.jpg" alt="Villa Project 6" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+        <img src="./VILLAS/SLOPE ROOF HOUSE/Sloperoofhouse01.jpg" alt="Slope Roof House" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
       </div>
       <div class="project-info" style="padding:1.2rem;">
         <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Slope Roof House</h3>
-        <p style="color:#666; margin:0; line-height:1.5;">Sustainable design with passive cooling.</p>
+        <p style="color:#666; margin:0; line-height:1.5;">Sustainable design with passive cooling & pitched roofs.</p>
       </div>
     </div>
 
     <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa7')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./VILLAS/Tumkur VILLA/TR - RD - 1.jpg" alt="Villa Project 7" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+        <img src="./VILLAS/Tumkur VILLA/TR - RD - 1.jpg" alt="Tumkur Villa" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
       </div>
       <div class="project-info" style="padding:1.2rem;">
         <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Tumkur villa</h3>
-        <p style="color:#666; margin:0; line-height:1.5;">Bold geometry and dramatic facades.</p>
+        <p style="color:#666; margin:0; line-height:1.5;">Bold geometric forms with dramatic modern facade.</p>
       </div>
     </div>
 
-   <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa8')">
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa8')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./VILLAS/Vargese VILLA/VR - RD - 1.jpg" alt="Villa Project 8" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+        <img src="./VILLAS/Vargese VILLA/VR - RD - 1.jpg" alt="Vargese Villa" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
       </div>
       <div class="project-info" style="padding:1.2rem;">
         <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Vargese villa</h3>
-        <p style="color:#666; margin:0; line-height:1.5;">Waterfront terraces and reflective pools.</p>
+        <p style="color:#666; margin:0; line-height:1.5;">Riverside luxury villa with seamless water connections.</p>
       </div>
     </div>
 
-   <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa9')">
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa9')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./VILLAS/villa -Rammoorthy Nagar /RNR - RD - 1.jpg" alt="Villa Project 9" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+        <img src="./VILLAS/villa -Rammoorthy Nagar/RNR - RD - 1.jpg" alt="Rammoorthy Nagar Villa" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
       </div>
       <div class="project-info" style="padding:1.2rem;">
         <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Rammoorthy Nagar villa</h3>
-        <p style="color:#666; margin:0; line-height:1.5;">Adaptive reuse with traditional detailing.</p>
+        <p style="color:#666; margin:0; line-height:1.5;">Heritage contemporary blend with traditional detailing.</p>
       </div>
     </div>
 
-  <!-- <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa10')">
+    <div class="project-item" data-category="villa" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('villa13')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./Header-Logo/Header-landing-Images/2header.jpeg" alt="Villa Project 10" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+        <img src="./VILLAS/Vivek Villa/FRONT/ChatGPT Image Mar 15, 2026, 09_08_09 PM.png" alt="Vivek Villa" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
       </div>
       <div class="project-info" style="padding:1.2rem;">
-        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Villa</h3>
-        <p style="color:#666; margin:0; line-height:1.5;">Thermal massing and sheltered courtyards.</p>
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Vivek Villa</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Sophisticated modern living with video walkthrough & gardens.</p>
       </div>
-    </div> -->
+    </div>
 
     <!-- ==================== 4 APARTMENT PROJECTS ==================== -->
-  <!-- <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('apt1')">
+
+    <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('apt1')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./APPARTMENTS/ KAYAL BUILDERS - KOLAPAKKAM/011.jpg" alt="Apartment Project 1" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+        <img src="./APPARTMENTS/ KAYAL BUILDERS - KOLAPAKKAM/011.jpg" alt="Kayal Builders - Kolapakkam" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
       </div>
       <div class="project-info" style="padding:1.2rem;">
-        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">KAYAL BUILDERS</h3>
-        <p style="color:#666; margin:0; line-height:1.5;">Premium tower with double-height lobby.</p>
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">KAYAL BUILDERS - KOLAPAKKAM</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Premium residential tower with double-height lobby.</p>
       </div>
     </div>
 
- <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('apt2')">
+    <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('apt2')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./APPARTMENTS/ KAYAL BUILDERS/001.jpg" alt="Apartment Project 2" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+        <img src="./APPARTMENTS/ KAYAL BUILDERS/001.jpg" alt="Kayal Builders" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
       </div>
       <div class="project-info" style="padding:1.2rem;">
         <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">KAYAL BUILDERS</h3>
-        <p style="color:#666; margin:0; line-height:1.5;">Compact modern homes with efficient layouts.</p>
+        <p style="color:#666; margin:0; line-height:1.5;">Compact modern homes designed for urban efficiency.</p>
       </div>
-    </div> -->
+    </div>
 
-  <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('apt3')">
+    <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('apt3')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./APPARTMENTS/HANSTEC - TIRUPATHI/1.jpg" alt="Apartment Project 3" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+        <img src="./APPARTMENTS/HANSTEC - TIRUPATHI/1.jpg" alt="Hanstec Smart Homes" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
       </div>
       <div class="project-info" style="padding:1.2rem;">
         <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Hanstec smart homes</h3>
-        <p style="color:#666; margin:0; line-height:1.5;">Landscape-integrated multi-level residences.</p>
+        <p style="color:#666; margin:0; line-height:1.5;">Landscape-integrated multi-level residential community.</p>
       </div>
     </div>
 
     <div class="project-item" data-category="apartment" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('apt4')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./APPARTMENTS/MAGADI APPARTMENTS/NIGHT RENDER.jpg" alt="Apartment Project 4" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+        <img src="./APPARTMENTS/MAGADI APPARTMENTS/NIGHT RENDER.jpg" alt="Sri Rajashree Developers" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
       </div>
       <div class="project-info" style="padding:1.2rem;">
         <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Sri Rajashree Developers</h3>
-        <p style="color:#666; margin:0; line-height:1.5;">High-rise project with rooftop amenities.</p>
+        <p style="color:#666; margin:0; line-height:1.5;">High-rise residential project with rooftop sky amenities.</p>
       </div>
     </div>
 
-    <!-- ==================== 1 COMMERCIAL PROJECT ==================== -->
-   <div class="project-item" data-category="commercial" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('commercial1')">
+    <!-- ==================== 2 COMMERCIAL PROJECTS ==================== -->
+
+    <div class="project-item" data-category="commercial" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('commercial1')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./COMMERCIAL PROJECTS/Royal Complex/RC - RD - 1.jpg" alt="Commercial Project" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+        <img src="./COMMERCIAL PROJECTS/Royal Complex/RC - RD - 1.jpg" alt="Royal Complex" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
       </div>
       <div class="project-info" style="padding:1.2rem;">
         <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Royal Complex</h3>
-        <p style="color:#666; margin:0; line-height:1.5;">Modern office and retail space with sky bridges.</p>
+        <p style="color:#666; margin:0; line-height:1.5;">Modern corporate tower and high-street retail hub.</p>
+      </div>
+    </div>
+
+    <div class="project-item" data-category="commercial" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('commercial2')">
+      <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+        <img src="./COMMERCIAL PROJECTS/Mixed Used Buildings/FRONT/2cf4f93f-a3fd-476d-82e5-5e6ce8e05d8a.jpg" alt="Mixed Use Building" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
+      </div>
+      <div class="project-info" style="padding:1.2rem;">
+        <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Mixed Use Building</h3>
+        <p style="color:#666; margin:0; line-height:1.5;">Integrated commercial and retail multi-story complex.</p>
       </div>
     </div>
 
     <!-- ==================== 1 INSTITUTION PROJECT ==================== -->
-<div class="project-item" data-category="institution" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('institution1')">
+
+    <div class="project-item" data-category="institution" style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:all 0.3s; cursor: pointer;" onclick="openProjectModal('institution1')">
       <div class="project-image-container" style="width:100%; aspect-ratio:4/3; overflow:hidden;">
-        <img src="./INSTITUTIONS/Euro Kids School/EKS - RD - 2.jpg" alt="Institution Project" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;">
+        <img src="./INSTITUTIONS/Euro Kids School/euro kids school.png" alt="Euro Kids School" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.45s;" loading="lazy">
       </div>
       <div class="project-info" style="padding:1.2rem;">
         <h3 style="margin-bottom:0.5rem; font-size:1.2rem; color:#1a1a1a;">Euro Kids School</h3>
-        <p style="color:#666; margin:0; line-height:1.5;">Modern learning spaces with sustainable design.</p>
+        <p style="color:#666; margin:0; line-height:1.5;">Modern child-centric educational campus with active play design.</p>
       </div>
     </div>
-
 
   </div>
 </section>
   
 
     <!-- Construction Packages Section -->
-    <section id="packages">
-        <h2 class="section-title">Select Your Architectural Design Package</h2>
-        
-        <div class="packages-grid">
-            <!-- Basic Package -->
-           <!-- Basic Package -->
-<div class="package-card">
-    <div class="package-header">
-        <div class="package-title">Basic</div>
-        <div class="package-price">₹140 <span class="package-price-unit">per sqft</span></div>
-        <div class="package-subtitle">Concept Design + Working Drawings</div>
-    </div>
-    <div class="package-features">
-        <div class="feature-item included">Site Assessment & Site Plan</div>
-        <div class="feature-item included">Scheme Drawing: All Floors (2D) + Furniture Layouts</div>
-        <div class="feature-item included">Elevation Design (2D + 3D)</div>
-        <div class="feature-item included">Landscaping Architecture Design</div>
-        <div class="feature-item included">Working Drawing: All Floors (2D)</div>
-        <div class="feature-item included">Elevation Detail Drawing (2D)</div>
-        <div class="feature-item included">Structural Drawings</div>
-    </div>
-    <div class="package-footer">
-        <div class="package-visits">Site Visits: Max 4</div>
-        <div class="package-delivery">Delivery: 24 Working Days</div>
-        <button class="book-btn" onclick="alert('Please call +91 9611196716 to book this package')">Book Now</button>
-    </div>
-</div>
+<section id="packages">
+    <h2 class="section-title">Architectural Packages & Pricing</h2>
+    <p class="packages-subtitle">Transparent per-sq.ft rates with full deliverables breakdown. Choose the ideal architectural package for your project.</p>
+    
+    <!-- Unified Package Comparison Matrix Section -->
+    <div class="package-comparison-section">
+        <div class="comparison-card">
+            <div class="comparison-table-scroll">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th class="col-feature">
+                                <span style="font-size:1.75rem; font-weight:800; color:#0f172a; display:block; line-height:1.25;">Scope & Deliverables</span>
+                                <span style="display:block; font-size:1.1rem; color:#64748b; font-weight:600; margin-top:0.45rem;">Compare all 4 design tiers</span>
+                            </th>
+                            
+                            <!-- Basic Column -->
+                            <th class="col-pkg">
+                                <span class="th-tier-name">Basic</span>
+                                <span class="th-price">₹110<span class="unit"> / sqft</span></span>
+                                <span class="th-sub">Concept Design & Vastu Planning</span>
+                            </th>
+                            
+                            <!-- Standard Column -->
+                            <th class="col-pkg">
+                                <span class="th-tier-name">Standard</span>
+                                <span class="th-price">₹160<span class="unit"> / sqft</span></span>
+                                <span class="th-sub">Complete Working Drawings & MEP</span>
+                            </th>
+                            
+                            <!-- Premium Column -->
+                            <th class="col-pkg popular-th">
+                                <span class="th-badge popular">⭐ Most Popular</span>
+                                <span class="th-tier-name" style="color:#0284c7;">Premium</span>
+                                <span class="th-price">₹250<span class="unit"> / sqft</span></span>
+                                <span class="th-sub">Architecture + Complete Interiors</span>
+                            </th>
+                            
+                            <!-- Ultra Premium Column -->
+                            <th class="col-pkg ultra-th">
+                                <span class="th-badge ultra">👑 Ultra Luxury</span>
+                                <span class="th-tier-name" style="color:#818cf8;">Ultra Premium</span>
+                                <span class="th-price">₹350<span class="unit"> / sqft</span></span>
+                                <span class="th-sub">Turnkey Luxury & Full Execution</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background:#f8fafc; font-weight:bold;">
+                            <td class="cell-feature" style="font-weight:700; color:#0f172a;">Site Visits</td>
+                            <td><span class="cmp-badge-value">2</span></td>
+                            <td><span class="cmp-badge-value">3</span></td>
+                            <td class="col-popular"><span class="cmp-badge-value" style="background:#cffafe; color:#0369a1; border-color:#7dd3fc;">6</span></td>
+                            <td class="col-ultra"><span class="cmp-badge-value" style="background:#eef2ff; color:#3730a3; border-color:#c7d2fe;">10</span></td>
+                        </tr>
+                        <tr style="background:#f8fafc; font-weight:bold;">
+                            <td class="cell-feature" style="font-weight:700; color:#0f172a;">Delivery Time</td>
+                            <td><span class="cmp-badge-value">14 Days</span></td>
+                            <td><span class="cmp-badge-value">21 Days</span></td>
+                            <td class="col-popular"><span class="cmp-badge-value" style="background:#cffafe; color:#0369a1; border-color:#7dd3fc;">30 Days</span></td>
+                            <td class="col-ultra"><span class="cmp-badge-value" style="background:#eef2ff; color:#3730a3; border-color:#c7d2fe;">45 Days</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Site Assessment & Site Plan</td>
+                            <td><span class="cmp-check">✓</span></td>
+                            <td><span class="cmp-check">✓</span></td>
+                            <td class="col-popular"><span class="cmp-check">✓</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Vastu Planning</td>
+                            <td><span class="cmp-check">✓</span></td>
+                            <td><span class="cmp-check">✓</span></td>
+                            <td class="col-popular"><span class="cmp-check">✓</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Floor Plans — 2D</td>
+                            <td><span class="cmp-check">✓</span></td>
+                            <td><span class="cmp-check">✓</span></td>
+                            <td class="col-popular"><span class="cmp-check">✓</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Furniture Layouts</td>
+                            <td><span class="cmp-check">✓</span></td>
+                            <td><span class="cmp-check">✓</span></td>
+                            <td class="col-popular"><span class="cmp-check">✓</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">3D Elevation Design</td>
+                            <td><span class="cmp-check">✓</span></td>
+                            <td><span class="cmp-check">✓</span></td>
+                            <td class="col-popular"><span class="cmp-check">✓</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Construction Working Drawings</td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td><span class="cmp-check">✓</span></td>
+                            <td class="col-popular"><span class="cmp-check">✓</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Detailed Execution Drawings</td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td><span class="cmp-check">✓</span></td>
+                            <td class="col-popular"><span class="cmp-check">✓</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Structural Drawings</td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td><span class="cmp-check">✓</span></td>
+                            <td class="col-popular"><span class="cmp-check">✓</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Elevation Detail Drawings — 2D</td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td class="col-popular"><span class="cmp-check">✓</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Landscape Design</td>
+                            <td><span class="cmp-check">✓</span></td>
+                            <td><span class="cmp-check">✓</span></td>
+                            <td class="col-popular"><span class="cmp-check">✓</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Full MEP Layouts</td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td><span class="cmp-check">✓</span></td>
+                            <td class="col-popular"><span class="cmp-check">✓</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Interior Design Concept</td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td class="col-popular"><span class="cmp-check">✓</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Interior Design Detail Drawings</td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td class="col-popular"><span class="cmp-check">✓</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Interior Views — All Rooms 3D</td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td class="col-popular"><span class="cmp-check">✓</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Interior Detailing — All Rooms 2D</td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td class="col-popular"><span class="cmp-check">✓</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Product & Furniture designing</td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td class="col-popular"><span class="cmp-check">✓</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Construction Quotation</td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td class="col-popular"><span class="cmp-dash">—</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Structural BOQ</td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td class="col-popular"><span class="cmp-dash">—</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Material & Brand Selection</td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td class="col-popular"><span class="cmp-dash">—</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Vendor Meetings</td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td class="col-popular"><span class="cmp-dash">—</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell-feature">Topographical Survey</td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td><span class="cmp-dash">—</span></td>
+                            <td class="col-popular"><span class="cmp-dash">—</span></td>
+                            <td class="col-ultra"><span class="cmp-check">✓</span></td>
+                        </tr>
 
-<!-- Standard Package -->
-<div class="package-card">
-    <div class="package-header">
-        <div class="package-title">Standard</div>
-        <div class="package-price">₹250 <span class="package-price-unit">per sqft</span></div>
-        <div class="package-subtitle">Concept Design + Working Drawings + Interior</div>
-    </div>
-    <div class="package-features">
-        <div class="feature-item included">Site Assessment & Site Plan</div>
-        <div class="feature-item included">Scheme Drawing: All Floors (2D) + Furniture Layouts</div>
-        <div class="feature-item included">Elevation Design (2D + 3D)</div>
-        <div class="feature-item included">Landscaping Architecture Design</div>
-        <div class="feature-item included">Working Drawing: All Floors (2D)</div>
-        <div class="feature-item included">Elevation Detail Drawing (2D)</div>
-        <div class="feature-item included">Structural Drawings + BOQ</div>
-        <div class="feature-item included">Electrical & Plumbing Drawings: All Floors (2D)</div>
-        <div class="feature-item included">Interior Design Concept</div>
-        <div class="feature-item included">Interior Design Detail Drawings</div>
-        <div class="feature-item included">Interior Views: All Rooms (3D)</div>
-        <div class="feature-item included">Interior Detailing: All Rooms (2D)</div>
-        <div class="feature-item included">Interior Quotation</div>
-        <div class="feature-item included">Construction Quotation</div>
-        <div class="feature-item included">Approval Drawing</div>
-    </div>
-    <div class="package-footer">
-        <div class="package-visits">Site Visits: Max 6</div>
-        <div class="package-delivery">Delivery: 24 Working Days</div>
-        <button class="book-btn" onclick="alert('Please call +91 9611196716 to book this package')">Book Now</button>
-    </div>
-</div>
-
-<!-- Premium Package -->
-<div class="package-card premium">
-    <div class="package-header">
-        <div class="package-title">Premium</div>
-        <div class="package-price">₹320 <span class="package-price-unit">per sqft</span></div>
-        <div class="package-subtitle">Complete Package + Material Selection</div>
-    </div>
-    <div class="package-features">
-        <div class="feature-item included">Site Assessment & Site Plan</div>
-        <div class="feature-item included">Scheme Drawing: All Floors (2D) + Furniture Layouts</div>
-        <div class="feature-item included">Elevation Design (2D + 3D)</div>
-        <div class="feature-item included">Landscaping Architecture Design</div>
-        <div class="feature-item included">Working Drawing: All Floors (2D)</div>
-        <div class="feature-item included">Elevation Detail Drawing (2D)</div>
-        <div class="feature-item included">Structural Drawings + BOQ</div>
-        <div class="feature-item included">Electrical & Plumbing Drawings: All Floors (2D)</div>
-        <div class="feature-item included">Interior Design Concept</div>
-        <div class="feature-item included">Interior Design Detail Drawings</div>
-        <div class="feature-item included">Interior Views: All Rooms (3D)</div>
-        <div class="feature-item included">Interior Detailing: All Rooms (2D)</div>
-        <div class="feature-item included">Interior Quotation</div>
-        <div class="feature-item included">Construction Quotation</div>
-        <div class="feature-item included">Approval Drawing</div>
-        <div class="feature-item included">Material & Brand Selection</div>
-        <div class="feature-item included">Vendor Meetings</div>
-        <div class="feature-item included">Topographical Survey</div>
-    </div>
-    <div class="package-footer">
-        <div class="package-visits">Site Visits: Max 10</div>
-        <div class="package-delivery">Delivery: 24 Working Days</div>
-        <button class="book-btn" onclick="alert('Please call +91 9611196716 to book this package')">Book Now</button>
-    </div>
-</div>
-<!-- END Premium card -->
-</div>
-<!-- END packages-grid -->
-
-        <!-- Package Notes -->
-        <div class="package-notes">
-            <h4>Important Notes:</h4>
-            <ul>
-                <li>Above mentioned prices are calculated per sqft basis for the built-up area</li>
-                 <li>50% of the total project cost is paid upfront</li>
-                   <li>Minimum Built-up area should be 1800 sqft</li>
-                <li>Site Supervision & Construction Support not included</li>
-                <li>Initial site Assessment visit will be done only for Sites in Bangalore, Chennai and Hyderabad</li>
-                <!-- <li>Dedicated web and app access for 4 years</li> -->
-                <!-- <li>Site Visit charges for extra visits beyond </li> -->
-                
-               
-
-
-            </ul>
+                        <!-- FINAL ACTION ROW (BOOKING ONLY AT BOTTOM) -->
+                        <tr class="tbl-footer-row">
+                            <td class="cell-feature" style="font-weight:700; color:#0f172a; font-size:1.05rem;">Select & Book Package</td>
+                            <td><a href="https://wa.me/919611196716?text=Hi%20MSN%20Architects%2C%20I%20am%20interested%20in%20the%20Basic%20Package%20(%E2%82%B9110%2Fsqft)." target="_blank" class="tbl-cta-btn basic">Book Basic</a></td>
+                            <td><a href="https://wa.me/919611196716?text=Hi%20MSN%20Architects%2C%20I%20am%20interested%20in%20the%20Standard%20Package%20(%E2%82%B9160%2Fsqft)." target="_blank" class="tbl-cta-btn standard">Book Standard</a></td>
+                            <td class="col-popular"><a href="https://wa.me/919611196716?text=Hi%20MSN%20Architects%2C%20I%20am%20interested%20in%20the%20Premium%20Package%20(%E2%82%B9250%2Fsqft)." target="_blank" class="tbl-cta-btn popular">Book Premium</a></td>
+                            <td class="col-ultra"><a href="https://wa.me/919611196716?text=Hi%20MSN%20Architects%2C%20I%20am%20interested%20in%20the%20Ultra%20Premium%20Package%20(%E2%82%B9350%2Fsqft)." target="_blank" class="tbl-cta-btn ultra">Book Ultra</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </section>
- 
-<!-- ========== PROJECTS SECTION END ========== -->
-<!-- ========== PROJECTS SECTION ENDS HERE ========== -->
-<div id="calculator" class="calculator-container two-column">
+
+    </div>
+</section>
+
+<!-- Calculator Section -->
+<section id="calculator" class="calculator-section" style="background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%); padding: 5.5rem 1.5rem; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+  <div style="text-align: center; max-width: 820px; margin: 0 auto 3rem;">
+    <h2 class="section-title">Plot Area & Architectural Estimator</h2>
+    <p style="color: #64748b; font-size: 1.15rem; margin-top: 0.5rem; line-height: 1.6;">
+      Accurately calculate your site dimensions across standard Indian land units (Sq. Ft, Cents, Gunthas, Sq. Yards) and plan your built-up space.
+    </p>
+  </div>
+  <div class="calculator-container two-column" style="margin-top: 0;">
 
   <!-- LEFT: Calculator (FULL original inputs preserved) -->
   <div class="calculator-left">
@@ -2427,6 +3626,7 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
     </div>
   </aside>
 </div>
+</section>
 
 
 
@@ -2468,60 +3668,307 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
     </section>
 
        <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About MSN Architects</h2>
-        <div class="about-content">
-            <p>
-                At MSN Architects, we believe that Architecture combined with Interior Design is all about 
-                understanding the art, the science, and the business of building with keen knowledge in social 
-                trends and innovations that shape lifestyles. We design spaces that speak - not just structures, 
-                but experiences that move you and inspire.
-            </p>
-            <p style="margin-top: 1.5rem;">
-                Architecture tells a story. Make yours unforgettable with MSN Architects. We deliver the best 
-                to the best, combining creativity, functionality, and timeless design in every project.
-            </p>
+    <section id="about" style="background: #ffffff; padding: 5.5rem 1.5rem; border-top: 1px solid #eef2f6;">
+        <div style="max-width: 1380px; margin: 0 auto;">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 3.5rem;">
+                <h2 class="section-title">About MSN Architects</h2>
+                <p style="color: #64748b; font-size: 1.15rem; margin-top: 0.5rem; line-height: 1.6;">
+                    Blending contemporary spatial geometry, sustainable natural light, and cultural Vastu principles.
+                </p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-text-column">
+                    <span class="about-tag">DESIGN PHILOSOPHY</span>
+                    <h3 class="about-headline">We don't just build structures — We craft living experiences that inspire.</h3>
+                    <p class="about-body">
+                        At MSN Architects, we believe that Architecture combined with Interior Design is all about understanding the art, the science, and the business of building with keen knowledge of social trends and innovations that shape modern lifestyles.
+                    </p>
+                    <p class="about-body">
+                        Architecture tells a story. From private luxury villas in Bengaluru and Chennai to commercial hubs and luxury duplexes, our team brings meticulous attention to Vastu planning, spatial ergonomics, sustainable ventilation, and precision construction execution.
+                    </p>
+                    <div class="about-bullets">
+                        <div class="about-bullet-item">
+                            <span class="bullet-check">✦</span>
+                            <div>
+                                <strong>Holistic Architectural Engineering</strong>
+                                <p>Seamless synergy between structural drawings, electrical-plumbing (MEP), and interior fitouts.</p>
+                            </div>
+                        </div>
+                        <div class="about-bullet-item">
+                            <span class="bullet-check">✦</span>
+                            <div>
+                                <strong>100% Vastu Aligned Planning</strong>
+                                <p>Ancient scientific space orientation harmonized with modern open-concept aesthetics.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-highlights-column">
+                    <div class="highlight-card">
+                        <span class="hl-number">50+</span>
+                        <h4>Completed Landmarks</h4>
+                        <p>Luxury residential villas, commercial structures, and contemporary duplexes across South India.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <span class="hl-number">10+</span>
+                        <h4>Years of Practice</h4>
+                        <p>Deep domain expertise in architectural planning, statutory norms, and structural consultancy.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <span class="hl-number">3D / VR</span>
+                        <h4>Photorealistic Visuals</h4>
+                        <p>High-fidelity exterior 3D renders and material walkthroughs before physical ground-breaking.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <span class="hl-number">100%</span>
+                        <h4>Transparent Pricing</h4>
+                        <p>Clear per-square-foot tiered architectural packages with defined deliverables and site visits.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-   
+    <!-- Google Reviews Section -->
+    <section id="reviews">
+        <div class="reviews-container">
+            <h2 class="section-title">Client Reviews & Testimonials</h2>
+            <p style="text-align: center; color: #666; font-size: 1.1rem; max-width: 720px; margin: -0.5rem auto 2.5rem auto;">
+                Verified client feedback from homeowners, builders, and developers across Bengaluru, Chennai & Hyderabad.
+            </p>
 
-        <!-- Contact Form -->
-<!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title">Get In Touch</h2>
- 
+            <!-- Google Summary Card -->
+            <div class="google-header-card">
+                <div class="google-brand-summary">
+                    <div class="google-logo-box">
+                        <svg viewBox="0 0 24 24" width="34" height="34">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div style="display:flex; align-items:center; gap:0.8rem; flex-wrap:wrap;">
+                            <span class="google-rating-score">5.0</span>
+                            <div>
+                                <div class="google-stars">★★★★★</div>
+                                <div class="google-rating-text">Based on 16 Google Reviews • 100% Recommended</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Contact Form -->
-        <!-- Contact Form -->
-<div class="contact-form-container">
-    <h3 class="form-title">Send Us a Message</h3>
-    <form id="contactForm">
-        <div class="form-group-contact">
-            <label>Your Name *</label>
-            <input type="text" name="name" id="contact-name" required placeholder="Enter your name">
+                <div class="google-actions">
+                    <a href="https://www.google.com/search?q=msn+architect" target="_blank" class="google-review-btn">
+                        <span>⭐</span> Write a Review
+                    </a>
+                    <a href="https://www.google.com/search?q=msn+architect" target="_blank" class="google-maps-btn">
+                        <span>📍</span> View on Google Maps
+                    </a>
+                </div>
+            </div>
+
+            <!-- Review Cards Grid -->
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div>
+                        <div class="review-card-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">R</div>
+                                <div>
+                                    <h4 class="reviewer-name">Ramesh Kumar</h4>
+                                    <div class="reviewer-date">1 month ago</div>
+                                </div>
+                            </div>
+                            <svg class="google-icon-small" viewBox="0 0 24 24">
+                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                            </svg>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Excellent work! MSN Architects designed our luxury villa in Ferns City. Their attention to Vastu planning, 3D elevations, and structural precision was exceptional."</p>
+                    </div>
+                    <span class="review-badge">✓ Verified Client Review</span>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div>
+                        <div class="review-card-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar" style="background: linear-gradient(135deg, #f59e0b, #d97706);">P</div>
+                                <div>
+                                    <h4 class="reviewer-name">Priya Sundaram</h4>
+                                    <div class="reviewer-date">2 months ago</div>
+                                </div>
+                            </div>
+                            <svg class="google-icon-small" viewBox="0 0 24 24">
+                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                            </svg>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Outstanding architectural services. The team delivered complete interior 3D renders and detailed working drawings ahead of schedule. Very professional and creative team."</p>
+                    </div>
+                    <span class="review-badge">✓ Verified Client Review</span>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div>
+                        <div class="review-card-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar" style="background: linear-gradient(135deg, #10b981, #059669);">V</div>
+                                <div>
+                                    <h4 class="reviewer-name">Venkatesh Rao</h4>
+                                    <div class="reviewer-date">3 months ago</div>
+                                </div>
+                            </div>
+                            <svg class="google-icon-small" viewBox="0 0 24 24">
+                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                            </svg>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Great experience with MSN Architects! They created our duplex villa design with creative spatial planning and modern facade treatment. Truly impressive work."</p>
+                    </div>
+                    <span class="review-badge">✓ Verified Client Review</span>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div>
+                        <div class="review-card-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">A</div>
+                                <div>
+                                    <h4 class="reviewer-name">Anand Vardhan</h4>
+                                    <div class="reviewer-date">4 months ago</div>
+                                </div>
+                            </div>
+                            <svg class="google-icon-small" viewBox="0 0 24 24">
+                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                            </svg>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"One of the top architectural design studios in Bangalore. Honest guidance, responsive consultation, and state-of-the-art designs. 5 out of 5 stars!"</p>
+                    </div>
+                    <span class="review-badge">✓ Verified Client Review</span>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="form-group-contact">
-            <label>Your Email *</label>
-            <input type="email" name="email" id="contact-email" required placeholder="Enter your email">
+    <!-- Contact Section -->
+    <section id="contact" style="background: linear-gradient(180deg, #0b0d13 0%, #131722 100%); color: #ffffff; padding: 5.5rem 1.5rem;">
+        <div style="max-width: 1380px; margin: 0 auto;">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 3.5rem;">
+                <h2 class="section-title dark-title">Get In Touch</h2>
+                <p style="color: #94a3b8; font-size: 1.15rem; margin-top: 0.5rem; line-height: 1.6;">
+                    Ready to build your dream residence or commercial space? Book an architectural consultation with our senior designers.
+                </p>
+            </div>
+
+            <div class="contact-layout-grid">
+                <!-- Left: Direct Office & Reach Us Card -->
+                <div class="contact-info-card">
+                    <div>
+                        <span class="contact-badge">DIRECT CONSULTATION</span>
+                        <h3>Start Your Project Conversation</h3>
+                        <p style="color: #94a3b8; line-height: 1.6; margin-bottom: 2rem;">
+                            Visit our Bengaluru studio or connect directly over phone or WhatsApp for instant plot assessment, drawing estimates, and package guidance.
+                        </p>
+
+                        <div class="contact-detail-items">
+                            <div class="contact-detail-row">
+                                <div class="c-icon">📍</div>
+                                <div>
+                                    <strong>Principal Studio</strong>
+                                    <p>A25, Ferns City Road, Doddanekundi, Bengaluru – 560037, Karnataka</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-row">
+                                <div class="c-icon">📞</div>
+                                <div>
+                                    <strong>Direct Line</strong>
+                                    <p><a href="tel:+919611196716" style="color:#00d4ff; text-decoration:none; font-weight:700;">+91 96111 96716</a></p>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-row">
+                                <div class="c-icon">📧</div>
+                                <div>
+                                    <strong>Official Email</strong>
+                                    <p><a href="mailto:srinadh@msnarchitects.in" style="color:#00d4ff; text-decoration:none;">srinadh@msnarchitects.in</a></p>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-row">
+                                <div class="c-icon">🕒</div>
+                                <div>
+                                    <strong>Working Hours</strong>
+                                    <p>Monday – Saturday: 9:30 AM – 7:30 PM (Sunday by appointment)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-quick-buttons">
+                        <a href="https://wa.me/919611196716?text=Hi%20MSN%20Architects%2C%20I%20would%20like%20to%20discuss%20my%20architectural%20project." target="_blank" class="contact-wa-btn">
+                            <span>💬 Chat on WhatsApp</span>
+                        </a>
+                        <a href="tel:+919611196716" class="contact-call-btn">
+                            <span>📞 Call Directly</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: The Contact Form -->
+                <div class="contact-form-container">
+                    <h3 class="form-title">Send Us a Message</h3>
+                    <p style="text-align:center; color:#64748b; font-size:0.95rem; margin-top:-0.5rem; margin-bottom:2rem;">Fill the details below and we will get back to you within 24 hours.</p>
+                    <form id="contactForm">
+                        <div class="form-group-contact">
+                            <label>Your Name *</label>
+                            <input type="text" name="name" id="contact-name" required placeholder="Enter your full name">
+                        </div>
+
+                        <div class="form-group-contact">
+                            <label>Your Email *</label>
+                            <input type="email" name="email" id="contact-email" required placeholder="name@example.com">
+                        </div>
+
+                        <div class="form-group-contact">
+                            <label>Your Phone *</label>
+                            <input type="tel" name="phone" id="contact-phone" required placeholder="+91 98765 43210">
+                        </div>
+
+                        <div class="form-group-contact">
+                            <label>Your Message / Project Details *</label>
+                            <textarea name="message" id="contact-message" required placeholder="Tell us about your plot location, dimensions, requirements, or desired package..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn" id="submitBtn">Send Message →</button>
+                        
+                        <div class="form-message" id="formMessage"></div>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <div class="form-group-contact">
-            <label>Your Phone *</label>
-            <input type="tel" name="phone" id="contact-phone" required placeholder="+91 XXXXX XXXXX">
-        </div>
-
-        <div class="form-group-contact">
-            <label>Your Message *</label>
-            <textarea name="message" id="contact-message" required placeholder="Tell us about your project..."></textarea>
-        </div>
-
-        <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
-        
-        <div class="form-message" id="formMessage"></div>
-    </form>
-</div>
     </section>
 
 
@@ -2550,6 +3997,7 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
                 <ul class="footer-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About Us</a></li>
+                    <li><a href="#reviews">Google Reviews</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#packages">Design Packages</a></li>
                     <li><a href="#calculator">Area Calculator</a></li>
@@ -2574,16 +4022,15 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
             <div class="footer-section">
                 <h3>Contact Info</h3>
                 <ul class="contact-info-footer">
-                   <li>
-<li>
-  <i>📍</i>
-  <span>
-    A25, Ferns City Road<br>
-    Doddanekundi<br>
-    Bengaluru – 560037<br>
-    Karnataka
-  </span>
-</li>
+                    <li>
+                      <i>📍</i>
+                      <span>
+                        A25, Ferns City Road<br>
+                        Doddanekundi<br>
+                        Bengaluru – 560037<br>
+                        Karnataka
+                      </span>
+                    </li>
 
 
                     <li>
@@ -2679,11 +4126,10 @@ body, header, nav, section, footer, .hero, .hero-slider, .hero-slide {
 
 // Project Modal Data
 const projectData = {
-  // VILLAS
+  // VILLAS (13)
   villa1: {
     title: 'Chittoor Residence',
     subtitle: 'Modern Villa Design',
-    // description: 'A stunning residential project featuring open-plan living spaces with panoramic views. This contemporary villa showcases clean architectural lines, spacious interiors, and thoughtful integration with the surrounding landscape.',
     images: [
       './VILLAS/Chittoor Residence/CR - RD - 1.jpg'
     ]
@@ -2691,10 +4137,10 @@ const projectData = {
   villa2: {
     title: 'Balaji Residence',
     subtitle: 'Courtyard Villa Design',
-    // description: 'Private central courtyard with natural light flooding through spacious rooms. Features traditional elements with modern amenities.',
     images: [
-        './VILLAS/balaji residence/PHOTO-2024-09-14-23-17-16.jpg',
-         './VILLAS/balaji residence/balaji-sabdata/PHOTO-2024-09-14-23-17-49.jpg',
+      './VILLAS/balaji residence/PHOTO-2024-09-14-23-17-16.jpg',
+      './VILLAS/balaji residence/balaji-sabdata/PHOTO-2024-09-14-23-17-49.jpg',
+      './VILLAS/balaji residence/balaji-sabdata/PHOTO-2024-09-14-23-17-49 2.jpg',
       './VILLAS/balaji residence/balaji-sabdata/PHOTO-2024-09-14-23-17-43.jpg',
       './VILLAS/balaji residence/balaji-sabdata/PHOTO-2024-09-14-23-17-33.jpg',
       './VILLAS/balaji residence/balaji-sabdata/PHOTO-2024-09-14-23-17-31.jpg',
@@ -2704,7 +4150,6 @@ const projectData = {
   villa3: {
     title: 'Duplex Villa 02',
     subtitle: 'Minimalist Contemporary Design',
-    // description: 'Clean lines and refined materials define this minimalist villa. Focus on simplicity and functionality with modern aesthetics.',
     images: [
       './VILLAS/Duplex Villas 02/DV2 - RD - 2.jpg'
     ]
@@ -2712,7 +4157,6 @@ const projectData = {
   villa4: {
     title: 'Neelanmangala Villa',
     subtitle: 'Tropical Living Design',
-    // description: 'Indoor-outdoor living with lush landscaping. Perfect blend of tropical architecture and modern comfort.',
     images: [
       './VILLAS/Neelanmangala villa/NR - RD - 1.jpg'
     ]
@@ -2720,8 +4164,8 @@ const projectData = {
   villa5: {
     title: 'Sekar Naidu Villa - Tatchoor',
     subtitle: 'Hilltop Residence',
-    // description: 'Multi-level terraces and panoramic decks offer breathtaking views. Designed to maximize natural light and ventilation.',
     images: [
+      './VILLAS/Sekar naidu villa - TATCHOOR/PHOTO-2024-09-17-09-01-23 4.jpg',
       './VILLAS/Sekar naidu villa - TATCHOOR/sekar-naidu/PHOTO-2024-09-17-09-01-22.jpg',
       './VILLAS/Sekar naidu villa - TATCHOOR/sekar-naidu/PHOTO-2024-09-17-09-01-23 2.jpg',
       './VILLAS/Sekar naidu villa - TATCHOOR/sekar-naidu/PHOTO-2024-09-17-09-01-23 3.jpg',
@@ -2731,7 +4175,6 @@ const projectData = {
   villa6: {
     title: 'Slope Roof House',
     subtitle: 'Eco-Friendly Villa Design',
-    // description: 'Sustainable design with passive cooling techniques. Features sloped roofs for natural ventilation and rainwater harvesting.',
     images: [
       './VILLAS/SLOPE ROOF HOUSE/Sloperoofhouse01.jpg',
       './VILLAS/SLOPE ROOF HOUSE/Sloperoofhouse02.jpg',
@@ -2741,48 +4184,77 @@ const projectData = {
   villa7: {
     title: 'Tumkur Villa',
     subtitle: 'Contemporary Bold Design',
-    // description: 'Bold geometry and dramatic facades create a striking presence. Modern materials and innovative structural solutions.',
     images: [
-         './VILLAS/Tumkur VILLA/tumkur-villa/TR - RD - 1.jpg',
+      './VILLAS/Tumkur VILLA/TR - RD - 1.jpg',
       './VILLAS/Tumkur VILLA/tumkur-villa/TR - RD - 2.jpg'
     ]
   },
   villa8: {
     title: 'Vargese Villa',
     subtitle: 'Riverside Luxury Villa',
-    // description: 'Waterfront terraces and reflective pools create a serene atmosphere. Seamless connection between indoor and outdoor spaces.',
     images: [
-        './VILLAS/Vargese VILLA/VR - RD - 1.jpg',
+      './VILLAS/Vargese VILLA/VR - RD - 1.jpg',
       './VILLAS/Vargese VILLA/vargese-villa/VR - FP - 1.jpg'
-      
     ]
   },
   villa9: {
     title: 'Rammoorthy Nagar Villa',
     subtitle: 'Heritage Contemporary Villa',
-    // description: 'Adaptive reuse with traditional detailing. Preserving heritage elements while incorporating modern comforts.',
     images: [
-        './VILLAS/villa -Rammoorthy Nagar /RNR - RD - 1.jpg',
-      './VILLAS/villa -Rammoorthy Nagar /rammoorthy-nagar/RNR - FP - 1.jpg',
-      './VILLAS/villa -Rammoorthy Nagar /rammoorthy-nagar/RNR - FP - 2.jpg'
+      './VILLAS/villa -Rammoorthy Nagar/RNR - RD - 1.jpg',
+      './VILLAS/villa -Rammoorthy Nagar/rammoorthy-nagar/RNR - FP - 1.jpg',
+      './VILLAS/villa -Rammoorthy Nagar/rammoorthy-nagar/RNR - FP - 2.jpg'
     ]
   },
   villa10: {
     title: 'JSR Villa',
-    subtitle: 'Desert Climate Villa',
-    // description: 'Thermal massing and sheltered courtyards designed for desert climates. Focus on natural cooling and energy efficiency.',
+    subtitle: 'Contemporary Luxury Residence',
     images: [
-      './Header-Logo/Header-landing-Images/2header.jpeg',
+      './VILLAS/JSR/FRONT/14113fa7-bc43-40ad-807c-b3b3af2c390e.jpg',
+      './VILLAS/JSR/03839805-c13d-4931-9089-bd7eb55f0552.jpg',
+      './VILLAS/JSR/cc7ea6e8-2985-4301-a194-fa56168c03a1.jpg',
+      './VILLAS/JSR/cd5c1c59-ac19-4448-928e-39d1e4ee19ab.jpg',
+      './VILLAS/JSR/db4248de-af67-40a2-ba42-412fbc834242.jpg',
+      './VILLAS/JSR/f43f59f1-6271-46f9-91ac-a70d940bab31.jpg'
+    ]
+  },
+  villa11: {
+    title: 'Luxury Modern House',
+    subtitle: 'Contemporary Villa Architecture',
+    images: [
+      './VILLAS/Luxuary Modern House/Front/4.png',
+      './VILLAS/Luxuary Modern House/1 (1).png',
+      './VILLAS/Luxuary Modern House/2 (1).png',
+      './VILLAS/Luxuary Modern House/3 (1).png',
+      './VILLAS/Luxuary Modern House/5.png'
+    ]
+  },
+  villa12: {
+    title: 'Modern Duplex Villa',
+    subtitle: 'Geometric Facade & Duplex Architecture',
+    images: [
+      './VILLAS/Modern Duplex Villa/FRONT/6aa32d62-0a6c-4c0c-ab8f-84a33cf39530.jpg',
+      './VILLAS/Modern Duplex Villa/1.png',
+      './VILLAS/Modern Duplex Villa/2.png',
+      './VILLAS/Modern Duplex Villa/3.png'
+    ]
+  },
+  villa13: {
+    title: 'Vivek Villa',
+    subtitle: 'Sophisticated Modern Living',
+    images: [
+      './VILLAS/Vivek Villa/FRONT/ChatGPT Image Mar 15, 2026, 09_08_09 PM.png',
+      './VILLAS/Vivek Villa/render 2.png',
+      './VILLAS/Vivek Villa/AZz3HeScaVaiuOtbm0_2Mg-AZz3HeScsv2FZqEWKr9nxw.mp4'
     ]
   },
   
-  // APARTMENTS
+  // APARTMENTS (4)
   apt1: {
     title: 'Kayal Builders - Kolapakkam',
     subtitle: 'Skyline Premium Apartments',
-    // description: 'Premium tower with double-height lobby and modern amenities. Spacious apartments with panoramic city views.',
     images: [
-        './APPARTMENTS/ KAYAL BUILDERS - KOLAPAKKAM/011.jpg',
+      './APPARTMENTS/ KAYAL BUILDERS - KOLAPAKKAM/011.jpg',
       './APPARTMENTS/ KAYAL BUILDERS - KOLAPAKKAM/untitled folder/007.jpeg',
       './APPARTMENTS/ KAYAL BUILDERS - KOLAPAKKAM/untitled folder/008.jpg',
       './APPARTMENTS/ KAYAL BUILDERS - KOLAPAKKAM/untitled folder/009.jpg',
@@ -2794,22 +4266,21 @@ const projectData = {
   apt2: {
     title: 'Kayal Builders',
     subtitle: 'Urban Residences',
-    // description: 'Compact modern homes with efficient layouts. Perfect for urban living with all modern conveniences.',
     images: [
-        './APPARTMENTS/ KAYAL BUILDERS/001.jpg',
-  './APPARTMENTS/ KAYAL BUILDERS/untitled folder/007.jpg'
+      './APPARTMENTS/ KAYAL BUILDERS/001.jpg',
+      './APPARTMENTS/ KAYAL BUILDERS/untitled folder/007.jpg'
     ]
   },
   apt3: {
     title: 'Hanstec - Tirupathi',
     subtitle: 'Green Living Apartments',
-    // description: 'Landscape-integrated multi-level residences. Sustainable living with abundant green spaces and community areas.',
     images: [
-        './APPARTMENTS/HANSTEC - TIRUPATHI/1.jpg',
+      './APPARTMENTS/HANSTEC - TIRUPATHI/1.jpg',
       './APPARTMENTS/HANSTEC - TIRUPATHI/hanstec-tirupati/2.jpg',
       './APPARTMENTS/HANSTEC - TIRUPATHI/hanstec-tirupati/3.jpg',
       './APPARTMENTS/HANSTEC - TIRUPATHI/hanstec-tirupati/4.jpg',
       './APPARTMENTS/HANSTEC - TIRUPATHI/hanstec-tirupati/5.jpg',
+      './APPARTMENTS/HANSTEC - TIRUPATHI/hanstec-tirupati/6.jpg',
       './APPARTMENTS/HANSTEC - TIRUPATHI/hanstec-tirupati/HA - FP - 1.jpg',
       './APPARTMENTS/HANSTEC - TIRUPATHI/hanstec-tirupati/HA - FP - 2.jpg'
     ]
@@ -2817,34 +4288,42 @@ const projectData = {
   apt4: {
     title: 'Magadi Apartments',
     subtitle: 'Luxury High-Rise',
-    // description: 'High-rise project with rooftop amenities. Premium living spaces with world-class facilities and stunning views.',
     images: [
-        './APPARTMENTS/MAGADI APPARTMENTS/NIGHT RENDER.jpg',
+      './APPARTMENTS/MAGADI APPARTMENTS/NIGHT RENDER.jpg',
       './APPARTMENTS/MAGADI APPARTMENTS/Magadi-Apartment/DAY RENDER.jpg',
       './APPARTMENTS/MAGADI APPARTMENTS/Magadi-Apartment/STILT FLOOR PLAN.jpg',
       './APPARTMENTS/MAGADI APPARTMENTS/Magadi-Apartment/TYPICAL FLOOR PLAN.jpg'
     ]
   },
   
-  // COMMERCIAL
+  // COMMERCIAL (2)
   commercial1: {
     title: 'Royal Complex',
     subtitle: 'Corporate Tower Complex',
-    // description: 'Modern office and retail space with sky bridges. State-of-the-art commercial development with premium finishes and smart building features.',
     images: [
-        './COMMERCIAL PROJECTS/Royal Complex/RC - RD - 1.jpg',
+      './COMMERCIAL PROJECTS/Royal Complex/RC - RD - 1.jpg',
       './COMMERCIAL PROJECTS/Royal Complex/Royal-complex/RC - RD - 2.jpg',
       './COMMERCIAL PROJECTS/Royal Complex/Royal-complex/RC - RD - 3.jpg'
     ]
   },
+  commercial2: {
+    title: 'Mixed Use Commercial Building',
+    subtitle: 'Retail & Multi-Story Commercial Complex',
+    images: [
+      './COMMERCIAL PROJECTS/Mixed Used Buildings/FRONT/2cf4f93f-a3fd-476d-82e5-5e6ce8e05d8a.jpg',
+      './COMMERCIAL PROJECTS/Mixed Used Buildings/1.jpeg',
+      './COMMERCIAL PROJECTS/Mixed Used Buildings/5.jpeg'
+    ]
+  },
   
-  // INSTITUTION
+  // INSTITUTION (1)
   institution1: {
     title: 'Euro Kids School',
     subtitle: 'Educational Campus',
-    // description: 'Modern learning spaces with sustainable design. Child-friendly architecture promoting creativity, learning, and play.',
     images: [
-        './INSTITUTIONS/Euro Kids School/EKS - RD - 2.jpg',
+      './INSTITUTIONS/Euro Kids School/euro kids school.png',
+      './INSTITUTIONS/Euro Kids School/EKS - RD - 2.jpg',
+      './INSTITUTIONS/Euro Kids School/Euro-kids/euro scl.png',
       './INSTITUTIONS/Euro Kids School/Euro-kids/EKS - RD - 1.jpg',
       './INSTITUTIONS/Euro Kids School/Euro-kids/EKS - RD - 3.jpg',
       './INSTITUTIONS/Euro Kids School/Euro-kids/EKS - RD - 4.jpg'
@@ -2861,16 +4340,29 @@ function openProjectModal(projectId) {
   
   document.getElementById('modalProjectTitle').textContent = project.title;
   document.getElementById('modalProjectSubtitle').textContent = project.subtitle;
-  document.getElementById('modalProjectDescription').textContent = project.description;
+  document.getElementById('modalProjectDescription').textContent = project.description || '';
   
   const gallery = document.getElementById('modalProjectGallery');
   gallery.innerHTML = '';
   
   project.images.forEach(imgSrc => {
-    const img = document.createElement('img');
-    img.src = imgSrc;
-    img.alt = project.title;
-    gallery.appendChild(img);
+    if (imgSrc.toLowerCase().endsWith('.mp4')) {
+      const video = document.createElement('video');
+      video.src = imgSrc;
+      video.controls = true;
+      video.playsInline = true;
+      video.style.width = '100%';
+      video.style.borderRadius = '15px';
+      video.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.15)';
+      video.style.backgroundColor = '#000';
+      gallery.appendChild(video);
+    } else {
+      const img = document.createElement('img');
+      img.src = imgSrc;
+      img.alt = project.title;
+      img.loading = 'lazy';
+      gallery.appendChild(img);
+    }
   });
   
   modal.classList.add('show');
@@ -2879,6 +4371,9 @@ function openProjectModal(projectId) {
 
 function closeProjectModal() {
   const modal = document.getElementById('projectModal');
+  modal.querySelectorAll('video').forEach(v => {
+    try { v.pause(); } catch(e) {}
+  });
   modal.classList.remove('show');
   document.body.style.overflow = 'auto';
 }
@@ -3103,21 +4598,42 @@ if (shapeSelect && calculateBtn) {
   });
 })();
 
-// ✅ HERO SLIDER - CLEAN & WORKING VERSION
+// ✅ Dynamically match hero banner height to fill full screen below header
+(function() {
+    function updateHeaderHeight() {
+        const header = document.querySelector('header');
+        if (header) {
+            document.documentElement.style.setProperty('--header-height', header.offsetHeight + 'px');
+        }
+    }
+    updateHeaderHeight();
+    window.addEventListener('resize', updateHeaderHeight);
+    window.addEventListener('DOMContentLoaded', updateHeaderHeight);
+})();
+
+// ✅ HERO SLIDER - LUXURY INTERACTIVE VERSION
 (function() {
     const slides = document.querySelectorAll('.hero-slide');
     const progressBar = document.getElementById('slideProgress');
+    const dots = document.querySelectorAll('#sliderDots .dot');
+    const prevBtn = document.getElementById('heroPrevBtn');
+    const nextBtn = document.getElementById('heroNextBtn');
     
     if (!slides.length) return;
     
     let currentSlide = 0;
-    const slideInterval = 5000; // 5 seconds
+    const slideInterval = 5500; // 5.5 seconds
     let slideTimer = null;
     let progressTimer = null;
 
     function showSlide(index) {
+        currentSlide = (index + slides.length) % slides.length;
         slides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
+            slide.classList.toggle('active', i === currentSlide);
+        });
+        
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentSlide);
         });
         
         if (progressBar) {
@@ -3130,7 +4646,8 @@ if (shapeSelect && calculateBtn) {
         if (!progressBar) return;
         
         let width = 0;
-        const increment = 100 / (slideInterval / 50);
+        const stepTime = 50;
+        const increment = 100 / (slideInterval / stepTime);
         
         if (progressTimer) clearInterval(progressTimer);
         
@@ -3141,24 +4658,52 @@ if (shapeSelect && calculateBtn) {
                 clearInterval(progressTimer);
             }
             progressBar.style.width = width + '%';
-        }, 50);
+        }, stepTime);
     }
 
     function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
+        showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+
+    function resetTimer() {
+        if (slideTimer) clearInterval(slideTimer);
+        slideTimer = setInterval(nextSlide, slideInterval);
     }
 
     function startSlider() {
-        if (slideTimer) clearInterval(slideTimer);
-        slideTimer = setInterval(nextSlide, slideInterval);
-        showSlide(currentSlide);
+        resetTimer();
+        showSlide(0);
     }
 
-    // Start the slider
+    // Attach dot click listeners
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            showSlide(i);
+            resetTimer();
+        });
+    });
+
+    // Attach button listeners
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetTimer();
+        });
+    }
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetTimer();
+        });
+    }
+
+    // Start slider
     startSlider();
-    
-    console.log('✅ Hero slider initialized with', slides.length, 'slides');
+    console.log('✅ Luxury Hero slider initialized with controls and', slides.length, 'slides');
 })();
 
 // CONTACT POPUP logic
