@@ -2895,73 +2895,23 @@ select:focus {
                 display: none !important;
             }
 
-            /* 3. SPEED DIAL CONTACT HUB (COLLAPSIBLE TO 1 SMALL CORNER BUTTON) */
+            /* 3. FLOATING ACTION BUTTONS (ALWAYS VISIBLE 3 ICONS ON MOBILE) */
             .floating-buttons {
                 right: 16px !important;
-                bottom: 18px !important;
+                bottom: 20px !important;
                 z-index: 1100;
             }
 
             .floating-toggle-btn {
-                display: flex;
-                width: 48px;
-                height: 48px;
-                border-radius: 50%;
-                background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-                color: white;
-                border: none;
-                box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45), 0 0 10px rgba(0, 212, 255, 0.25);
-                align-items: center;
-                justify-content: center;
-                font-size: 22px;
-                cursor: pointer;
-                transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                z-index: 1000;
-                touch-action: manipulation;
-            }
-
-            .floating-toggle-btn .fab-icon-close {
-                display: none;
-                font-size: 18px;
-                font-weight: 700;
-            }
-
-            .floating-buttons.active .floating-toggle-btn {
-                background: #1e293b;
-                transform: rotate(90deg);
-                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-            }
-
-            .floating-buttons.active .floating-toggle-btn .fab-icon-open {
-                display: none;
-            }
-
-            .floating-buttons.active .floating-toggle-btn .fab-icon-close {
-                display: block;
+                display: none !important;
             }
 
             .floating-menu {
-                display: none;
+                display: flex !important;
                 flex-direction: column;
-                gap: 10px;
-                margin-bottom: 12px;
+                gap: 12px;
+                margin-bottom: 0;
                 align-items: flex-end;
-            }
-
-            .floating-buttons.active .floating-menu {
-                display: flex;
-                animation: fabSlideUp 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-            }
-
-            @keyframes fabSlideUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(15px) scale(0.9);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0) scale(1);
-                }
             }
 
             .floating-btn {
@@ -2970,19 +2920,8 @@ select:focus {
                 font-size: 19px;
             }
 
-            .floating-buttons.active .floating-btn-label {
-                display: block;
-                position: absolute;
-                right: 54px;
-                background: rgba(15, 23, 42, 0.95);
-                color: #ffffff;
-                font-size: 11.5px;
-                font-weight: 600;
-                padding: 4px 11px;
-                border-radius: 20px;
-                white-space: nowrap;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-                border: 1px solid rgba(255,255,255,0.15);
+            .floating-btn-label {
+                display: none !important;
             }
 
             /* 4. SECTION WRAPPERS & TITLES */
@@ -3461,20 +3400,11 @@ select:focus {
 
     <!-- Hero Content -->
     <div class="hero-content">
-        <div class="hero-badge">
-            <span class="badge-dot"></span>
-            <span>Award-Winning Architectural & Luxury Interior Studio</span>
-        </div>
         <h1>Designing Multidimensional <span class="highlight-text">Space & Nature</span></h1>
-        <p>Architecture combined with Interior Design — Understanding the art, science, and business of building with excellence, innovation, and timeless Vastu harmony.</p>
         <div class="hero-cta-group">
             <a href="#contact" class="cta-button primary-cta">
                 <span>Book Consultation</span>
                 <span class="btn-arrow">→</span>
-            </a>
-            <a href="#projects" class="cta-button secondary-cta">
-                <span>Explore Portfolio</span>
-                <span class="btn-arrow">↓</span>
             </a>
         </div>
     </div>
